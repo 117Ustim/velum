@@ -1,0 +1,7 @@
+.leadForm { display: grid; gap: 8px; }
+.compactForm { }
+.leadForm input:not([type='checkbox']) { width: 100%; min-height: 32px; padding: 7px 10px; border: 0; border-radius: 4px; outline: none; background: #fff; font-size: 10px; }
+.leadForm label { display: flex; gap: 5px; align-items: flex-start; color: #555; font-size: 8px; line-height: 1.25; }
+.leadForm label input { margin: 1px 0 0; accent-color: #222; }
+.submitButton { min-height: 31px; border: 0; border-radius: 5px; background: #2b2b2b; color: #fff; font-size: 9px; font-weight: 700; cursor: pointer; }
+.formSuccess { margin: 0; padding: 13px; border-radius: 5px; background: #fff; font-size: 10px; }

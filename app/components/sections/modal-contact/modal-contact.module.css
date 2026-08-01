@@ -1,0 +1,6 @@
+.modalBackdrop { position: fixed; z-index: 50; inset: 0; display: grid; place-items: center; padding: calc(15px + env(safe-area-inset-top)) calc(15px + env(safe-area-inset-right)) calc(15px + env(safe-area-inset-bottom)) calc(15px + env(safe-area-inset-left)); background: #000b; }
+.modal { position: relative; width: min(100%, 440px); padding: 26px 18px 20px; border-radius: 9px; background: #fff; }
+.modal h2 { margin: 0 0 8px; font-size: 27px; line-height: 1; }
+.modal > p { color: #666; font-size: 11px; }
+.modalClose { position: absolute; top: 8px; right: 12px; border: 0; background: transparent; color: #777; font-size: 28px; cursor: pointer; touch-action: manipulation; }
+.yellowLabel { display: inline-block; margin: 0 0 12px; padding: 4px 8px; border-radius: 5px; color: #151515; background: #ffdd28; font-size: 8px; font-weight: 800; letter-spacing: .04em; line-height: 1; }

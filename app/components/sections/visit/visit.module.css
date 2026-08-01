@@ -1,0 +1,14 @@
+.visitSection { display: grid; width: 100%; max-width: none; margin: 0 auto; border-radius: 8px; overflow: hidden; color: #fff; background: #303030; }
+.yellowLabel { display: inline-block; margin: 0 0 12px; padding: 4px 8px; border-radius: 5px; color: #151515; background: #ffdd28; font-size: 8px; font-weight: 800; letter-spacing: .04em; line-height: 1; }
+.visitVideo { min-height: 260px; display: grid; place-items: center; color: #555; background: #000; font-size: 10px; }
+.visitCopy { padding: 28px 20px; }
+.visitCopy h2 { margin: 0 0 13px; font-size: 27px; line-height: .98; }
+.visitCopy p { color: #c8c8c8; font-size: 10px; }
+.visitCopy > span:not(.yellowLabel) { color: #c8c8c8; font-size: 9px; }
+.visitCopy .leadForm { margin-top: 18px; }
+
+@media (min-width: 640px) {
+  .visitSection { grid-template-columns: 1fr 1fr; }
+  .visitVideo { min-height: 365px; }
+  .visitCopy { padding: 45px 35px; }
+}

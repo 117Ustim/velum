@@ -1,0 +1,198 @@
+.hero {
+  display: grid;
+  width: calc(100% - 8px);
+  max-width: none;
+  margin: 15px auto 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  color: #fff;
+  background: #303030;
+}
+
+.heroCopy {
+  padding: 30px 19px 21px;
+}
+
+.heroVisual {
+  position: relative;
+  min-height: 235px;
+  order: -1;
+}
+
+.heroVisual img {
+  object-fit: cover;
+  object-position: 57% center;
+}
+
+.hero h1 {
+  max-width: 440px;
+  margin: 0 0 15px;
+  font-size: clamp(29px, 8vw, 54px);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.hero h1 span {
+  color: #ffdd28;
+}
+
+.heroCopy > p {
+  max-width: 470px;
+  margin-bottom: 18px;
+  color: #e8e8e8;
+  font-size: 11px;
+  line-height: 1.38;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 35px;
+  padding: 9px 18px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.primaryButton {
+  color: #111;
+  background: #ffdd28;
+}
+
+.secondaryButton {
+  color: #222;
+  background: #fff;
+}
+
+.heroFacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.heroFacts div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 47px;
+  padding: 8px 10px;
+  border: 1px solid #686868;
+  border-radius: 9px;
+  background: #5d5d5d;
+}
+
+.heroFacts span {
+  color: #ececec;
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+.factIcon {
+  display: grid;
+  flex: 0 0 28px;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: #ffdd28;
+  background: #292929;
+  font-size: 16px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryButton:hover,
+  .secondaryButton:hover {
+    transform: translateY(-2px);
+  }
+
+  .primaryButton:hover {
+    background: #fff;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    width: calc(100% - 32px);
+    margin-top: 15px;
+    padding: 16px;
+    border-radius: 28px;
+  }
+
+  .heroVisual {
+    min-height: 520px;
+    order: 0;
+    border-radius: 17px;
+    overflow: hidden;
+  }
+
+  .heroCopy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 42px 45px 30px 43px;
+  }
+
+  .heroCopy > p {
+    max-width: 560px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .hero h1 {
+    max-width: 620px;
+    font-size: clamp(40px, 4.6vw, 63px);
+  }
+
+  .heroFacts {
+    gap: 10px;
+    margin-top: 25px;
+  }
+
+  .heroFacts div {
+    min-height: 58px;
+    padding: 10px 12px;
+  }
+
+  .heroFacts span {
+    font-size: 13px;
+  }
+
+  .factIcon {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .heroButtons .primaryButton,
+  .heroButtons .secondaryButton {
+    min-height: 48px;
+    padding: 13px 28px;
+    border-radius: 30px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 960px) {
+  .heroCopy {
+    padding: 55px 58px 35px 45px;
+  }
+
+  .heroVisual {
+    min-height: 555px;
+  }
+}

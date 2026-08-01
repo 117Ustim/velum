@@ -1,0 +1,45 @@
+.seoSection {
+  width: calc(100% - 30px);
+  max-width: none;
+  margin: 0 auto;
+  color: #3f3f3f;
+  background: #f5f5f5;
+  padding: 52px 15px;
+}
+
+.seoSection h2 {
+  margin: 0 0 14px;
+  font-size: 17px;
+  line-height: 1.1;
+}
+
+.seoSection h3 {
+  margin: 18px 0 5px;
+  font-size: 12px;
+}
+
+.seoSection p,
+.seoSection li {
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.seoSection p {
+  margin-bottom: 8px;
+}
+
+.seoSection ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+@media (min-width: 960px) {
+  .seoSection {
+    padding: 65px 35px;
+    padding-bottom: 65px;
+  }
+
+  .seoSection h2 {
+    font-size: 20px;
+  }
+}

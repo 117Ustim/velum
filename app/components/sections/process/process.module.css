@@ -1,0 +1,136 @@
+.processSection {
+  padding: 70px 20px;
+  background: #ffffff;
+  border-radius: 28px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.centerHeading {
+  max-width: 780px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.centerHeading h2 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  font-weight: 800;
+  color: #151515;
+}
+
+.centerHeading mark {
+  padding: 0;
+  color: #141414;
+  background: transparent;
+  font-weight: 800;
+}
+
+.yellowLabel {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: #151515;
+  background: #ffdd28;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  line-height: 1;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.stepCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.stepIcon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stepCard:hover .stepIcon {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.stepIcon img {
+  object-fit: cover;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  margin: 0 0 8px;
+  font-size: 17.5px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #141414;
+}
+
+.stepTitle mark {
+  padding: 0;
+  background: transparent;
+  color: #111;
+}
+
+.subIntro {
+  margin: 4px 0 8px;
+  font-size: 13.5px;
+  color: #555;
+  font-weight: 600;
+}
+
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  line-height: 1.38;
+  color: #383838;
+}
+
+.checkMark {
+  color: #278842;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+@media (min-width: 768px) {
+  .processGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 44px 40px;
+  }
+}

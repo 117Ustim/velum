@@ -1,0 +1,27 @@
+.financeSection { padding: 54px 15px; background: #f5f5f5; }
+.centerHeading { max-width: 680px; margin: 0 auto 26px; text-align: center; }
+.yellowLabel { display: inline-block; margin: 0 0 12px; padding: 4px 8px; border-radius: 5px; color: #151515; background: #ffdd28; font-size: 8px; font-weight: 800; letter-spacing: .04em; line-height: 1; }
+.centerHeading .yellowLabel { margin-bottom: 9px; }
+.centerHeading h2 { margin: 0 0 12px; font-size: clamp(27px, 7vw, 48px); line-height: .98; letter-spacing: -.055em; }
+.centerHeading mark { padding: 0 3px; color: #141414; background: #ffdd28; }
+.financeCards { display: grid; width: calc(100% - 30px); gap: 8px; max-width: none; margin: 0 auto; }
+.financeCards article { padding: 15px; border-radius: 7px; background: #fff; }
+.financeCards h3 { margin: 0 0 5px; font-size: 14px; }
+.financeCards p { margin: 0 0 9px; color: #777; font-size: 9px; }
+.financeCards ul { display: grid; gap: 5px; margin: 0; padding-left: 16px; color: #4a4a4a; font-size: 9px; }
+.financeForm { display: grid; width: calc(100% - 30px); gap: 18px; max-width: none; margin: 18px auto 0; padding: 17px; border-radius: 8px; color: #111; background: #ffeb6c; grid-template-columns: 1fr; }
+.financeForm h3 { margin: 0 0 7px; font-size: 18px; line-height: .98; }
+.financeForm p { margin: 0; font-size: 9px; }
+.financeForm > .leadForm { width: 100%; }
+
+@media (min-width: 640px) {
+  .financeCards { grid-template-columns: 1fr 1fr; }
+  .financeForm { grid-template-columns: 1fr 1fr; align-items: center; max-width: none; }
+}
+
+@media (min-width: 960px) {
+  .financeSection { padding: 76px 35px; }
+  .centerHeading { margin-bottom: 37px; }
+  .centerHeading h2 { font-size: 41px; }
+  .financeForm { max-width: none; padding: 24px; }
+}

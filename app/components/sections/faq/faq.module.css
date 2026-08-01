@@ -1,0 +1,19 @@
+.faqSection { padding: 52px 15px; background: #f5f5f5; }
+.centerHeading { max-width: 680px; margin: 0 auto 26px; text-align: center; }
+.yellowLabel { display: inline-block; margin: 0 0 12px; padding: 4px 8px; border-radius: 5px; color: #151515; background: #ffdd28; font-size: 8px; font-weight: 800; letter-spacing: .04em; line-height: 1; }
+.centerHeading .yellowLabel { margin-bottom: 9px; }
+.centerHeading h2 { margin: 0 0 12px; font-size: clamp(27px, 7vw, 48px); line-height: .98; letter-spacing: -.055em; }
+.faqList { width: calc(100% - 30px); max-width: none; margin: 0 auto; border-radius: 7px; overflow: hidden; }
+.faqList details { background: #fff; border-bottom: 1px solid #e7e7e7; }
+.faqList details:last-child { border-bottom: 0; }
+.faqList summary { display: flex; justify-content: space-between; width: 100%; padding: 14px; color: #222; background: #fff; text-align: left; font-size: 10px; font-weight: 700; cursor: pointer; list-style: none; }
+.faqList summary::-webkit-details-marker { display: none; }
+.faqList summary b { margin-left: 10px; color: #ffca00; font-size: 18px; line-height: .6; }
+.faqList details[open] summary b { transform: rotate(45deg); }
+.faqList p { margin: 0; padding: 0 14px 14px; color: #666; font-size: 9px; line-height: 1.4; }
+
+@media (min-width: 960px) {
+  .faqSection { padding: 76px 35px; }
+  .centerHeading { margin-bottom: 37px; }
+  .centerHeading h2 { font-size: 41px; }
+}

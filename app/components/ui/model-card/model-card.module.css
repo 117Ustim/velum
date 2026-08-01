@@ -1,0 +1,38 @@
+.modelCard { scroll-margin-top: 20px; }
+.modelTabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-bottom: 8px; }
+.modelTabs a { padding: 5px 8px; border-radius: 12px; color: #777; background: #f4f4f4; font-size: 8px; line-height: 1; }
+.selectedTab { color: #111 !important; background: #ffdd28 !important; font-weight: 800; }
+.modelBody { display: grid; overflow: hidden; border-radius: 10px; background: #f5f5f5; box-shadow: 0 1px 7px #0000000b; }
+.modelPicture { position: relative; min-height: 185px; }
+.modelPicture img { object-fit: cover; }
+.modelDetails { padding: 15px 14px 14px; }
+.modelTitle { display: flex; align-items: center; gap: 7px; margin-bottom: 9px; }
+.modelTitle h3 { margin: 0; font-size: 18px; line-height: 1; text-transform: uppercase; }
+.modelTitle span { padding: 3px 5px; border-radius: 3px; color: #111; background: #ffdd28; font-size: 8px; font-weight: 800; }
+.modelDetails > p { display: flex; justify-content: space-between; gap: 10px; margin: 6px 0; color: #737373; font-size: 9px; }
+.modelDetails > p strong { color: #222; font-weight: 700; text-align: right; }
+.modelEconomy { margin: 12px 0; padding: 10px; border-radius: 6px; background: #fff; color: #555; font-size: 9px; }
+.modelEconomy b { color: #202020; }
+.modelEconomy ul { display: grid; gap: 4px; margin: 6px 0 0; padding-left: 15px; }
+.modelResult { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin: 9px 0; }
+.modelResult div { padding: 8px 10px; border-radius: 6px; background: #ffdf2c; }
+.modelResult strong, .modelResult span { display: block; }
+.modelResult strong { font-size: 17px; line-height: 1; }
+.modelResult span { margin-top: 4px; font-size: 8px; }
+.modelPrice { margin-bottom: 9px; color: #555; font-size: 9px; }
+.modelPrice strong { color: #222; }
+.ctaLink { display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 28px; padding: 7px; border-radius: 6px; color: #111; background: #ffdd28; font-size: 9px; font-weight: 700; text-decoration: none; }
+
+@media (min-width: 640px) {
+  .modelBody { grid-template-columns: 1.05fr 1fr; }
+  .modelPicture { min-height: 360px; }
+  .modelDetails { padding: 25px 24px; }
+}
+
+@media (min-width: 960px) {
+  .modelBody { grid-template-columns: 1.08fr 1fr; }
+  .modelPicture { min-height: 425px; }
+  .modelDetails { padding: 30px 30px; }
+  .modelTitle h3 { font-size: 28px; }
+  .modelResult strong { font-size: 23px; }
+}

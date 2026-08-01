@@ -1,0 +1,12 @@
+.footer { padding: 34px 15px 65px; color: #fff; background: #111; }
+.footerColumns { display: grid; grid-template-columns: 1fr 1fr; width: calc(100% - 30px); gap: 24px 16px; max-width: none; margin: 0 auto; }
+.footerColumns img { width: 125px; height: auto; filter: none; }
+.footerColumns p { margin: 9px 0 0; color: #9a9a9a; font-size: 9px; line-height: 1.55; }
+.footerColumns b { font-size: 10px; }
+.footerBottom { display: flex; flex-direction: column; gap: 8px; max-width: 1100px; margin: 26px auto 0; padding-top: 16px; border-top: 1px solid #333; color: #777; font-size: 8px; }
+
+@media (min-width: 960px) {
+  .footer { padding: 45px 35px 38px; }
+  .footerColumns { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+  .footerBottom { flex-direction: row; justify-content: space-between; }
+}
