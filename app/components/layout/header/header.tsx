@@ -13,10 +13,19 @@ export function Header({
   onToggleMenu: () => void;
   onOpenModal: () => void;
 }) {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      window.history.pushState(null, '', window.location.pathname);
+    }
+  };
+
   return (
     <>
       <header className={styles.header}>
-        <a className={styles.headerBrand} href="#top">
+        <a className={styles.headerBrand} href="#top" onClick={(e) => handleNavClick(e, 'top')}>
           <Image src={assets.logo} alt="Velum" width={95} height={42} priority />
           <b>Завод модульних будинків</b>
         </a>
@@ -61,7 +70,12 @@ export function Header({
             </svg>
           </button>
           <div className={styles.headerPhone}>
-            <a href="tel:+380976655306">+380976655306</a>
+            <a href="tel:+380976655306">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={styles.phoneIconInline}>
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+380976655306</span>
+            </a>
           </div>
         </div>
         <button className={styles.menuButton} onClick={onToggleMenu} aria-label="Меню">
@@ -73,14 +87,27 @@ export function Header({
       {menuOpen && (
         <nav className={styles.mobileNav}>
           {navigation.map(([label, id], index) => (
-            <a key={`${id}-${index}`} href={`#${id}`} onClick={onToggleMenu}>{label}</a>
+            <a
+              key={`${id}-${index}`}
+              href={`#${id}`}
+              onClick={(e) => {
+                onToggleMenu();
+                handleNavClick(e, id);
+              }}
+            >
+              {label}
+            </a>
           ))}
           <a href="tel:+380976655306">Зателефонувати нам (+380976655306)</a>
         </nav>
       )}
       <nav className={styles.mainNav}>
         {navigation.map(([label, id], index) => (
-          <a key={`${id}-${index}`} href={`#${id}`}>
+          <a
+            key={`${id}-${index}`}
+            href={`#${id}`}
+            onClick={(e) => handleNavClick(e, id)}
+          >
             {label}
           </a>
         ))}
