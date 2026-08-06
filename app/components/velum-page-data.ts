@@ -15,14 +15,7 @@ export const assets = {
     `${assetRoot}/models/hutir/photo.png`,
     `${assetRoot}/models/sadiba/photo.png`,
     `${assetRoot}/models/majetok/photo.jpg`,
-    `${assetRoot}/models/pomistya/photo.png`,
-    `${assetRoot}/models/ugiddya/photo.png`,
-    `${assetRoot}/models/otchina/photo.png`,
-    `${assetRoot}/models/rezidentsiya/photo.jpg`,
-    `${assetRoot}/models/volodinnya/photo.png`,
-    `${assetRoot}/models/derzhava/photo.jpeg`,
-    `${assetRoot}/models/grand/photo.jpeg`,
-    `${assetRoot}/models/flagman/photo.png`
+    `${assetRoot}/models/pomistya/photo.png`
   ],
   houses: [
     `${assetRoot}/houses/hutir-43/photo.jpg`,
@@ -56,21 +49,14 @@ export const processSteps = [
   ['Сервіс', 'Сервісна підтримка', 'Залишаємося на зв’язку після запуску та супроводжуємо проєкт.', 5]
 ] as const;
 
-export const modelNames = ['Хутір', 'Садиба', 'Маєток', 'Помістя', 'Угіддя', 'Отчина', 'Резиденція', 'Володіння', 'Держава', 'Гранд', 'Флагман'] as const;
-export const modelCounts = [3, 6, 9, 12, 15, 18, 21, 15, 9, 15, 20] as const;
+export const modelNames = ['Хутір', 'Садиба', 'Маєток', 'Помістя'] as const;
+export const modelCounts = ['3', '5', '7', '10+'] as const;
 
 export const modelRows = [
   ['34 міс.', '4 587 745 ₽', '7 546 500 ₽', '2 958 755 ₽', '12 835 000 ₽'],
   ['28 міс.', '11 325 355 ₽', '15 673 500 ₽', '4 348 145 ₽', '26 780 000 ₽'],
   ['29 міс.', '18 164 789 ₽', '24 555 150 ₽', '6 390 360 ₽', '43 607 903 ₽'],
-  ['37 міс.', '22 100 440 ₽', '32 508 000 ₽', '10 407 560 ₽', '55 833 800 ₽'],
-  ['35 міс.', '25 838 590 ₽', '38 313 000 ₽', '12 474 410 ₽', '75 895 700 ₽'],
-  ['33 міс.', '32 164 308 ₽', '45 975 600 ₽', '13 811 292 ₽', '87 601 000 ₽'],
-  ['32 міс.', '36 874 215 ₽', '52 825 500 ₽', '15 951 285 ₽', '99 908 400 ₽'],
-  ['29 міс.', '17 200 750 ₽', '29 025 000 ₽', '11 824 250 ₽', '42 979 400 ₽'],
-  ['30 міс.', '22 051 817 ₽', '28 734 750 ₽', '6 682 932 ₽', '55 715 903 ₽'],
-  ['36 міс.', '34 746 362 ₽', '47 891 250 ₽', '13 144 887 ₽', '104 484 500 ₽'],
-  ['34 міс.', '47 325 150 ₽', '63 855 000 ₽', '16 529 850 ₽', '134 800 000 ₽']
+  ['37 міс.', '22 100 440 ₽', '32 508 000 ₽', '10 407 560 ₽', '55 833 800 ₽']
 ] as const;
 
 export const faqItems = [

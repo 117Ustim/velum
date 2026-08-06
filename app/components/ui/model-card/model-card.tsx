@@ -4,7 +4,7 @@ import { modelCounts, modelNames } from '../../velum-page-data';
 
 export type Model = {
   name: string;
-  count: number;
+  count: string;
   payback: string;
   profit: string;
   revenue: string;

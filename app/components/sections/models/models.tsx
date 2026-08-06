@@ -1,9 +1,6 @@
 import styles from './models.module.css';
-import { assets, modelRows } from '../../velum-page-data';
+import { assets, modelCounts, modelNames, modelRows } from '../../velum-page-data';
 import { ModelCard, type Model } from '../../ui/model-card/model-card';
-
-const modelNames = ['Хутір', 'Садиба', 'Маєток', 'Помістя', 'Угіддя', 'Отчина', 'Резиденція', 'Володіння', 'Держава', 'Гранд', 'Флагман'] as const;
-const modelCounts = [3, 6, 9, 12, 15, 18, 21, 15, 9, 15, 20] as const;
 
 const models: Model[] = modelRows.map(([payback, profit, revenue, costs, price], index) => ({
   name: modelNames[index],
