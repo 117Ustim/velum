@@ -18,7 +18,7 @@ export function Models() {
     <section className={styles.modelsSection} id="models">
       <div className={styles.centerHeading}>
         <span className={styles.yellowLabel}>Готові рішення</span>
-        <h2>Бази відпочинку <mark>під ключ</mark><br />під різний бюджет і масштаб</h2>
+        <h2>Бази відпочинку під ключ<br />під різний бюджет і масштаб</h2>
         <p>Оберіть готовий сценарій із прорахованою економікою проєкту.</p>
       </div>
       <div className={styles.modelsList}>

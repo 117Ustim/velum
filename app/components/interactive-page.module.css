@@ -316,7 +316,6 @@
 .aboutSection,
 .processSection,
 .modelsSection,
-.metricsSection,
 .financeSection,
 .faqSection,
 .seoSection {
@@ -345,12 +344,6 @@
   color: #757575;
   font-size: 11px;
   line-height: 1.45;
-}
-
-.centerHeading mark {
-  padding: 0 3px;
-  color: #141414;
-  background: #ffdd28;
 }
 
 .audienceGrid {
@@ -669,66 +662,6 @@
   min-height: 28px;
   padding: 7px;
   font-size: 9px;
-}
-
-.metricsSection {
-  background: #fff;
-}
-
-.metricsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: calc(100% - 30px);
-  gap: 6px;
-  max-width: none;
-  margin: 0 auto;
-}
-
-.metricsGrid article {
-  min-height: 137px;
-  padding: 12px 10px;
-  border-radius: 7px;
-  background: #fff;
-  box-shadow: 0 1px 8px #00000012;
-}
-
-.metricsGrid strong,
-.metricsGrid span,
-.metricsGrid b,
-.metricsGrid small {
-  display: block;
-}
-
-.metricsGrid strong {
-  margin-bottom: 6px;
-  font-size: 28px;
-  line-height: 1;
-}
-
-.metricsGrid span {
-  min-height: 24px;
-  color: #777;
-  font-size: 8px;
-  line-height: 1.2;
-}
-
-.metricsGrid small {
-  margin-top: 9px;
-  color: #ffcc00;
-  font-size: 11px;
-}
-
-.metricsGrid b {
-  margin-top: 18px;
-  font-size: 22px;
-  line-height: .9;
-}
-
-.metricsGrid b small {
-  margin-top: 3px;
-  color: #777;
-  font-size: 8px;
-  font-weight: 400;
 }
 
 .housesSection {
@@ -1533,7 +1466,6 @@
   .aboutSection,
   .processSection,
   .modelsSection,
-  .metricsSection,
   .financeSection,
   .faqSection,
   .seoSection {
@@ -1575,19 +1507,6 @@
 
   .modelResult strong {
     font-size: 23px;
-  }
-
-  .metricsGrid {
-    gap: 7px;
-  }
-
-  .metricsGrid article {
-    min-height: 172px;
-    padding: 19px;
-  }
-
-  .metricsGrid strong {
-    font-size: 45px;
   }
 
   .housesSection {

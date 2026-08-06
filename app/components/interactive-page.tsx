@@ -12,7 +12,6 @@ import { FloatingButtons } from './sections/floating-buttons/floating-buttons';
 import { Finance } from './sections/finance/finance';
 import { Hero } from './sections/hero/hero';
 import { Houses } from './sections/houses/houses';
-import { Metrics } from './sections/metrics/metrics';
 import { Models } from './sections/models/models';
 import { Process } from './sections/process/process';
 import { Seo } from './sections/seo/seo';
@@ -41,7 +40,6 @@ export default function InteractivePage() {
       <About />
       <Process />
       <Models />
-      <Metrics />
       <Houses />
       <Finance />
       <Cases />

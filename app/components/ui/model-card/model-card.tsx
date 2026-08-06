@@ -34,7 +34,7 @@ export function ModelCard({ model }: { model: Model }) {
           </div>
           <p>Дохідність на рік: <strong>{model.revenue}</strong></p>
           <p>Витрати на рік: <strong>{model.costs}</strong></p>
-          <p>Середня ціна за оренду будинку: <strong>13 500 ₽</strong></p>
+          <p>Середня ціна за оренду будинку: <strong>7 830 ₴</strong></p>
           <div className={styles.modelEconomy}>
             <b>Бізнес-план:</b>
             <ul>

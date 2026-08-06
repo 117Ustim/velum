@@ -4,7 +4,6 @@
 .centerHeading .yellowLabel { margin-bottom: 9px; }
 .centerHeading h2 { margin: 0 0 12px; font-size: clamp(27px, 7vw, 48px); line-height: .98; letter-spacing: -.055em; }
 .centerHeading p { margin: 0 auto; color: #757575; font-size: 11px; line-height: 1.45; }
-.centerHeading mark { padding: 0 3px; color: #141414; background: #ffdd28; }
 .modelsList { display: grid; width: calc(100% - 30px); gap: 28px; max-width: none; margin: 0 auto; }
 
 @media (min-width: 960px) {
