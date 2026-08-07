@@ -31,6 +31,8 @@
 .landForm .consent input { width: 16px; height: 16px; margin: 0; }
 .landForm .submitButton { min-height: 56px; margin-top: 1px; border-radius: 14px; color: #171717; background: #ffdd28; font-size: 14px; transition: background-color .2s ease, transform .2s ease; }
 .landForm .submitButton:hover { background: #ffe866; transform: translateY(-1px); }
+.accentButtonForm .submitButton { width: 42%; min-height: 38px; justify-self: center; border-radius: 10px; color: #171717; background: #f2b705; font-size: 15px; font-weight: 800; box-shadow: 0 8px 18px rgba(242, 183, 5, .22); }
+.accentButtonForm .submitButton:hover { background: #ffc928; transform: translateY(-1px); }
 
 .compactForm input:not([type='checkbox']) { min-height: 60px; padding: 0 24px; border-radius: 14px; font-size: 14px; }
 .compactForm label { gap: 8px; align-items: center; color: #202020; font-size: 12px; line-height: 1.3; }
@@ -40,6 +42,7 @@
 @media (max-width: 639px) {
   .landForm { grid-template-columns: 1fr; gap: 13px; }
   .formColumns { grid-template-columns: 1fr; gap: 13px; }
+  .accentButtonForm .submitButton { width: 100%; }
   .compactForm { gap: 13px; }
   .compactForm input:not([type='checkbox']) { min-height: 60px; padding: 0 18px; border-radius: 12px; font-size: 15px; }
   .compactForm label { font-size: 12px; }

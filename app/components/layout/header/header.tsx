@@ -15,6 +15,12 @@ export function Header({
 }) {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -28,6 +34,20 @@ export function Header({
           <img src={assets.logo} alt="Velum" width={95} height={43} />
           <b>Завод модульних будинків</b>
         </a>
+        <nav className={styles.mainNav} aria-label="Основна навігація">
+          <span className={styles.navLabel} aria-hidden="true">
+            <span className={styles.navLabelDot} />
+          </span>
+          {navigation.map(([label, id], index) => (
+            <a
+              key={`${id}-${index}`}
+              href={`#${id}`}
+              onClick={(e) => handleNavClick(e, id)}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
         <div className={styles.headerActions}>
           <a className={styles.telegramLink} href="https://t.me/FLHausSPB_bot" title="Telegram" aria-label="Telegram" target="_blank" rel="noreferrer">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,17 +120,6 @@ export function Header({
           <a href="tel:+380976655306">Зателефонувати нам (+380976655306)</a>
         </nav>
       )}
-      <nav className={styles.mainNav}>
-        {navigation.map(([label, id], index) => (
-          <a
-            key={`${id}-${index}`}
-            href={`#${id}`}
-            onClick={(e) => handleNavClick(e, id)}
-          >
-            {label}
-          </a>
-        ))}
-      </nav>
     </>
   );
 }

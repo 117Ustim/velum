@@ -1,4 +1,29 @@
-.housesSection { padding: 53px 15px 48px; color: #fff; background: #303030; }
+.housesSection {
+  position: relative;
+  overflow: hidden;
+  padding: 53px 15px 48px;
+  border-radius: 28px;
+  color: #fff;
+  background-color: #303030;
+}
+
+.housesSection::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image: url('/assets/velum/houses-blueprint-bg.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: '';
+  opacity: .23;
+  pointer-events: none;
+}
+
+.housesSection > * {
+  position: relative;
+  z-index: 1;
+}
 .housesSection .centerHeading h2 { color: #fff; }
 .housesSection .centerHeading p { color: #c5c5c5; }
 .centerHeading { max-width: 680px; margin: 0 auto 26px; text-align: center; }
@@ -7,40 +32,87 @@
 .centerHeading h2 { margin: 0 0 12px; font-size: clamp(27px, 7vw, 48px); line-height: .98; letter-spacing: -.055em; }
 .centerHeading p { margin: 0 auto; color: #757575; font-size: 11px; line-height: 1.45; }
 .centerHeading mark { padding: 0 3px; color: #141414; background: #ffdd28; }
-.houseGrid { display: grid; grid-template-columns: 1fr; width: calc(100% - 30px); gap: 14px; max-width: 1420px; margin: 0 auto; }
-.houseGrid article { overflow: hidden; border: 1px solid #e7e7e7; border-radius: 18px; color: #222; background: #fff; box-shadow: 0 14px 35px #00000012; }
-.housePicture { position: relative; aspect-ratio: 1.28; }
+.houseGrid { display: grid; grid-template-columns: 1fr; width: calc(100% - 30px); gap: 16px; max-width: 1420px; margin: 0 auto; }
+.houseCard { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid #46515a; border-radius: 40px; color: #1d2227; background: #1d2227; box-shadow: 0 18px 34px #090d1138; transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
+.houseCard:hover { border-color: #ffdd28; box-shadow: 0 24px 42px #090d1150; transform: translateY(-4px); }
+.houseMedia { display: grid; grid-template-columns: 44px minmax(0, 1fr); overflow: hidden; border-radius: 36px 36px 0 0; background: #161b1f; }
+.houseRail { display: flex; flex-direction: column; align-items: center; justify-content: space-between; min-height: 0; padding: 20px 0 18px; color: #f7f6f2; background: #20262b; }
+.houseRail span,
+.houseRail small { writing-mode: vertical-rl; transform: rotate(180deg); }
+.houseRail span { font-size: 9px; font-weight: 600; letter-spacing: .2em; }
+.houseRail small { color: #aab1b6; font-size: 8px; letter-spacing: .2em; }
+.railAccent { display: block; width: 1px; height: 42px; background: #ffdd28; }
+.housePicture { position: relative; min-height: 255px; }
 .housePicture img { object-fit: cover; }
-.housePicture span { position: absolute; top: 16px; left: 16px; padding: 8px 11px; border-radius: 6px; color: #222; background: #fff; font-size: 13px; font-weight: 700; box-shadow: 0 4px 12px #00000012; }
-.houseDetails { padding: 18px 18px 16px; }
-.houseGrid article h3 { min-height: 42px; margin: 0 0 15px; font-size: 20px; line-height: 1.08; letter-spacing: -.035em; }
+.housePicture span { position: absolute; top: 18px; left: 18px; padding: 9px 12px 11px; border-radius: 4px; color: #f7f6f2; background: #1d2227; box-shadow: inset 0 -3px 0 #ffdd28, 0 8px 18px #090d1140; font-size: 14px; font-weight: 800; }
+.houseDetails { display: flex; flex: 1; flex-direction: column; padding: 22px 22px 18px; border-radius: 0 0 36px 36px; background: #f7f6f2; }
+.houseGrid article h3 { min-height: 48px; margin: 0 0 18px; color: #1d2227; font-size: 19px; line-height: 1.08; letter-spacing: -.045em; }
 .houseFeatures { border-top: 1px solid #dedede; }
-.houseFeatures p { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; padding: 11px 0; border-bottom: 1px solid #dedede; color: #555; font-size: 13px; }
-.houseFeatures p span::before { content: '✧'; display: inline-block; margin-right: 9px; color: #b7b7b7; font-size: 19px; line-height: 0; vertical-align: -2px; }
-.houseFeatures strong { color: #222; font-weight: 600; text-align: right; }
-.houseFooter { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 19px; }
-.houseFooter b { font-size: 20px; line-height: 1; letter-spacing: -.035em; white-space: nowrap; }
-.cardLink { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 18px; border-radius: 9px; color: #222; background: #ffdd28; font-size: 14px; font-weight: 800; text-decoration: none; transition: background-color .2s ease, transform .2s ease; }
+.houseFeatures p { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; padding: 12px 0; border-bottom: 1px solid #dedede; color: #5f6468; font-size: 13px; }
+.houseFeatures p span::before { content: '✧'; display: inline-block; margin-right: 9px; color: #aab0b3; font-size: 18px; line-height: 0; vertical-align: -2px; }
+.houseFeatures strong { color: #1d2227; font-weight: 700; text-align: right; }
+.houseFooter { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 22px; }
+.houseFooter b { color: #1d2227; font-size: 18px; line-height: 1; letter-spacing: -.045em; white-space: nowrap; }
+.cardLink { display: inline-flex; align-items: center; justify-content: center; min-height: 43px; padding: 0 18px; border-radius: 4px; color: #1d2227; background: #ffdd28; font-size: 13px; font-weight: 800; text-decoration: none; transition: background-color .2s ease, transform .2s ease; }
+.cardLink::after { margin-left: 14px; content: '→'; font-size: 18px; font-weight: 500; line-height: 1; }
 .cardLink:hover { background: #f5ce00; transform: translateY(-1px); }
-.consultPanel { display: grid; width: calc(100% - 30px); gap: 30px; max-width: 1420px; margin: 32px auto 0; padding: 34px 28px; border-radius: 24px; color: #111; background: #ffdf32; }
-.consultPanel h3 { max-width: 560px; margin: 0 0 24px; font-size: clamp(29px, 4vw, 48px); line-height: 1.03; letter-spacing: -.055em; }
-.consultPanel p { max-width: 570px; margin: 0; font-size: 16px; line-height: 1.4; }
+.consultPanel { position: relative; display: grid; width: calc(100% - 30px); gap: 28px; max-width: 1180px; margin: 32px auto 0; padding: 30px 26px; overflow: hidden; border: 1px solid #ffe873; border-radius: 25px; color: #111; background: #ffdf32; }
+.consultPanel::after { position: absolute; right: -44px; bottom: -74px; width: 150px; height: 150px; border: 1px solid #1113; border-radius: 50%; content: ''; pointer-events: none; }
+.consultContent,
+.consultForm { position: relative; z-index: 1; }
+.consultContent { display: grid; align-content: center; }
+.consultKicker { width: fit-content; margin-bottom: 15px; padding: 7px 10px; border-radius: 999px; color: #ffdf32; background: #202024; font-size: 10px; font-weight: 800; letter-spacing: .06em; line-height: 1; text-transform: uppercase; }
+.consultPanel h3 { max-width: 520px; margin: 0 0 15px; font-size: clamp(30px, 4vw, 45px); line-height: .98; letter-spacing: -.055em; }
+.consultPanel p { max-width: 500px; margin: 0; font-size: 15px; line-height: 1.4; }
+.consultForm { padding: 22px; border-radius: 18px; background: #292929; box-shadow: 0 14px 30px #00000014; }
+.formHint { display: block; margin-bottom: 14px; color: #ffdf32; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 
 @media (min-width: 640px) {
   .houseGrid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .consultPanel { grid-template-columns: 1fr 1fr; align-items: center; }
+  .consultPanel { grid-template-columns: minmax(0, .9fr) minmax(340px, 1.1fr); align-items: stretch; padding: 34px; }
 }
 
 @media (min-width: 960px) {
-  .housesSection { padding: 80px 35px 65px; border-radius: 13px; }
+  .housesSection { padding: 80px 35px 65px; border-radius: 42px; }
   .centerHeading { margin-bottom: 37px; }
   .centerHeading h2 { font-size: 41px; }
-  .houseGrid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .consultPanel { gap: 70px; padding: 52px 44px; }
+  .houseGrid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .houseRail { min-height: 0; }
+  .houseDetails { padding: 24px 24px 20px; }
+  .consultPanel { gap: 56px; padding: 42px 44px; }
 }
 
 @media (max-width: 639px) {
+  .housesSection {
+    background-image: none;
+  }
+
+  .housesSection::before {
+    background-image:
+      url('/assets/velum/houses-blueprint-bg.png'),
+      url('/assets/velum/houses-blueprint-bg.png');
+    background-position: left top, right top;
+    background-repeat: repeat-y, repeat-y;
+    background-size: 760px 475px, 760px 475px;
+    opacity: .2;
+  }
+
+  .houseGrid { gap: 14px; }
+  .houseCard { border-radius: 32px; }
+  .houseMedia { grid-template-columns: 40px minmax(0, 1fr); border-radius: 28px 28px 0 0; }
+  .houseRail { min-height: 0; padding: 16px 0 14px; }
+  .houseRail span { font-size: 8px; }
+  .houseRail small { font-size: 7px; }
+  .railAccent { height: 34px; }
+  .housePicture { min-height: 220px; }
+  .housePicture span { top: 14px; left: 14px; padding: 8px 10px 10px; font-size: 13px; }
+  .houseDetails { padding: 20px 18px 17px; border-radius: 0 0 28px 28px; }
+  .houseGrid article h3 { min-height: 0; margin-bottom: 16px; font-size: 20px; }
+  .houseFooter { align-items: stretch; flex-direction: column; gap: 14px; }
+  .houseFooter b { font-size: 20px; }
+  .cardLink { width: 100%; }
   .consultPanel { padding: 28px 22px; border-radius: 18px; }
   .consultPanel h3 { margin-bottom: 17px; }
   .consultPanel p { font-size: 14px; }
+  .consultForm { padding: 18px 16px; border-radius: 15px; }
 }

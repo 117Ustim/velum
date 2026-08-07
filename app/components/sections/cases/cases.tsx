@@ -68,26 +68,47 @@ export function Cases() {
           <div className={styles.caseStats}>
             <article className={styles.projectCard}>
               <span className={styles.cardEyebrow}>01 · Проєкт</span>
-              <span className={styles.cardTitle}>О проекте</span>
-              <ul>
-                <li>Сумма инвестиций: 69 524 000 ₽</li>
-                <li>Адрес: ЛО, пос. Ильичево</li>
-              </ul>
-              <a href="#contacts">Сайт базы отдыха</a>
+              <span className={styles.cardTitle}>Еко парк<br />Вереск</span>
+              <p className={styles.cardIntro}>Заміський комплекс, створений як готове бізнес-рішення під ключ.</p>
+              <div className={styles.projectMeta}>
+                <div>
+                  <span>Інвестиції</span>
+                  <strong>69 524 000 ₴</strong>
+                </div>
+                <div>
+                  <span>Локація</span>
+                  <strong>Ільїчово, ЛО</strong>
+                </div>
+              </div>
+              <div className={styles.projectTags}>
+                <span>Під ключ</span>
+                <span>3 будинки</span>
+              </div>
+              <a href="#contacts">Обговорити проєкт <span aria-hidden="true">→</span></a>
             </article>
             <article className={styles.reviewCard}>
               <span className={styles.cardEyebrow}>02 · Відгук гостя</span>
               <span className={styles.cardStars}>★★★★★</span>
-              <p>«Останавливался в таком доме. Из модульных которые видел, наверное самый классный. Самый кайф это высокие стены, что делает пространство ощутимо больше»</p>
-              <div>
-                <strong>Виталий</strong>
-                <span>Гость эко-парка</span>
+              <p className={styles.reviewLead}>Враження гостя після першого візиту</p>
+              <p>«Зупинявся в такому будинку. Із модульних, які бачив, мабуть, найкласніший. Найбільше сподобалися високі стелі — простір відчувається значно більшим».</p>
+              <div className={styles.reviewFooter}>
+                <div>
+                  <strong>Віталій</strong>
+                  <span>Гість еко-парку</span>
+                </div>
+                <span className={styles.reviewBadge}>Еко парк / гості</span>
               </div>
             </article>
             <article className={styles.timeCard}>
               <span className={styles.cardEyebrow}>03 · Реалізація</span>
-              <strong>5 месяцев</strong>
-              <p>Срок строительства</p>
+              <strong>5 місяців</strong>
+              <p>Від старту робіт до перших гостей</p>
+              <div className={styles.timeline}>
+                <span><i>01</i>Проєкт</span>
+                <span><i>02</i>Виробництво</span>
+                <span><i>03</i>Запуск</span>
+              </div>
+              <span className={styles.timeNote}>Під ключ · без зайвих затримок</span>
             </article>
           </div>
         </div>

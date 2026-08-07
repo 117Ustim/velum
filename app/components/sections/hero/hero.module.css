@@ -1,36 +1,81 @@
 .hero {
+  position: relative;
   display: grid;
-  width: calc(100% - 8px);
-  max-width: none;
-  margin: 15px auto 0;
-  padding: 0;
+  grid-template-columns: minmax(0, 1fr);
+  width: calc(100% - 30px);
+  max-width: 1600px;
+  margin: 18px auto 0;
+  padding: 10px;
   overflow: hidden;
-  border-radius: 22px;
+  border: 1px solid #454545;
+  border-radius: 28px;
   color: #fff;
-  background: #303030;
+  background: #1d2227;
+  box-shadow: 0 18px 60px #00000018;
+}
+
+.hero::before {
+  position: absolute;
+  top: -130px;
+  left: 42%;
+  width: 260px;
+  height: 260px;
+  border: 1px solid #ffdd2830;
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
+}
+
+.heroCopy,
+.heroVisual {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
 }
 
 .heroCopy {
-  padding: 30px 19px 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 36px 22px 32px;
+}
+
+.heroKicker {
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 8px 11px;
+  border: 1px solid #ffdd285c;
+  border-radius: 999px;
+  color: #ffdd28;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1;
 }
 
 .heroVisual {
-  position: relative;
-  min-height: 235px;
+  min-height: 280px;
   order: -1;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .heroVisual img {
   object-fit: cover;
   object-position: 57% center;
+  transition: transform .8s ease;
 }
 
 .hero h1 {
-  max-width: 440px;
-  margin: 0 0 15px;
-  font-size: clamp(29px, 8vw, 54px);
-  line-height: .98;
-  letter-spacing: -.055em;
+  width: 100%;
+  max-width: 670px;
+  margin: 0 0 17px;
+  font-size: clamp(34px, 8vw, 64px);
+  line-height: .94;
+  letter-spacing: -.06em;
+  overflow-wrap: anywhere;
 }
 
 .hero h1 span {
@@ -38,17 +83,61 @@
 }
 
 .heroCopy > p {
-  max-width: 470px;
-  margin-bottom: 18px;
-  color: #e8e8e8;
-  font-size: 11px;
-  line-height: 1.38;
+  width: 100%;
+  max-width: 570px;
+  margin: 0;
+  color: #d2d2d2;
+  font-size: 12px;
+  line-height: 1.48;
+}
+
+.heroFacts {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.heroFacts div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+  min-height: 53px;
+  padding: 9px 10px;
+  border: 1px solid #ffffff1f;
+  border-radius: 12px;
+  background: #ffffff0d;
+  backdrop-filter: blur(8px);
+}
+
+.heroFacts span {
+  min-width: 0;
+  color: #e7e7e7;
+  font-size: 10px;
+  line-height: 1.22;
+}
+
+.factIcon {
+  display: grid;
+  flex: 0 0 30px;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ffdd285c;
+  border-radius: 9px;
+  color: #ffdd28;
+  background: #1e1e1e;
+  font-size: 16px;
 }
 
 .heroButtons {
   display: flex;
-  gap: 7px;
-  margin-top: 22px;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 25px;
 }
 
 .primaryButton,
@@ -56,120 +145,145 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 35px;
-  padding: 9px 18px;
-  border: 0;
-  border-radius: 5px;
-  font-size: 11px;
-  font-weight: 700;
+  min-height: 42px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
   text-decoration: none;
   cursor: pointer;
-  transition: transform .2s ease, background-color .2s ease;
+  transition: transform .2s ease, color .2s ease, background-color .2s ease, border-color .2s ease;
 }
 
 .primaryButton {
-  color: #111;
+  color: #171717;
   background: #ffdd28;
 }
 
 .secondaryButton {
-  color: #222;
-  background: #fff;
+  border-color: #ffffff3b;
+  color: #fff;
+  background: #ffffff0d;
 }
 
-.heroFacts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.heroFacts div {
-  display: flex;
+.heroNote {
+  display: inline-flex;
   align-items: center;
-  gap: 9px;
-  min-height: 47px;
-  padding: 8px 10px;
-  border: 1px solid #686868;
-  border-radius: 9px;
-  background: #5d5d5d;
+  gap: 8px;
+  margin-top: 17px;
+  color: #989898;
+  font-size: 10px;
 }
 
-.heroFacts span {
-  color: #ececec;
-  font-size: 9px;
-  line-height: 1.2;
+.heroNote i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffdd28;
+  box-shadow: 0 0 0 4px #ffdd2820;
 }
 
-.factIcon {
+.visualTopBadge {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  padding: 8px 11px;
+  border: 1px solid #ffffff40;
+  border-radius: 999px;
+  color: #fff;
+  background: #1717179c;
+  font-size: 10px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.visualCaption {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
   display: grid;
-  flex: 0 0 28px;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+  gap: 5px;
+  padding: 15px;
+  border: 1px solid #ffffff2e;
+  border-radius: 14px;
+  background: #111111a8;
+  backdrop-filter: blur(10px);
+}
+
+.visualCaption span {
   color: #ffdd28;
-  background: #292929;
-  font-size: 16px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.visualCaption strong {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.08;
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .hero:hover .heroVisual img {
+    transform: scale(1.025);
+  }
+
   .primaryButton:hover,
   .secondaryButton:hover {
     transform: translateY(-2px);
   }
 
   .primaryButton:hover {
+    color: #171717;
     background: #fff;
+  }
+
+  .secondaryButton:hover {
+    border-color: #ffdd28;
+    color: #ffdd28;
   }
 }
 
 @media (min-width: 640px) {
   .hero {
-    grid-template-columns: 1fr 1fr;
-    width: calc(100% - 32px);
-    margin-top: 15px;
+    grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
     padding: 16px;
-    border-radius: 28px;
-  }
-
-  .heroVisual {
-    min-height: 520px;
-    order: 0;
-    border-radius: 17px;
-    overflow: hidden;
+    border-radius: 32px;
   }
 
   .heroCopy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 42px 45px 30px 43px;
+    padding: 44px 38px 38px 40px;
   }
 
-  .heroCopy > p {
-    max-width: 560px;
-    font-size: 15px;
-    line-height: 1.45;
+  .heroVisual {
+    min-height: 555px;
+    order: 0;
+    border-radius: 22px;
   }
 
   .hero h1 {
-    max-width: 620px;
-    font-size: clamp(40px, 4.6vw, 63px);
+    font-size: clamp(42px, 4.4vw, 67px);
+  }
+
+  .heroCopy > p {
+    font-size: 14px;
   }
 
   .heroFacts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    margin-top: 25px;
   }
 
   .heroFacts div {
-    min-height: 58px;
+    min-height: 60px;
     padding: 10px 12px;
   }
 
   .heroFacts span {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .factIcon {
@@ -181,18 +295,25 @@
   .heroButtons .primaryButton,
   .heroButtons .secondaryButton {
     min-height: 48px;
-    padding: 13px 28px;
-    border-radius: 30px;
-    font-size: 14px;
+    padding: 13px 26px;
+    font-size: 13px;
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1100px) {
   .heroCopy {
-    padding: 55px 58px 35px 45px;
+    padding: 58px 54px 46px 52px;
   }
 
   .heroVisual {
-    min-height: 555px;
+    min-height: 625px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroVisual img,
+  .primaryButton,
+  .secondaryButton {
+    transition: none;
   }
 }

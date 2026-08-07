@@ -6,6 +6,7 @@ export function Hero() {
   return (
     <section className={styles.hero} id="top">
       <div className={styles.heroCopy}>
+        <span className={styles.heroKicker}>VELUM · BUSINESS RESORT</span>
         <h1>Запустіть прибуткову базу відпочинку <span>під ключ від 12 835</span></h1>
         <p>Готове бізнес-рішення: виробництво будинків, підключення комунікацій, монтаж фундаменту та будинків на ділянці, розрахунок окупності, базовий маркетинг і гості в перший місяць роботи бази. Чистий прибуток від 4 587 на рік.</p>
         <div className={styles.heroFacts}>
@@ -38,9 +39,15 @@ export function Hero() {
           <a className={styles.primaryButton} href="#contacts">Замовити базу</a>
           <a className={styles.secondaryButton} href="#cases">Дивитися кейси</a>
         </div>
+        <span className={styles.heroNote}><i /> Від фінансової моделі до перших гостей — одна команда</span>
       </div>
       <div className={styles.heroVisual}>
         <Image src={assets.hero} alt="База відпочинку Velum" fill priority sizes="(max-width: 760px) 100vw, 50vw" />
+        <div className={styles.visualTopBadge}>Готове рішення для інвестицій</div>
+        <div className={styles.visualCaption}>
+          <span>Velum Resort Concept</span>
+          <strong>Простір, який працює на ваш дохід</strong>
+        </div>
       </div>
     </section>
   );

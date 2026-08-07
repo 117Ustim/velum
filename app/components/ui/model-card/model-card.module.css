@@ -1,52 +1,447 @@
-.modelCard { scroll-margin-top: 20px; }
-.modelTabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-bottom: 8px; }
-.modelTabs a { padding: 5px 8px; border-radius: 12px; color: #777; background: #f4f4f4; font-size: 8px; line-height: 1; }
-.selectedTab { color: #111 !important; background: #ffdd28 !important; font-weight: 800; }
-.modelBody { display: grid; overflow: hidden; border-radius: 10px; background: #f5f5f5; box-shadow: 0 1px 7px #0000000b; }
-.modelPicture { position: relative; min-height: 185px; }
-.modelPicture img { object-fit: cover; }
-.modelDetails { padding: 15px 14px 14px; }
-.modelTitle { display: flex; align-items: center; gap: 7px; margin-bottom: 9px; }
-.modelTitle h3 { margin: 0; font-size: 18px; line-height: 1; text-transform: uppercase; }
-.modelTitle span { padding: 3px 5px; border-radius: 3px; color: #111; background: #ffdd28; font-size: 8px; font-weight: 800; }
-.modelDetails > p { display: flex; justify-content: space-between; gap: 10px; margin: 6px 0; color: #737373; font-size: 9px; }
-.modelDetails > p strong { color: #222; font-weight: 700; text-align: right; }
-.modelEconomy { margin: 12px 0; padding: 10px; border-radius: 6px; background: #fff; color: #555; font-size: 9px; }
-.modelEconomy b { color: #202020; }
-.modelEconomy ul { display: grid; gap: 4px; margin: 6px 0 0; padding-left: 15px; }
-.modelResult { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin: 9px 0; }
-.modelResult div { padding: 8px 10px; border-radius: 6px; background: #ffdf2c; }
-.modelResult strong, .modelResult span { display: block; }
-.modelResult strong { font-size: 17px; line-height: 1; }
-.modelResult span { margin-top: 4px; font-size: 8px; }
-.modelPrice { margin-bottom: 9px; color: #555; font-size: 9px; }
-.modelPrice strong { color: #222; }
-.ctaLink {
+.modelCard {
+  position: relative;
+  isolation: isolate;
+  width: 100vw;
+  max-width: none;
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+  padding: 28px 18px 38px;
+  overflow: hidden;
+  scroll-margin-top: 20px;
+  background: #fafaf8;
+}
+
+.modelCard::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('/assets/velum/process/blueprint-decoration.png') center / cover no-repeat;
+  content: '';
+  opacity: .42;
+  pointer-events: none;
+}
+
+.modelTabs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  max-width: 1720px;
+  margin: 0 auto 28px;
+}
+
+.modelTabs a {
+  padding: 10px 18px;
+  border: 1px solid #d9dadd;
+  border-radius: 999px;
+  color: #4c4f53;
+  background: #ffffffd9;
+  box-shadow: 0 3px 10px #17171708;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease, transform .2s ease;
+}
+
+.modelTabs a:hover {
+  border-color: #ffcf12;
+  color: #171717;
+  transform: translateY(-1px);
+}
+
+.selectedTab {
+  border-color: #ffcf12 !important;
+  color: #171717 !important;
+  background: #ffcf12 !important;
+  font-weight: 800;
+}
+
+.modelBody {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  max-width: 1720px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 40px;
+  background: transparent;
+}
+
+.modelPicture {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  border: 8px solid #ffffff;
+  border-radius: 40px 40px 0 0;
+  box-shadow: 0 20px 45px #16191d1f;
+}
+
+.modelPicture img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.pictureRail {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 46px;
+  padding: 15px 10px;
+  border-radius: 32px 0 0 32px;
+  color: #fff;
+  background: #20262d;
+}
+
+.pictureRail span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.pictureRail small {
+  margin: 14px 0 5px;
+  color: #c8cbd0;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.pictureRail b {
+  color: #ffcf12;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.modelDetails {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 31px 22px 26px;
+  border-radius: 0 0 40px 40px;
+  background: #ffffffed;
+  box-shadow: 0 14px 35px #1717170a;
+}
+
+.modelTitle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 25%;
-  min-height: 34px;
-  margin: 0 auto;
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: #111;
-  background: #ffdd28;
-  font-size: 12px;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.modelTitle h3 {
+  margin: 0;
+  color: #18202a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(36px, 6vw, 66px);
+  font-weight: 500;
+  letter-spacing: -.06em;
+  line-height: .85;
+  text-transform: uppercase;
+}
+
+.modelTitle span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 6px 11px;
+  border-left: 1px solid #ffcf12;
+  color: #555b61;
+  font-size: 10px;
   font-weight: 700;
+  line-height: 1;
+}
+
+.modelDetails > p {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 11px 0;
+  border-bottom: 1px solid #d9dadd;
+  color: #555b61;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.modelDetails > p strong {
+  color: #1b2229;
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.modelEconomy {
+  margin: 22px 0 24px;
+  color: #4a5056;
+  font-size: 13px;
+}
+
+.modelEconomy b {
+  display: block;
+  margin-bottom: 9px;
+  color: #1b2229;
+  font-size: 14px;
+}
+
+.modelEconomy ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.modelEconomy li {
+  position: relative;
+  padding-left: 17px;
+}
+
+.modelEconomy li::before {
+  position: absolute;
+  top: .5em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffcf12;
+  content: '';
+}
+
+.metricsBand {
+  display: grid;
+  gap: 18px;
+  margin: auto -22px 0;
+  padding: 24px 22px;
+  background: #ffcf12;
+}
+
+.modelResult {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+}
+
+.modelResult div {
+  display: flex;
+  flex-direction: column;
+  padding: 0 14px;
+  border-right: 1px solid #a77b003d;
+}
+
+.modelResult div:first-child {
+  padding-left: 0;
+}
+
+.modelResult div:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.modelResult strong,
+.modelResult span {
+  display: block;
+}
+
+.modelResult strong {
+  color: #1a2027;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(22px, 2.2vw, 34px);
+  letter-spacing: -.035em;
+  font-weight: 400;
+  line-height: .9;
+}
+
+.modelResult span {
+  margin-top: 8px;
+  color: #3d4144;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.modelPrice {
+  color: #3d4144;
+  font-size: 12px;
+}
+
+.modelPrice strong {
+  display: block;
+  color: #1a2027;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(22px, 2.2vw, 34px);
+  letter-spacing: -.035em;
+  font-weight: 400;
+}
+
+.modelPrice span {
+  display: block;
+  margin-top: 8px;
+  color: #3d4144;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  margin: 24px 0 0;
+  border: 1px solid #1d2227;
+  border-radius: 999px;
+  color: #fff;
+  background: #1d2227;
+  box-shadow: 0 0 0 4px #ffcf1233, 0 12px 24px #1d222766;
+  font-size: 16px;
+  font-weight: 800;
   text-decoration: none;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
 }
 
-@media (min-width: 640px) {
-  .modelBody { grid-template-columns: 1.05fr 1fr; }
-  .modelPicture { min-height: 360px; }
-  .modelDetails { padding: 25px 24px; }
+.ctaLink::after {
+  margin-left: 18px;
+  color: #ffcf12;
+  content: '→';
+  font-size: 21px;
+  font-weight: 400;
 }
 
-@media (min-width: 960px) {
-  .modelBody { grid-template-columns: 1.08fr 1fr; }
-  .modelPicture { min-height: 425px; }
-  .modelDetails { padding: 30px 30px; }
-  .modelTitle h3 { font-size: 28px; }
-  .modelResult strong { font-size: 23px; }
+.ctaLink:hover {
+  border-color: #ffcf12;
+  color: #1b2229;
+  background: #ffcf12;
+  transform: translateY(-2px);
+}
+
+.ctaLink:hover::after {
+  color: #1b2229;
+}
+
+@media (min-width: 760px) {
+  .modelCard {
+    padding: 42px 28px 48px;
+  }
+
+  .modelBody {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    align-items: stretch;
+  }
+
+  .modelPicture {
+    min-height: 500px;
+    border-radius: 40px 0 0 40px;
+  }
+
+  .modelDetails {
+    min-height: 500px;
+    padding: 30px 36px 24px;
+    border-radius: 0 40px 40px 0;
+  }
+
+  .metricsBand {
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: stretch;
+    margin-right: -36px;
+    margin-left: -36px;
+    padding: 22px 36px;
+  }
+
+  .modelResult {
+    display: contents;
+  }
+
+  .modelResult div,
+  .modelPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    overflow: hidden;
+    padding: 0 24px;
+    border-right: 1px solid #a77b003d;
+  }
+
+  .modelResult div:first-child {
+    padding-left: 0;
+  }
+
+  .modelPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .modelPrice strong {
+    font-size: clamp(22px, 2.2vw, 34px);
+    white-space: normal;
+  }
+
+  .modelTitle {
+    margin-bottom: 16px;
+  }
+
+  .modelTitle h3 {
+    font-size: clamp(42px, 5vw, 58px);
+  }
+
+  .modelEconomy {
+    margin: 16px 0 18px;
+  }
+
+  .ctaLink {
+    min-height: 48px;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 759px) {
+  .modelCard {
+    padding: 24px 12px 30px;
+  }
+
+  .modelTabs {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .modelTabs a {
+    padding: 8px 11px;
+    font-size: 10px;
+  }
+
+  .modelTitle {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .modelTitle h3 {
+    font-size: 44px;
+  }
+
+  .modelDetails > p {
+    font-size: 11px;
+  }
+
+  .modelEconomy,
+  .modelEconomy b {
+    font-size: 12px;
+  }
+
+  .metricsBand {
+    margin-right: -22px;
+    margin-left: -22px;
+  }
 }

@@ -10,7 +10,7 @@ export function Finance() {
         <h2>Якщо власної суми недостатньо<br />для будівництва бази відпочинку, ми<br />допоможемо отримати позикові кошти в банку!</h2>
       </div>
       <div className={styles.financeCards}>
-        <article>
+        <article className={styles.financeCard}>
           <span className={styles.cardNumber}>01</span>
           <h3>Кредитні кошти</h3>
           <p>Кредитування під заставу житлової та комерційної нерухомості підберемо під ваш проєкт.</p>
@@ -23,7 +23,7 @@ export function Finance() {
             <li>Підготовка документів і супровід погодження</li>
           </ul>
         </article>
-        <article>
+        <article className={styles.financeCard}>
           <span className={styles.cardNumber}>02</span>
           <h3>Лізинг</h3>
           <p>Інструмент фінансування, що дає змогу придбати будинки та обладнання з мінімальними стартовими витратами.</p>
@@ -39,6 +39,10 @@ export function Finance() {
         </article>
       </div>
       <div className={styles.financeForm}>
+        <div className={styles.financeFormTopline}>
+          <span className={styles.financeFormBadge}>Фінансова підтримка</span>
+          <span className={styles.financeFormMeta}>VELUM / ФІНАНСИ</span>
+        </div>
         <div className={styles.financeFormContent}>
           <h3>Вирішуємо питання<br /><mark>фінансів за вас</mark></h3>
           <p>Ми беремо на себе переговори з банками та підбір оптимальних умов, щоб ви отримали схвалення без зайвих турбот.</p>

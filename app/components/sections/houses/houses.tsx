@@ -47,10 +47,17 @@ export function Houses() {
       </div>
       <div className={styles.houseGrid}>
         {houseCards.map((house) => (
-          <article key={house.name}>
-            <div className={styles.housePicture}>
-              <Image src={house.image} alt={house.name} fill sizes="(max-width: 639px) 100vw, (max-width: 959px) 50vw, 25vw" />
-              <span>{house.area}</span>
+          <article className={styles.houseCard} key={house.name}>
+            <div className={styles.houseMedia}>
+              <div className={styles.houseRail} aria-hidden="true">
+                <span>VELUM</span>
+                <i className={styles.railAccent} />
+                <small>PROJECT</small>
+              </div>
+              <div className={styles.housePicture}>
+                <Image src={house.image} alt={house.name} fill sizes="(max-width: 639px) 100vw, (max-width: 959px) 50vw, 25vw" />
+                <span>{house.area}</span>
+              </div>
             </div>
             <div className={styles.houseDetails}>
               <h3>{house.name}</h3>
@@ -67,11 +74,15 @@ export function Houses() {
         ))}
       </div>
       <div className={styles.consultPanel}>
-        <div>
-          <h3>Консультація з індивідуального проєкту бази відпочинку</h3>
-          <p>Розкажемо, як адаптувати проєкт під вашу локацію та бюджет.</p>
+        <div className={styles.consultContent}>
+          <span className={styles.consultKicker}>Індивідуальний проєкт</span>
+          <h3>Зберемо базу відпочинку під вашу локацію</h3>
+          <p>Підкажемо, який формат будинків, бюджет і сценарій запуску найкраще підійдуть саме для вашої ділянки.</p>
         </div>
-        <LeadForm compact />
+        <div className={styles.consultForm}>
+          <span className={styles.formHint}>Отримайте перший розрахунок</span>
+          <LeadForm compact accentButton />
+        </div>
       </div>
     </section>
   );

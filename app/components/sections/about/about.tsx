@@ -2,11 +2,10 @@ import Image from 'next/image';
 import styles from './about.module.css';
 
 export function About() {
-  const CrossIcon = () => (
-    <span className={styles.crossCircle}>
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"/>
-        <line x1="6" y1="6" x2="18" y2="18"/>
+  const ProblemIcon = () => (
+    <span className={styles.problemIcon}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="m12 2 2.45 7.55L22 12l-7.55 2.45L12 22l-2.45-7.55L2 12l7.55-2.45L12 2Z" />
       </svg>
     </span>
   );
@@ -16,11 +15,16 @@ export function About() {
       <div className={styles.centerHeading}>
         <span className={styles.yellowLabel}>Готові рішення</span>
         <h2>Для кого підійде<br />наша пропозиція</h2>
+        <p className={styles.headingLead}>Ми перетворюємо складні земельні та інвестиційні задачі на зрозумілий план запуску бази відпочинку.</p>
       </div>
 
       <div className={styles.audienceGrid}>
         {/* Card 1 */}
         <div className={styles.card}>
+          <div className={styles.cardTopline}>
+            <span>01</span>
+            <em>Монетизація землі</em>
+          </div>
           <div className={styles.cardHeader}>
             <div className={styles.avatar}>
               <Image src="/assets/velum/portraits/manager.png" alt="Для власників земельних ділянок" fill sizes="56px" priority />
@@ -30,19 +34,19 @@ export function About() {
 
           <ul className={styles.problemsList}>
             <li className={styles.problemItem}>
-              <CrossIcon />
+              <ProblemIcon />
               <span className={styles.problemText}>Маєте ділянку біля лісу, озера, річки або в горах, але вона просто стоїть і не приносить доходу</span>
             </li>
             <li className={styles.problemItem}>
-              <CrossIcon />
+              <ProblemIcon />
               <span className={styles.problemText}>Не знаєте, з чого почати монетизацію землі та як правильно оцінити її потенціал</span>
             </li>
             <li className={styles.problemItem}>
-              <CrossIcon />
+              <ProblemIcon />
               <span className={styles.problemText}>Побоюєтеся складнощів із підведенням комунікацій, будівництвом та інфраструктурою</span>
             </li>
             <li className={styles.problemItem}>
-              <CrossIcon />
+              <ProblemIcon />
               <span className={styles.problemText}>Не маєте досвіду в заміському готельному бізнесі та побоюєтеся ризикованих інвестицій</span>
             </li>
           </ul>
@@ -102,6 +106,10 @@ export function About() {
 
         {/* Card 2 */}
         <div className={styles.card}>
+          <div className={styles.cardTopline}>
+            <span>02</span>
+            <em>Інвестиційний запуск</em>
+          </div>
           <div className={styles.cardHeader}>
             <div className={styles.avatar}>
               <Image src="/assets/velum/portraits/owner.png" alt="Для інвесторів" fill sizes="56px" priority />
@@ -111,19 +119,19 @@ export function About() {
 
           <ul className={styles.problemsList}>
             <li className={styles.problemItem}>
-              <CrossIcon />
+              <ProblemIcon />
               <span className={styles.problemText}>Класичне будівництво триває роками, капітал заморожується, а строки окупності розмиваються</span>
             </li>
             <li className={styles.problemItem}>
-              <CrossIcon />
+              <ProblemIcon />
               <span className={styles.problemText}>Побоюєтеся затримок термінів здачі, постійного зростання кошторису та недобросовісних підрядників</span>
             </li>
             <li className={styles.problemItem}>
-              <CrossIcon />
+              <ProblemIcon />
               <span className={styles.problemText}>Шукаєте стабільну нішу з прозорою економікою, яка генеруватиме регулярний щомісячний дохід</span>
             </li>
             <li className={styles.problemItem}>
-              <CrossIcon />
+              <ProblemIcon />
               <span className={styles.problemText}>Не маєте часу самостійно керувати будівництвом, підключати комунікації та налаштовувати операційку</span>
             </li>
           </ul>

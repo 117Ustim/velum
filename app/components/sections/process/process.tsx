@@ -13,9 +13,10 @@ export function Process() {
         </h2>
       </div>
 
-      <div className={styles.processGrid}>
+      <div className={styles.processShell}>
+        <div className={styles.processGrid}>
         {/* Step 1 */}
-        <article className={styles.stepCard}>
+        <article className={styles.stepCard} data-step="01">
           <div className={styles.stepIcon}>
             <Image src="/assets/velum/process/icon-1.png" alt="1 етап" fill sizes="72px" />
           </div>
@@ -39,10 +40,11 @@ export function Process() {
               </li>
             </ul>
           </div>
+          <span className={styles.connectionNode} aria-hidden="true" />
         </article>
 
         {/* Step 2 */}
-        <article className={styles.stepCard}>
+        <article className={styles.stepCard} data-step="02">
           <div className={styles.stepIcon}>
             <Image src="/assets/velum/process/icon-2.png" alt="2 етап" fill sizes="72px" />
           </div>
@@ -64,7 +66,7 @@ export function Process() {
         </article>
 
         {/* Step 3 */}
-        <article className={styles.stepCard}>
+        <article className={styles.stepCard} data-step="03">
           <div className={styles.stepIcon}>
             <Image src="/assets/velum/process/icon-3.png" alt="3 етап" fill sizes="72px" />
           </div>
@@ -83,10 +85,11 @@ export function Process() {
               </li>
             </ul>
           </div>
+          <span className={styles.connectionNode} aria-hidden="true" />
         </article>
 
         {/* Step 4 */}
-        <article className={styles.stepCard}>
+        <article className={styles.stepCard} data-step="04">
           <div className={styles.stepIcon}>
             <Image src="/assets/velum/process/icon-4.png" alt="4 етап" fill sizes="72px" />
           </div>
@@ -108,7 +111,7 @@ export function Process() {
         </article>
 
         {/* Step 5 */}
-        <article className={styles.stepCard}>
+        <article className={styles.stepCard} data-step="05">
           <div className={styles.stepIcon}>
             <Image src="/assets/velum/process/icon-5.png" alt="5 етап" fill sizes="72px" />
           </div>
@@ -127,10 +130,11 @@ export function Process() {
               </li>
             </ul>
           </div>
+          <span className={styles.connectionNode} aria-hidden="true" />
         </article>
 
         {/* Step 6 */}
-        <article className={styles.stepCard}>
+        <article className={styles.stepCard} data-step="06">
           <div className={styles.stepIcon}>
             <Image src="/assets/velum/process/icon-6.png" alt="Сервісна підтримка" fill sizes="72px" />
           </div>
@@ -150,6 +154,7 @@ export function Process() {
             </ul>
           </div>
         </article>
+        </div>
       </div>
     </section>
   );

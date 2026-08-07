@@ -8,9 +8,10 @@ type LeadFormProps = {
   onSent?: () => void;
   showConsent?: boolean;
   variant?: 'default' | 'land';
+  accentButton?: boolean;
 };
 
-export function LeadForm({ compact = false, onSent, showConsent = true, variant = 'default' }: LeadFormProps) {
+export function LeadForm({ compact = false, onSent, showConsent = true, variant = 'default', accentButton = false }: LeadFormProps) {
   const [sent, setSent] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -66,7 +67,7 @@ export function LeadForm({ compact = false, onSent, showConsent = true, variant 
   }
 
   return (
-    <form className={`${styles.leadForm} ${compact ? styles.compactForm : ''} ${variant === 'land' ? styles.landForm : ''}`} onSubmit={submit}>
+    <form className={`${styles.leadForm} ${compact ? styles.compactForm : ''} ${variant === 'land' ? styles.landForm : ''} ${accentButton ? styles.accentButtonForm : ''}`} onSubmit={submit}>
       <div className={styles.fieldGroup}>
         <label className={styles.fieldLabel} htmlFor="lead-name">Ім’я</label>
         <input id="lead-name" name="name" value={name} onChange={handleNameChange} onBlur={handleNameBlur} placeholder="Ваше ім’я" required />

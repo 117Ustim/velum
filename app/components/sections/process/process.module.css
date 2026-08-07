@@ -1,76 +1,175 @@
 .processSection {
-  padding: 70px 20px;
-  background: #ffffff;
-  border-radius: 28px;
-  margin: 20px auto;
-  max-width: 1200px;
+  position: relative;
+  width: calc(100% - 30px);
+  max-width: 1440px;
+  margin: 22px auto;
+  padding: 78px 18px;
+  overflow: hidden;
+  border: 1px solid #e8e8e5;
+  border-radius: 32px;
+  background: #f8f8f6;
+  background-image: url('/assets/velum/process/blueprint-decoration.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: min(100%, 1440px) auto;
 }
 
 .centerHeading {
-  max-width: 780px;
-  margin: 0 auto 48px;
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto 52px;
   text-align: center;
 }
 
 .centerHeading h2 {
   margin: 0;
-  font-size: clamp(30px, 5vw, 46px);
-  line-height: 1.08;
-  letter-spacing: -.03em;
-  font-weight: 800;
   color: #151515;
+  font-size: clamp(30px, 5vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  font-weight: 800;
 }
 
 .centerHeading mark {
   padding: 0;
-  color: #141414;
+  color: #f0bf00;
   background: transparent;
   font-weight: 800;
 }
 
 .yellowLabel {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 4px 10px;
-  border-radius: 5px;
-  color: #151515;
+  display: inline-flex;
+  margin-bottom: 16px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  color: #171717;
   background: #ffdd28;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: .04em;
+  letter-spacing: .08em;
   line-height: 1;
+  text-transform: uppercase;
+}
+
+.processShell {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px solid #38414b;
+  border-radius: 30px;
+  background: #1d2227;
+  box-shadow: 0 24px 55px #1c222a26;
+}
+
+.processShell::before {
+  position: absolute;
+  top: 58px;
+  bottom: 58px;
+  left: 50%;
+  width: 2px;
+  border-radius: 2px;
+  background: #ffdd28;
+  box-shadow: 0 0 14px #ffdd2866;
+  content: '';
+  transform: translateX(-50%);
+}
+
+.connectionNode {
+  position: absolute;
+  top: 50%;
+  right: -47px;
+  z-index: 5;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #ffdd28;
+  border-radius: 50%;
+  background: #1d2227;
+  box-shadow: 0 0 0 4px #1d2227, 0 0 14px #ffdd28aa;
+  transform: translateY(-50%);
 }
 
 .processGrid {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px 40px;
-  max-width: 1080px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 76px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
 .stepCard {
+  position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 18px;
+  min-height: 190px;
+  padding: 24px 62px 22px 22px;
+  overflow: visible;
+  border: 1px solid #48515b;
+  border-radius: 22px;
+  background: #242b31;
+  box-shadow: inset 0 1px 0 #ffffff12, 0 16px 28px #090d111f;
+  transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.stepCard::after {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  color: #ffcf12;
+  content: attr(data-step);
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: -.08em;
+  line-height: 1;
+}
+
+.stepCard:nth-child(odd)::before,
+.stepCard:nth-child(even)::before {
+  position: absolute;
+  top: 50%;
+  z-index: 0;
+  width: 38px;
+  height: 2px;
+  background: #ffdd28;
+  content: '';
+  box-shadow: 0 0 9px #ffdd2866;
+}
+
+.stepCard:nth-child(odd)::before {
+  right: -38px;
+}
+
+.stepCard:nth-child(even)::before {
+  left: -38px;
+}
+
+.stepCard:hover {
+  border-color: #ffdd28;
+  box-shadow: inset 0 1px 0 #ffffff1a, 0 20px 34px #090d1150;
 }
 
 .stepIcon {
-  width: 52px;
-  height: 52px;
-  min-width: 52px;
-  min-height: 52px;
   position: relative;
+  width: 78px;
+  height: 78px;
+  min-width: 78px;
+  min-height: 78px;
   flex-shrink: 0;
-  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #5d6771;
+  border-radius: 20px;
+  background: #11161a;
+  box-shadow: 0 10px 20px #090d1166;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .stepCard:hover .stepIcon {
+  box-shadow: 0 14px 24px #090d1180;
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 .stepIcon img {
@@ -78,28 +177,29 @@
 }
 
 .stepContent {
+  min-width: 0;
   flex: 1;
 }
 
 .stepTitle {
-  margin: 0 0 8px;
-  font-size: 17.5px;
+  margin: 0 0 12px;
+  color: #f7f7f4;
+  font-size: 16px;
   font-weight: 800;
-  line-height: 1.25;
-  color: #141414;
+  line-height: 1.22;
 }
 
 .stepTitle mark {
   padding: 0;
+  color: #ffcf12;
   background: transparent;
-  color: #111;
 }
 
 .subIntro {
   margin: 4px 0 8px;
-  font-size: 13.5px;
-  color: #555;
-  font-weight: 600;
+  color: #aab1b7;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .checkList {
@@ -115,22 +215,69 @@
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 13.5px;
+  color: #cbd0d2;
+  font-size: 12px;
   line-height: 1.38;
-  color: #383838;
 }
 
 .checkMark {
-  color: #278842;
-  font-weight: 800;
-  font-size: 14px;
   flex-shrink: 0;
   margin-top: 1px;
+  color: #ffdd28;
+  font-size: 13px;
+  font-weight: 800;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
+  .processSection {
+    width: calc(100% - 20px);
+    padding: 54px 12px;
+    border-radius: 24px;
+  }
+
+  .centerHeading {
+    margin-bottom: 32px;
+  }
+
+  .centerHeading h2 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .processShell {
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  .processShell::before,
+  .stepCard::before,
+  .connectionNode {
+    display: none;
+  }
+
   .processGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 44px 40px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stepCard {
+    min-height: 0;
+    padding: 18px 48px 18px 16px;
+    border-radius: 18px;
+  }
+
+  .stepIcon {
+    width: 62px;
+    height: 62px;
+    min-width: 62px;
+    min-height: 62px;
+    border-radius: 16px;
+  }
+
+  .stepTitle {
+    font-size: 14px;
+  }
+
+  .checkItem {
+    font-size: 11.5px;
   }
 }

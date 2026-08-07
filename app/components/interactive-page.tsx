@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './interactive-page.module.css';
 import { Header } from './layout/header/header';
 import { Ticker } from './layout/ticker/ticker';
@@ -22,6 +22,27 @@ export default function InteractivePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
+
+  useEffect(() => {
+    const targetId = window.location.hash.slice(1);
+
+    if (!targetId) {
+      return;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        if (targetId === 'top') {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+          return;
+        }
+
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frameId);
+  }, []);
 
   function jumpTo(id: string) {
     setMenuOpen(false);

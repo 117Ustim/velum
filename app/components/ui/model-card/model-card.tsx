@@ -25,6 +25,11 @@ export function ModelCard({ model }: { model: Model }) {
       </div>
       <div className={styles.modelBody}>
         <div className={styles.modelPicture}>
+          <div className={styles.pictureRail} aria-hidden="true">
+            <span>Velum</span>
+            <small>Проєкт</small>
+            <b>{model.count.length === 1 ? `0${model.count}` : model.count}</b>
+          </div>
           <Image src={model.image} alt={`База відпочинку «${model.name}»`} fill sizes="(max-width: 760px) 100vw, 54vw" />
         </div>
         <div className={styles.modelDetails}>
@@ -44,17 +49,22 @@ export function ModelCard({ model }: { model: Model }) {
               <li>Базовий маркетинг і запуск</li>
             </ul>
           </div>
-          <div className={styles.modelResult}>
-            <div>
-              <strong>{model.payback}</strong>
-              <span>строк окупності</span>
+          <div className={styles.metricsBand}>
+            <div className={styles.modelResult}>
+              <div>
+                <strong>{model.payback}</strong>
+                <span>строк окупності</span>
+              </div>
+              <div>
+                <strong>{model.profit}</strong>
+                <span>чистий прибуток на рік</span>
+              </div>
             </div>
-            <div>
-              <strong>{model.profit}</strong>
-              <span>чистий прибуток на рік</span>
+            <div className={styles.modelPrice}>
+              <strong>{model.price}</strong>
+              <span>Вартість бази під ключ:</span>
             </div>
           </div>
-          <div className={styles.modelPrice}>Вартість бази під ключ: <strong>{model.price}</strong></div>
           <a className={styles.ctaLink} href="#contacts">Обрати</a>
         </div>
       </div>

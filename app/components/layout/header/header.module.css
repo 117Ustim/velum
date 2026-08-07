@@ -6,7 +6,9 @@
   min-height: 70px;
   padding: 8px 15px;
   color: #fff;
+  border-bottom: 1px solid #ffffff12;
   background: #3b3f46;
+  box-shadow: 0 8px 24px #1112;
 }
 
 .header>a {
@@ -38,8 +40,8 @@
 .headerBrand>b {
   display: none;
   color: #fff;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1.2;
   margin-top: 7px;
   margin-left: 7px;
@@ -51,7 +53,7 @@
   align-items: center;
   gap: 8px;
   margin-left: auto;
-  margin-right: 100px;
+  margin-right: 0;
   flex-shrink: 0;
 }
 
@@ -60,31 +62,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
   padding: 0;
-  border: 0;
+  border: 1px solid #ffffff24;
   border-radius: 12px;
-  background: transparent;
-  transition: transform 0.2s ease, filter 0.2s ease;
+  background: #ffffff0a;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .headerActions .socialIcon {
   display: block;
-  width: 46px;
-  height: 46px;
-  max-width: 46px;
-  max-height: 46px;
+  width: 38px;
+  height: 38px;
+  max-width: 38px;
+  max-height: 38px;
   object-fit: contain;
 }
 
 .viberIcon {
-  width: 46px;
-  height: 46px;
-  max-width: none;
-  max-height: none;
+  width: 38px;
+  height: 38px;
+  max-width: 38px;
+  max-height: 38px;
 }
 
 .callbackIcon {
@@ -96,22 +98,40 @@
 
 .telegramLink svg {
   display: block;
-  width: 46px;
-  height: 46px;
+  width: 36px;
+  height: 36px;
+}
+
+.headerActions .viberLink img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  max-width: 42px;
+  max-height: 42px;
+  object-fit: contain;
+}
+
+.headerActions .callbackButton svg {
+  display: block;
+  width: 36px;
+  height: 36px;
+  max-width: 36px;
+  max-height: 36px;
+  object-fit: contain;
 }
 
 .callbackButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
   padding: 0;
-  border: 0;
+  border: 1px solid #ffffff24;
   border-radius: 12px;
-  background: transparent;
+  background: #ffffff0a;
   cursor: pointer;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
@@ -132,11 +152,10 @@
 }
 
 .headerPhone {
-  margin: 0 0 0 50px;
+  margin: 0 0 0 12px;
   text-align: right;
   flex-shrink: 0;
   white-space: nowrap;
-  transform: translateX(20px);
 }
 
 .headerPhone a {
@@ -153,7 +172,7 @@
   background: transparent;
   color: #ffffff;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -208,6 +227,31 @@
   display: none;
 }
 
+@keyframes headerNavItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navDotPulse {
+  0%,
+  100% {
+    opacity: .75;
+    box-shadow: 0 0 0 0 #ffdd2870, 0 0 8px #ffdd2877;
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 0 6px #ffdd2800, 0 0 15px #ffdd28cc;
+  }
+}
+
 @media (max-width: 639px) {
   .header {
     min-height: 58px;
@@ -241,6 +285,20 @@
     height: 34px;
     max-width: 34px;
     max-height: 34px;
+  }
+
+  .headerActions .viberLink img {
+    width: 34px;
+    height: 34px;
+    max-width: 34px;
+    max-height: 34px;
+  }
+
+  .headerActions .callbackButton svg {
+    width: 30px;
+    height: 30px;
+    max-width: 30px;
+    max-height: 30px;
   }
 
   .headerPhone {
@@ -302,37 +360,120 @@
   }
 
   .mainNav {
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 24px;
-    min-height: 58px;
-    padding: 0 20px;
-    overflow-x: auto;
+    gap: 0;
+    margin-left: clamp(24px, 4vw, 72px);
+    margin-right: 22px;
+    min-width: 0;
+    min-height: 42px;
+    padding: 0 10px;
+    overflow: hidden;
+    border: 1px solid #ffffff26;
+    border-radius: 999px;
+    background: #16181b66;
+    box-shadow: inset 0 1px 0 #ffffff0d, 0 10px 24px #1111111c;
     overscroll-behavior-x: contain;
     scrollbar-width: none;
-    background: #ededed;
   }
 
   .mainNav::-webkit-scrollbar {
     display: none;
   }
 
+  .navLabel {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    height: 28px;
+    margin-right: 9px;
+    padding: 0 14px 0 10px;
+    border-right: 1px solid #ffffff26;
+  }
+
+  .navLabelDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ffdd28;
+    animation: navDotPulse 1.8s ease-in-out infinite;
+  }
+
   .mainNav a {
-    padding: 0 8px;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 0;
+    padding: 13px 14px;
     border: 0;
-    color: #4a4a4a;
+    color: #d7d7da;
     background: none;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 600;
     white-space: nowrap;
     cursor: pointer;
     text-decoration: none;
+    animation: headerNavItemIn .55s cubic-bezier(.22, 1, .36, 1) both;
+    transition: color .2s ease;
   }
 
-  .mainNav a span {
-    margin-left: 5px;
-    font-size: 12px;
+  .mainNav a::before {
+    position: absolute;
+    z-index: -1;
+    inset: 3px 5px;
+    border-radius: 999px;
+    background: #ffffff0c;
+    content: '';
+    opacity: 0;
+    transform: scale(.94);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+
+  .mainNav a::after {
+    position: absolute;
+    right: 14px;
+    bottom: 5px;
+    left: 14px;
+    height: 2px;
+    border-radius: 999px;
+    background: #ffdd28;
+    box-shadow: 0 0 8px #ffdd2877;
+    content: '';
+    opacity: 0;
+    transform: scaleX(.65);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+
+  .mainNav a:first-of-type,
+  .mainNav a:hover {
+    color: #ffdd28;
+  }
+
+  .mainNav a:first-of-type::before,
+  .mainNav a:first-of-type::after,
+  .mainNav a:hover::before,
+  .mainNav a:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .mainNav:has(a:hover) a:first-of-type::before,
+  .mainNav:has(a:hover) a:first-of-type::after {
+    opacity: 0;
+    transform: scale(.65);
+  }
+
+  .mainNav a:nth-of-type(1) { animation-delay: .08s; }
+  .mainNav a:nth-of-type(2) { animation-delay: .14s; }
+  .mainNav a:nth-of-type(3) { animation-delay: .20s; }
+  .mainNav a:nth-of-type(4) { animation-delay: .26s; }
+  .mainNav a:nth-of-type(5) { animation-delay: .32s; }
+  .mainNav a:nth-of-type(6) { animation-delay: .38s; }
+  .mainNav a:nth-of-type(7) { animation-delay: .44s; }
+
+  .mainNav a:hover {
+    color: #ffdd28;
   }
 }
 
@@ -342,13 +483,11 @@
   }
 
   .header nav {
-    gap: 27px;
+    gap: 0;
   }
 
   .mainNav {
-    justify-content: space-evenly;
-    gap: 0;
-    overflow-x: visible;
+    padding: 0 12px;
   }
 
   .header nav a {
@@ -357,5 +496,15 @@
 
   .headerPhone a {
     font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mainNav a {
+    animation: none;
+  }
+
+  .navLabelDot {
+    animation: none;
   }
 }
