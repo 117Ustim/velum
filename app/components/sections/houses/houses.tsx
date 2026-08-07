@@ -9,7 +9,7 @@ const houseCards = [
     area: '44 м²',
     name: 'Модульний будинок «Velum 43»',
     bedrooms: '1',
-    capacity: '4 чел.',
+    capacity: '4 особи',
     price: 'від 2 030 000 ₴'
   },
   {
@@ -17,7 +17,7 @@ const houseCards = [
     area: '53 м²',
     name: 'Модульний будинок «Velum Next 31»',
     bedrooms: '1–2',
-    capacity: '4–6 чел.',
+    capacity: '4–6 осіб',
     price: 'від 2 308 400 ₴'
   },
   {
@@ -25,7 +25,7 @@ const houseCards = [
     area: '74 м²',
     name: 'Модульний будинок «Velum 26»',
     bedrooms: '2',
-    capacity: '6 чел.',
+    capacity: '6 осіб',
     price: 'від 2 030 000 ₴'
   },
   {
@@ -33,7 +33,7 @@ const houseCards = [
     area: '88 м²',
     name: 'Модульний будинок «Velum 65»',
     bedrooms: '2–3',
-    capacity: '6–8 чел.',
+    capacity: '6–8 осіб',
     price: 'від 3 480 000 ₴'
   }
 ] as const;

@@ -18,7 +18,6 @@ export function Header({
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState(null, '', window.location.pathname);
     }
   };
 
@@ -26,7 +25,7 @@ export function Header({
     <>
       <header className={styles.header}>
         <a className={styles.headerBrand} href="#top" onClick={(e) => handleNavClick(e, 'top')}>
-          <Image src={assets.logo} alt="Velum" width={95} height={42} priority />
+          <img src={assets.logo} alt="Velum" width={95} height={43} />
           <b>Завод модульних будинків</b>
         </a>
         <div className={styles.headerActions}>

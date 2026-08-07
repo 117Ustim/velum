@@ -42,7 +42,7 @@ export function Finance() {
         <div className={styles.financeFormContent}>
           <h3>Вирішуємо питання<br /><mark>фінансів за вас</mark></h3>
           <p>Ми беремо на себе переговори з банками та підбір оптимальних умов, щоб ви отримали схвалення без зайвих турбот.</p>
-          <LeadForm compact />
+          <LeadForm compact showConsent={false} />
         </div>
         <div className={styles.financeAdvisor}>
           <div className={styles.advisorNote}>

@@ -21,7 +21,21 @@
 .modelResult span { margin-top: 4px; font-size: 8px; }
 .modelPrice { margin-bottom: 9px; color: #555; font-size: 9px; }
 .modelPrice strong { color: #222; }
-.ctaLink { display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 28px; padding: 7px; border-radius: 6px; color: #111; background: #ffdd28; font-size: 9px; font-weight: 700; text-decoration: none; }
+.ctaLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  min-height: 34px;
+  margin: 0 auto;
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #111;
+  background: #ffdd28;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
 
 @media (min-width: 640px) {
   .modelBody { grid-template-columns: 1.05fr 1fr; }

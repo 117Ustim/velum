@@ -216,6 +216,7 @@
 
   .headerBrand img {
     width: 82px;
+    height: auto;
   }
 
   .headerActions {

@@ -1,0 +1,189 @@
+.locationSection {
+  position: relative;
+  display: grid;
+  width: calc(100% - 30px);
+  max-width: 1440px;
+  gap: 30px;
+  margin: 0 auto 22px;
+  padding: 30px 22px;
+  overflow: hidden;
+  border: 1px solid #34343b;
+  border-radius: 24px;
+  color: #fff;
+  background: #1e1e24;
+}
+
+.locationSection::before,
+.locationSection::after {
+  position: absolute;
+  z-index: 0;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ffdd2833;
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
+}
+
+.locationSection::before {
+  top: -100px;
+  left: 38%;
+}
+
+.locationSection::after {
+  right: -95px;
+  bottom: -100px;
+}
+
+.locationCopy,
+.mapVisual {
+  position: relative;
+  z-index: 1;
+}
+
+.locationCopy {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.locationEyebrow,
+.locationAddress > span {
+  color: #8c98ad;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.locationCopy h2 {
+  max-width: 480px;
+  margin: 0;
+  color: #f5f5f5;
+  font-size: clamp(30px, 5vw, 53px);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.locationDescription {
+  max-width: 500px;
+  margin: 0;
+  color: #bdbdc1;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.locationPoints {
+  display: grid;
+  gap: 10px;
+  margin: 8px 0 4px;
+}
+
+.locationPoints > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid #393940;
+}
+
+.locationPoints b {
+  display: grid;
+  flex: 0 0 30px;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #1e1e24;
+  background: #ffdd28;
+  font-size: 10px;
+}
+
+.locationPoints span {
+  color: #dedee0;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.locationAddress {
+  display: grid;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.locationAddress p {
+  margin: 0;
+  color: #f0f0f0;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.routeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 2px;
+  color: #ffdd28;
+  font-size: 14px;
+  font-weight: 700;
+  transition: color .2s ease, gap .2s ease;
+}
+
+.routeLink:hover {
+  gap: 12px;
+  color: #fff;
+}
+
+.mapVisual {
+  min-width: 0;
+}
+
+.mapFrame {
+  min-height: 300px;
+  overflow: hidden;
+  border: 1px solid #45454b;
+  border-radius: 18px;
+  background: #2a2a30;
+}
+
+.mapFrame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border: 0;
+  filter: grayscale(.15) contrast(.95);
+}
+
+@media (min-width: 640px) {
+  .locationSection {
+    grid-template-columns: minmax(320px, .8fr) minmax(0, 1.2fr);
+    align-items: stretch;
+    gap: 34px;
+    padding: 42px 36px;
+  }
+
+  .mapFrame,
+  .mapFrame iframe {
+    min-height: 390px;
+  }
+}
+
+@media (min-width: 960px) {
+  .locationSection {
+    grid-template-columns: minmax(390px, .8fr) minmax(0, 1.2fr);
+    gap: 58px;
+    padding: 58px 54px;
+  }
+
+  .locationPoints {
+    gap: 3px;
+  }
+
+  .mapFrame,
+  .mapFrame iframe {
+    min-height: 440px;
+  }
+}

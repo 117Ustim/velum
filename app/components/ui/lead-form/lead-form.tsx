@@ -3,18 +3,25 @@
 import { FormEvent, useState } from 'react';
 import styles from './lead-form.module.css';
 
-export function LeadForm({ compact = false, onSent }: { compact?: boolean; onSent?: () => void }) {
+type LeadFormProps = {
+  compact?: boolean;
+  onSent?: () => void;
+  showConsent?: boolean;
+  variant?: 'default' | 'land';
+};
+
+export function LeadForm({ compact = false, onSent, showConsent = true, variant = 'default' }: LeadFormProps) {
   const [sent, setSent] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [location, setLocation] = useState('');
+  const [hasLand, setHasLand] = useState('');
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value;
     
-    // Only allow Cyrillic letters, spaces, and hyphens (remove numbers and Latin characters)
     val = val.replace(/[^а-яА-ЯіІєЄїЇґҐёЁ\s-]/g, '');
-    
-    // Capitalize first letter
+
     if (val.length > 0) {
       val = val.charAt(0).toUpperCase() + val.slice(1);
     }
@@ -23,12 +30,10 @@ export function LeadForm({ compact = false, onSent }: { compact?: boolean; onSen
   };
 
   const handleNameBlur = () => {
-    // Trim leading/trailing spaces when leaving input
     setName(prev => prev.trim());
   };
 
   const handlePhoneFocus = () => {
-    // Auto insert +38 prefix on focus if empty
     if (!phone) {
       setPhone('+38');
     }
@@ -37,7 +42,6 @@ export function LeadForm({ compact = false, onSent }: { compact?: boolean; onSen
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value;
     
-    // Prevent removing the +38 prefix
     if (!val.startsWith('+38')) {
       if (val.length < 3) {
         val = '+38';
@@ -46,7 +50,6 @@ export function LeadForm({ compact = false, onSent }: { compact?: boolean; onSen
       }
     }
     
-    // Only allow digits, spaces, parentheses and hyphens after the prefix
     const prefix = '+38';
     const rest = val.slice(3).replace(/[^\d\s()-]/g, '');
     setPhone(prefix + rest);
@@ -63,29 +66,53 @@ export function LeadForm({ compact = false, onSent }: { compact?: boolean; onSen
   }
 
   return (
-    <form className={`${styles.leadForm} ${compact ? styles.compactForm : ''}`} onSubmit={submit}>
-      <input 
-        name="name" 
-        value={name}
-        onChange={handleNameChange}
-        onBlur={handleNameBlur}
-        placeholder="Ваше ім’я" 
-        required 
-      />
-      <input 
-        name="phone" 
-        type="tel" 
-        value={phone}
-        onFocus={handlePhoneFocus}
-        onChange={handlePhoneChange}
-        placeholder="+38 (___) ___-__-__" 
-        required 
-      />
-      <label>
-        <input type="checkbox" required />
-        <span>Я погоджуюся з політикою конфіденційності</span>
-      </label>
-      <button className={styles.submitButton} type="submit">{compact ? 'Залишити заявку' : 'Отримати консультацію'}</button>
+    <form className={`${styles.leadForm} ${compact ? styles.compactForm : ''} ${variant === 'land' ? styles.landForm : ''}`} onSubmit={submit}>
+      <div className={styles.fieldGroup}>
+        <label className={styles.fieldLabel} htmlFor="lead-name">Ім’я</label>
+        <input id="lead-name" name="name" value={name} onChange={handleNameChange} onBlur={handleNameBlur} placeholder="Ваше ім’я" required />
+      </div>
+      <div className={styles.fieldGroup}>
+        <label className={styles.fieldLabel} htmlFor="lead-phone">Телефон</label>
+        <input id="lead-phone" name="phone" type="tel" value={phone} onFocus={handlePhoneFocus} onChange={handlePhoneChange} placeholder="+38 (___) ___-__-__" required />
+      </div>
+      {variant === 'land' && (
+        <>
+          <div className={styles.fieldGroup}>
+            <label className={styles.fieldLabel} htmlFor="lead-location">Населений пункт / область</label>
+            <input id="lead-location" name="location" value={location} onChange={event => setLocation(event.target.value)} placeholder="Наприклад, Київська область" required />
+          </div>
+          <fieldset className={styles.landChoice}>
+            <legend className={styles.fieldLabel}>Чи є у вас земельна ділянка?</legend>
+            <div className={styles.choiceGrid}>
+              <label className={hasLand === 'Так' ? styles.choiceActive : styles.choice}>
+                <input type="radio" name="hasLand" value="Так" checked={hasLand === 'Так'} onChange={event => setHasLand(event.target.value)} required />
+                <span>Так</span>
+              </label>
+              <label className={hasLand === 'Ні' ? styles.choiceActive : styles.choice}>
+                <input type="radio" name="hasLand" value="Ні" checked={hasLand === 'Ні'} onChange={event => setHasLand(event.target.value)} required />
+                <span>Ні</span>
+              </label>
+            </div>
+          </fieldset>
+          <div className={styles.formColumns}>
+            <div className={styles.fieldGroup}>
+              <label className={styles.fieldLabel} htmlFor="lead-area">Площа ділянки</label>
+              <input id="lead-area" name="area" placeholder="Наприклад, 1,5 га" required />
+            </div>
+            <div className={styles.fieldGroup}>
+              <label className={styles.fieldLabel} htmlFor="lead-budget">Орієнтовний бюджет</label>
+              <input id="lead-budget" name="budget" placeholder="Наприклад, 5 млн ₴" required />
+            </div>
+          </div>
+        </>
+      )}
+      {showConsent && (
+        <label className={styles.consent}>
+          <input type="checkbox" required />
+          <span>Я погоджуюся з політикою конфіденційності</span>
+        </label>
+      )}
+      <button className={styles.submitButton} type="submit">{variant === 'land' ? 'Отримати розрахунок' : compact ? 'Залишити заявку' : 'Отримати консультацію'}</button>
     </form>
   );
 }

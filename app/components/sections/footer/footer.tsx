@@ -1,33 +1,61 @@
-import Image from 'next/image';
 import styles from './footer.module.css';
+import Image from 'next/image';
 import { assets } from '../../velum-page-data';
 
 export function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footerColumns}>
-        <div>
-          <Image src={assets.logo} alt="Velum" width={125} height={56} />
-          <p>© 2015–2026 Velum<br />ІПН 7804591042 ОГРН 1177847073535</p>
+    <footer className={styles.footer} id="footer">
+      <div className={styles.footerShell}>
+        <div className={styles.footerTop}>
+          <a className={styles.footerBrand} href="#top" aria-label="Velum — на головну">
+            <Image src={assets.logo} alt="Velum" width={140} height={62} />
+            <span>Завод модульних будинків</span>
+          </a>
+          <a className={styles.backToTop} href="#top" aria-label="Повернутися нагору">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M12 19V5" />
+              <path d="m6 11 6-6 6 6" />
+            </svg>
+          </a>
         </div>
-        <div>
-          <b>Velum у Москві</b>
-          <p>+7 (499) 677-16-22<br />Щодня 10:00–18:00</p>
+
+        <div className={styles.footerInfo}>
+          <div className={styles.infoItem}>
+            <span>Режим роботи</span>
+            <strong>Пн–Пт з 10:00 до 18:00</strong>
+          </div>
+          <div className={styles.infoItem}>
+            <span>Телефон</span>
+            <a href="tel:+380976655306">0976655306</a>
+          </div>
+          <div className={`${styles.infoItem} ${styles.addressItem}`}>
+            <span>Адреса</span>
+            <strong>м. Львів, вул. Промислова, 60</strong>
+          </div>
+          <div className={styles.infoItem}>
+            <span>Пошта для пропозицій</span>
+            <a href="mailto:info@zavod-modul.com.ua">info@zavod-modul.com.ua</a>
+          </div>
+          <div className={styles.footerSocials}>
+            <a className={styles.socialButton} href="https://t.me/FLHausSPB_bot" target="_blank" rel="noreferrer" aria-label="Telegram">
+              <svg width="23" height="23" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect width="40" height="40" rx="12" fill="#239BD7" />
+                <path d="M28.4 12.3c.5-.2 1 .2.8.7l-4.7 15.6c-.2.7-1 .9-1.5.5l-4.5-3.3-2.2 2.1c-.4.4-1.1.2-1.2-.4l-.8-5.3-4.5-1.5c-.7-.2-.7-1.2 0-1.4l18.6-7z" fill="white" />
+                <path d="M15.1 20.7l1.7 5.7.4-4-2.1-1.7z" fill="#c3e0fe" />
+                <path d="M28.4 12.3l-13.3 8.4 3.7 2.7 9.6-11.1z" fill="#edf5fe" opacity=".9" />
+              </svg>
+            </a>
+            <a className={styles.socialButton} href="viber://chat?number=%2B380976655306" aria-label="Viber">
+              <Image src="/assets/velum/icons/viber-square.png?v=2" alt="" width={44} height={44} />
+            </a>
+          </div>
         </div>
-        <div>
-          <b>Velum у Санкт-Петербурзі</b>
-          <p>+7 (812) 953-66-12<br />Щодня 10:00–20:00</p>
+
+        <div className={styles.footerBottom}>
+          <span>Політика конфіденційності</span>
+          <span>Velum · Виробництво модульних будинків і запуск баз відпочинку</span>
         </div>
-        <div>
-          <b>Корисне</b>
-          <p>Будинки для баз відпочинку<br />Готові модульні будинки<br />Проєкти та відгуки</p>
-        </div>
-      </div>
-      <div className={styles.footerBottom}>
-        <span>Політика конфіденційності</span>
-        <span>Виробництво модульних будинків і запуск баз відпочинку</span>
       </div>
     </footer>
   );
 }
-

@@ -14,8 +14,8 @@ import { Hero } from './sections/hero/hero';
 import { Houses } from './sections/houses/houses';
 import { Models } from './sections/models/models';
 import { Process } from './sections/process/process';
-import { Seo } from './sections/seo/seo';
 import { Visit } from './sections/visit/visit';
+import { Location } from './sections/location/location';
 import { ModalContact } from './sections/modal-contact/modal-contact';
 
 export default function InteractivePage() {
@@ -45,7 +45,7 @@ export default function InteractivePage() {
       <Cases />
       <Faq />
       <Visit />
-      <Seo />
+      <Location />
       <Footer />
       <FloatingButtons onOpenModal={() => setModalOpen(true)} />
       {modalOpen && <ModalContact onClose={() => setModalOpen(false)} />}

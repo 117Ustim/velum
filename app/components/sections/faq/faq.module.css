@@ -1,19 +1,35 @@
-.faqSection { padding: 52px 15px; background: #f5f5f5; }
-.centerHeading { max-width: 680px; margin: 0 auto 26px; text-align: center; }
-.yellowLabel { display: inline-block; margin: 0 0 12px; padding: 4px 8px; border-radius: 5px; color: #151515; background: #ffdd28; font-size: 8px; font-weight: 800; letter-spacing: .04em; line-height: 1; }
-.centerHeading .yellowLabel { margin-bottom: 9px; }
-.centerHeading h2 { margin: 0 0 12px; font-size: clamp(27px, 7vw, 48px); line-height: .98; letter-spacing: -.055em; }
-.faqList { width: calc(100% - 30px); max-width: none; margin: 0 auto; border-radius: 7px; overflow: hidden; }
-.faqList details { background: #fff; border-bottom: 1px solid #e7e7e7; }
+.faqSection { padding: 24px 14px; background: #f4f3ef; }
+.faqShell { max-width: 1320px; margin: 0 auto; overflow: hidden; background: #fff; border: 1px solid #deddd8; border-left: 4px solid #ffcf20; border-radius: 24px; box-shadow: 0 18px 42px rgba(28, 28, 28, .07); }
+.centerHeading { position: relative; isolation: isolate; display: grid; align-content: start; gap: 14px; overflow: hidden; padding: 26px 22px; background: #fff; }
+.centerHeading::after { position: absolute; z-index: 0; right: -8%; bottom: 16%; left: 28%; height: 58%; content: ''; background: url('/assets/velum/faq/house-line.png') right bottom / contain no-repeat; opacity: .9; mix-blend-mode: multiply; transform: translate(30px, -150px); pointer-events: none; }
+.centerHeading > * { position: relative; z-index: 1; }
+.yellowLabel { display: inline-block; width: fit-content; padding: 7px 11px; border-radius: 4px; color: #151515; background: #ffcf20; font-size: 11px; font-weight: 800; letter-spacing: .04em; line-height: 1; }
+.centerHeading h2 { max-width: 520px; margin: 0; color: #171717; font-size: clamp(30px, 7vw, 58px); line-height: .92; letter-spacing: -.065em; }
+.introText { max-width: 350px; margin: 6px 0 0; color: #696863; font-size: 14px; line-height: 1.5; }
+.faqList { overflow: hidden; background: #fff; border-left: 1px solid #e5e3de; }
+.faqList details { background: #fff; border-bottom: 1px solid #e5e3de; }
 .faqList details:last-child { border-bottom: 0; }
-.faqList summary { display: flex; justify-content: space-between; width: 100%; padding: 14px; color: #222; background: #fff; text-align: left; font-size: 10px; font-weight: 700; cursor: pointer; list-style: none; }
+.faqList summary { display: grid; grid-template-columns: 48px minmax(0, 1fr) 46px; align-items: center; gap: 16px; width: 100%; padding: 24px 22px; color: #171717; text-align: left; cursor: pointer; list-style: none; }
 .faqList summary::-webkit-details-marker { display: none; }
-.faqList summary b { margin-left: 10px; color: #ffca00; font-size: 18px; line-height: .6; }
-.faqList details[open] summary b { transform: rotate(45deg); }
-.faqList p { margin: 0; padding: 0 14px 14px; color: #666; font-size: 9px; line-height: 1.4; }
+.questionNumber { color: #bdbbb5; font-size: 27px; font-weight: 300; letter-spacing: -.06em; line-height: 1; }
+.questionText { font-size: clamp(14px, 1.3vw, 18px); font-weight: 700; line-height: 1.12; }
+.faqList summary b { display: grid; place-items: center; width: 40px; height: 40px; margin-left: auto; border: 1px solid #ffcf20; border-radius: 50%; color: #171717; font-size: 25px; font-weight: 400; line-height: 1; transition: background .2s ease, transform .2s ease; }
+.faqList details[open] summary b { color: #171717; background: #ffcf20; }
+.faqList details[open] .questionNumber { color: #ffb900; }
+.faqList p { max-width: 720px; margin: -4px 84px 0 86px; padding: 0 0 25px; color: #696863; font-size: 14px; line-height: 1.55; }
 
 @media (min-width: 960px) {
-  .faqSection { padding: 76px 35px; }
-  .centerHeading { margin-bottom: 37px; }
-  .centerHeading h2 { font-size: 41px; }
+  .faqSection { padding: 84px 42px; }
+  .faqShell { display: grid; grid-template-columns: minmax(280px, .72fr) minmax(0, 1.45fr); align-items: stretch; }
+  .centerHeading { padding: 42px 34px; }
+  .centerHeading h2 { font-size: clamp(42px, 4.2vw, 62px); }
+  .faqList { align-self: center; }
+}
+
+@media (max-width: 599px) {
+  .faqList { border-top: 1px solid #e5e3de; border-left: 0; }
+  .faqList summary { grid-template-columns: 34px minmax(0, 1fr) 38px; gap: 10px; padding: 18px 15px; }
+  .questionNumber { font-size: 23px; }
+  .faqList summary b { width: 32px; height: 32px; font-size: 20px; }
+  .faqList p { margin: -2px 62px 0 59px; padding-bottom: 20px; font-size: 13px; }
 }

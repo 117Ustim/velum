@@ -317,8 +317,7 @@
 .processSection,
 .modelsSection,
 .financeSection,
-.faqSection,
-.seoSection {
+.faqSection {
   padding: 52px 15px;
 }
 
@@ -1124,40 +1123,6 @@
   margin-top: 18px;
 }
 
-.seoSection {
-  width: calc(100% - 30px);
-  max-width: none;
-  margin: 0 auto;
-  color: #3f3f3f;
-  background: #f5f5f5;
-}
-
-.seoSection h2 {
-  margin: 0 0 14px;
-  font-size: 17px;
-  line-height: 1.1;
-}
-
-.seoSection h3 {
-  margin: 18px 0 5px;
-  font-size: 12px;
-}
-
-.seoSection p,
-.seoSection li {
-  font-size: 9px;
-  line-height: 1.45;
-}
-
-.seoSection p {
-  margin-bottom: 8px;
-}
-
-.seoSection ul {
-  margin: 0;
-  padding-left: 16px;
-}
-
 .footer {
   padding: 34px 15px 65px;
   color: #fff;
@@ -1467,8 +1432,7 @@
   .processSection,
   .modelsSection,
   .financeSection,
-  .faqSection,
-  .seoSection {
+  .faqSection {
     padding: 76px 35px;
   }
 
@@ -1571,15 +1535,6 @@
 
   .videoPlaceholder {
     height: 340px;
-  }
-
-  .seoSection {
-    padding-top: 65px;
-    padding-bottom: 65px;
-  }
-
-  .seoSection h2 {
-    font-size: 20px;
   }
 
   .footer {

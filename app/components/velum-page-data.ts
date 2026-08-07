@@ -12,32 +12,35 @@ export const assets = {
     `${assetRoot}/process/step-6-growth.png`
   ],
   models: [
-    `${assetRoot}/models/hutir/photo.png`,
-    `${assetRoot}/models/sadiba/photo.png`,
+    `${assetRoot}/models/hutir/photo.jpg`,
+    `${assetRoot}/models/sadiba/photo.jpg`,
     `${assetRoot}/models/majetok/photo.jpg`,
-    `${assetRoot}/models/pomistya/photo.png`
+    `${assetRoot}/models/pomistya/photo.jpg`
   ],
   houses: [
     `${assetRoot}/houses/hutir-43/photo.jpg`,
-    `${assetRoot}/houses/sadiba-31/photo.png`,
+    `${assetRoot}/houses/sadiba-31/photo.jpg`,
     `${assetRoot}/houses/hutir-26/photo.jpg`,
-    `${assetRoot}/houses/majetok-43/photo.png`,
+    `${assetRoot}/houses/majetok-43/photo.jpg`,
     `${assetRoot}/houses/ugiddya-10/photo.webp`,
     `${assetRoot}/houses/otchina-88/photo.png`
   ],
-  ecoPark: `${assetRoot}/cases/eco-park/main.jpeg`,
+  ecoPark: `${assetRoot}/cases/eco-park/main.jpg`,
   ecoGallery: [
     `${assetRoot}/cases/eco-park/gallery-1.jpg`,
     `${assetRoot}/cases/eco-park/gallery-2.jpg`,
-    `${assetRoot}/cases/eco-park/gallery-3.jpg`
+    `${assetRoot}/cases/eco-park/gallery-3.webp`
   ]
 };
 
 export const navigation = [
   ['Головна', 'top'],
-  ['Готові рішення', 'about'],
-  ['Етапи роботи', 'process'],
-  ['Готові рішення', 'models'],
+  ['Модульні будинки', 'houses'],
+  ['Фінанси', 'finance'],
+  ['Наші кейси', 'cases'],
+  ['FAQ', 'faq'],
+  ['Безкоштовний розрахунок', 'contacts'],
+  ['Контакти', 'footer'],
 ] as const;
 
 export const processSteps = [

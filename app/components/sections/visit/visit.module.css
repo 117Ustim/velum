@@ -1,14 +1,22 @@
-.visitSection { display: grid; width: 100%; max-width: none; margin: 0 auto; border-radius: 8px; overflow: hidden; color: #fff; background: #303030; }
-.yellowLabel { display: inline-block; margin: 0 0 12px; padding: 4px 8px; border-radius: 5px; color: #151515; background: #ffdd28; font-size: 8px; font-weight: 800; letter-spacing: .04em; line-height: 1; }
-.visitVideo { min-height: 260px; display: grid; place-items: center; color: #555; background: #000; font-size: 10px; }
-.visitCopy { padding: 28px 20px; }
-.visitCopy h2 { margin: 0 0 13px; font-size: 27px; line-height: .98; }
-.visitCopy p { color: #c8c8c8; font-size: 10px; }
-.visitCopy > span:not(.yellowLabel) { color: #c8c8c8; font-size: 9px; }
-.visitCopy .leadForm { margin-top: 18px; }
+.visitSection { display: grid; width: calc(100% - 30px); max-width: 1440px; margin: 0 auto 22px; border-radius: 24px; overflow: hidden; color: #fff; background: #292929; }
+.visitMedia { position: relative; min-height: 350px; overflow: hidden; background: #111; }
+.visitVideo { display: block; width: 100%; height: 100%; min-height: 350px; object-fit: cover; background: #111; }
+.videoCaption { position: absolute; right: 24px; bottom: 24px; left: 24px; display: grid; gap: 5px; max-width: 330px; pointer-events: none; text-shadow: 0 2px 18px #0008; }
+.videoCaption span { color: #ffdd28; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.videoCaption strong { font-size: 18px; line-height: 1.08; }
+.visitCopy { padding: 34px 24px 30px; }
+.yellowLabel { display: inline-flex; width: fit-content; margin: 0 0 17px; padding: 7px 10px; border-radius: 999px; color: #151515; background: #ffdd28; font-size: 10px; font-weight: 800; letter-spacing: .02em; line-height: 1; }
+.visitCopy h2 { max-width: 560px; margin: 0 0 14px; font-size: clamp(30px, 4vw, 56px); line-height: .96; letter-spacing: -.045em; }
+.visitCopy p { max-width: 600px; margin: 0; color: #bdbdbd; font-size: 14px; line-height: 1.45; }
+.visitCopy .leadForm { margin-top: 25px; }
 
-@media (min-width: 640px) {
-  .visitSection { grid-template-columns: 1fr 1fr; }
-  .visitVideo { min-height: 365px; }
-  .visitCopy { padding: 45px 35px; }
+@media (min-width: 760px) {
+  .visitSection { grid-template-columns: minmax(340px, .9fr) minmax(460px, 1.1fr); }
+  .visitMedia { min-height: 650px; }
+  .visitVideo { min-height: 650px; }
+  .visitCopy { padding: 48px 42px 42px; }
+}
+
+@media (min-width: 1120px) {
+  .visitCopy { padding: 62px 64px 56px; }
 }

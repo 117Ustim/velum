@@ -3,7 +3,6 @@ import styles from './floating-buttons.module.css';
 export function FloatingButtons({ onOpenModal }: { onOpenModal: () => void }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    window.history.pushState(null, '', window.location.pathname);
   };
 
   return (
