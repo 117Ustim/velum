@@ -224,3 +224,15 @@
     gap: 38px;
   }
 }
+
+@media (max-width: 639px) {
+  .footerTop {
+    position: relative;
+  }
+
+  .backToTop {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

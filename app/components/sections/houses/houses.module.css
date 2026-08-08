@@ -53,7 +53,7 @@
 .houseFeatures strong { color: #1d2227; font-weight: 700; text-align: right; }
 .houseFooter { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 22px; }
 .houseFooter b { color: #1d2227; font-size: 18px; line-height: 1; letter-spacing: -.045em; white-space: nowrap; }
-.cardLink { display: inline-flex; align-items: center; justify-content: center; min-height: 43px; padding: 0 18px; border-radius: 4px; color: #1d2227; background: #ffdd28; font-size: 13px; font-weight: 800; text-decoration: none; transition: background-color .2s ease, transform .2s ease; }
+.cardLink { display: inline-flex; align-items: center; justify-content: center; min-height: 43px; padding: 0 18px; border-radius: 999px; color: #1d2227; background: #ffdd28; font-size: 13px; font-weight: 800; text-decoration: none; transition: background-color .2s ease, transform .2s ease; }
 .cardLink::after { margin-left: 14px; content: '→'; font-size: 18px; font-weight: 500; line-height: 1; }
 .cardLink:hover { background: #f5ce00; transform: translateY(-1px); }
 .consultPanel { position: relative; display: grid; width: calc(100% - 30px); gap: 28px; max-width: 1180px; margin: 32px auto 0; padding: 30px 26px; overflow: hidden; border: 1px solid #ffe873; border-radius: 25px; color: #111; background: #ffdf32; }

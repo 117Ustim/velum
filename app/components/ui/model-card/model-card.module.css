@@ -441,7 +441,61 @@
   }
 
   .metricsBand {
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
     margin-right: -22px;
     margin-left: -22px;
+    padding: 18px 12px;
+  }
+
+  .modelResult {
+    display: contents;
+  }
+
+  .modelResult div,
+  .modelPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 0 8px;
+    border-right: 1px solid #a77b003d;
+  }
+
+  .modelResult div:first-child {
+    padding-left: 0;
+  }
+
+  .modelResult div:last-child {
+    padding-right: 8px;
+    border-right: 1px solid #a77b003d;
+  }
+
+  .modelPrice {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .modelResult strong,
+  .modelPrice strong {
+    font-size: clamp(15px, 5vw, 24px);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .modelResult,
+  .modelResult div,
+  .modelPrice {
+    min-width: 0;
+  }
+
+  .modelResult span,
+  .modelPrice span {
+    overflow: hidden;
+    font-size: clamp(8px, 2.5vw, 10px);
+    letter-spacing: -.02em;
+    text-overflow: clip;
+    white-space: nowrap;
   }
 }

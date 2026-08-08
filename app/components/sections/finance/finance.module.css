@@ -78,6 +78,6 @@
   .advisorNote p { font-size: 14px; }
   .advisorNote > strong { font-size: 15px; }
   .advisorNote > span { font-size: 12px; }
-  .advisorPhotoFrame { top: 0; right: -2px; bottom: auto; width: 80%; height: 100%; }
-  .advisorPhoto { width: 100%; transform: none; }
+  .advisorPhotoFrame { top: 100px; right: -70px; bottom: auto; display: flex; width: 80%; height: 100%; align-items: flex-end; justify-content: flex-end; }
+  .advisorPhoto { width: auto; height: 108%; max-width: 100%; object-fit: contain; object-position: right bottom; transform: none; }
 }

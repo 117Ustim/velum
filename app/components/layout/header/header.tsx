@@ -97,27 +97,47 @@ export function Header({
             </a>
           </div>
         </div>
-        <button className={styles.menuButton} onClick={onToggleMenu} aria-label="Меню">
+        <button
+          className={styles.menuButton}
+          onClick={onToggleMenu}
+          aria-label="Меню"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+        >
           <span />
           <span />
           <span />
         </button>
       </header>
       {menuOpen && (
-        <nav className={styles.mobileNav}>
-          {navigation.map(([label, id], index) => (
-            <a
-              key={`${id}-${index}`}
-              href={`#${id}`}
-              onClick={(e) => {
-                onToggleMenu();
-                handleNavClick(e, id);
-              }}
-            >
-              {label}
-            </a>
-          ))}
-          <a href="tel:+380976655306">Зателефонувати нам (+380976655306)</a>
+        <nav className={styles.mobileNav} id="mobile-navigation" aria-label="Мобільна навігація">
+          <div className={styles.mobileNavTop}>
+            <span className={styles.mobileNavKicker}>
+              <span className={styles.mobileNavDot} aria-hidden="true" />
+              Меню
+            </span>
+            <span className={styles.mobileNavMeta}>VELUM</span>
+          </div>
+          <div className={styles.mobileNavList}>
+            {navigation.map(([label, id], index) => (
+              <a
+                key={`${id}-${index}`}
+                href={`#${id}`}
+                onClick={(e) => {
+                  onToggleMenu();
+                  handleNavClick(e, id);
+                }}
+              >
+                <span className={styles.mobileNavIndex}>{String(index + 1).padStart(2, '0')}</span>
+                <span className={styles.mobileNavLabel}>{label}</span>
+                <span className={styles.mobileNavRule} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <a className={styles.mobileNavCall} href="tel:+380976655306">
+            <span className={styles.mobileNavCallLabel}>Зателефонувати нам</span>
+            <span className={styles.mobileNavCallNumber}>+380 97 665 53 06</span>
+          </a>
         </nav>
       )}
     </>

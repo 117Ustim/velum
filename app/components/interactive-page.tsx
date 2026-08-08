@@ -24,24 +24,12 @@ export default function InteractivePage() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
 
   useEffect(() => {
-    const targetId = window.location.hash.slice(1);
-
-    if (!targetId) {
+    if (!window.location.hash) {
       return;
     }
 
-    const frameId = window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        if (targetId === 'top') {
-          window.scrollTo({ top: 0, behavior: 'auto' });
-          return;
-        }
-
-        document.getElementById(targetId)?.scrollIntoView({ behavior: 'auto', block: 'start' });
-      });
-    });
-
-    return () => window.cancelAnimationFrame(frameId);
+    window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }, []);
 
   function jumpTo(id: string) {

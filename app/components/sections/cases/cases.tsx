@@ -10,8 +10,19 @@ export function Cases() {
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(assets.ecoGallery.length);
   const [isGalleryPaused, setIsGalleryPaused] = useState(false);
   const [isGalleryTransitionEnabled, setIsGalleryTransitionEnabled] = useState(true);
+  const [isMobileGallery, setIsMobileGallery] = useState(false);
   const tabs = ['Кейс 1', 'Кейс 2', 'Кейс 3'];
   const galleryImages = [...assets.ecoGallery, ...assets.ecoGallery, ...assets.ecoGallery];
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 639px)');
+    const updateGalleryLayout = () => setIsMobileGallery(mediaQuery.matches);
+
+    updateGalleryLayout();
+    mediaQuery.addEventListener('change', updateGalleryLayout);
+
+    return () => mediaQuery.removeEventListener('change', updateGalleryLayout);
+  }, []);
 
   useEffect(() => {
     if (isGalleryPaused) return;
@@ -123,13 +134,13 @@ export function Cases() {
       >
         <div
           className={isGalleryTransitionEnabled ? styles.galleryTrack : styles.galleryTrackNoTransition}
-          style={{ transform: `translateX(-${activeGalleryIndex * 50}%)` }}
+          style={{ transform: `translateX(-${activeGalleryIndex * (isMobileGallery ? 100 : 50)}%)` }}
           onTransitionEnd={resetGalleryLoop}
         >
           {galleryImages.map((image, index) => (
             <div className={styles.gallerySlide} key={`${image}-${index}`}>
               <div className={styles.galleryImageFrame}>
-                <Image src={image} alt={`Еко парк Вереск, фото ${index % assets.ecoGallery.length + 1}`} fill sizes="50vw" loading="eager" unoptimized />
+                <Image src={image} alt={`Еко парк Вереск, фото ${index % assets.ecoGallery.length + 1}`} fill sizes={isMobileGallery ? '100vw' : '50vw'} loading="eager" unoptimized />
               </div>
             </div>
           ))}

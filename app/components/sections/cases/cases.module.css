@@ -700,3 +700,19 @@
   }
 
 }
+
+@media (max-width: 639px) {
+  .gallerySlide {
+    flex-basis: 100%;
+  }
+
+  .caseStats {
+    width: calc(100% - 48px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .timeNote {
+    margin-top: 24px;
+  }
+}
