@@ -228,6 +228,9 @@
   border-radius: 22px;
   background: #25272b;
   box-shadow: 0 22px 46px #1119, inset 0 1px 0 #ffffff0d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .mobileNav a {
@@ -399,6 +402,20 @@
   }
 }
 
+@-webkit-keyframes mobileNavPanelIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-18px) scale(.98);
+    transform: translateY(-18px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes mobileNavItemIn {
   from {
     opacity: 0;
@@ -407,6 +424,20 @@
 
   to {
     opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes mobileNavItemIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-28px);
+    transform: translateX(-28px);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 }
@@ -484,11 +515,16 @@
 
   .mobileNav {
     top: 68px;
+    -webkit-animation: mobileNavPanelIn .42s cubic-bezier(.22, 1, .36, 1) both;
     animation: mobileNavPanelIn .42s cubic-bezier(.22, 1, .36, 1) both;
   }
 
   .mobileNav a {
+    -webkit-animation: mobileNavItemIn .68s cubic-bezier(.22, 1, .36, 1) both;
     animation: mobileNavItemIn .68s cubic-bezier(.22, 1, .36, 1) both;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
   }
 }
 
@@ -682,8 +718,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .mainNav a,
-  .mobileNav,
-  .mobileNav a,
   .mobileNavDot,
   .menuButton span {
     animation: none;
