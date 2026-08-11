@@ -363,11 +363,6 @@
 }
 
 @media (max-width: 639px) {
-  .hero .heroCopy > p {
-    opacity: 0;
-    transform: translate3d(0, 16px, 0);
-  }
-
   .hero[data-motion='hidden'] .heroVisual,
   .hero[data-motion='hidden'] .heroTitleLine,
   .hero[data-motion='hidden'] .heroCopy > :not(h1):not(.heroFacts) {
@@ -466,23 +461,5 @@
 
   .hero[data-motion='visible'][data-motion-direction='reverse'] .heroVisual {
     animation-delay: 2.34s;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero .heroCopy > p,
-  .hero[data-motion='hidden'] .heroVisual,
-  .hero[data-motion='hidden'] .heroTitleLine,
-  .hero[data-motion='hidden'] .heroCopy > :not(h1):not(.heroFacts),
-  .hero[data-motion='hidden'] .heroFacts,
-  .hero[data-motion='hidden'] .heroFacts > div,
-  .hero[data-motion='visible'] .heroVisual,
-  .hero[data-motion='visible'] .heroTitleLine,
-  .hero[data-motion='visible'] .heroCopy > :not(h1):not(.heroFacts),
-  .hero[data-motion='visible'] .heroFacts,
-  .hero[data-motion='visible'] .heroFacts > div {
-    opacity: 1;
-    transform: none;
-    animation: none;
   }
 }

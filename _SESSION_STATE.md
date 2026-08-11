@@ -218,3 +218,14 @@
 - Добавлен PNG-резерв `app/icon.png` размером 512×512 и явные ссылки на `.ico`/PNG в `app/layout.tsx`, чтобы favicon корректно подхватывался Chrome, Safari и iOS.
 - Favicon переработан в круглый формат с прозрачными углами; обновлены `app/favicon.ico` и `app/icon.png`.
 - Production-сборка после подключения favicon прошла успешно: `npm run build`.
+
+## Рабочее предпочтение GitHub
+
+- Все публикации в GitHub выполнять обычными командами `git` (`git add`, `git commit`, `git push`), без использования `gh`.
+
+## Исправление мобильной анимации Hero — 11.08.2026
+
+- Убран мобильный `prefers-reduced-motion` reset, который на iOS мог полностью отключать keyframe-анимации Hero.
+- Удалено безусловное скрытие описания до гидратации, чтобы при сбое JavaScript текст не оставался невидимым.
+- В `RevealOnEnter` добавлена резервная проверка видимости через `requestAnimationFrame` для Chrome/Safari, если callback `IntersectionObserver` срабатывает с задержкой или не срабатывает.
+- Production-сборка и `git diff --check` прошли успешно.

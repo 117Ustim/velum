@@ -68,9 +68,23 @@ export function RevealOnEnter({ children }: { children: ReactElement<MotionEleme
 
     observer.observe(element);
 
+    const revealIfAlreadyVisible = () => {
+      const bounds = element.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const visibleHeight = Math.min(bounds.bottom, viewportHeight) - Math.max(bounds.top, 0);
+
+      if (visibleHeight > Math.min(bounds.height * 0.08, 120)) {
+        hasEntered = true;
+        setMotionState('visible');
+      }
+    };
+
+    const frameId = window.requestAnimationFrame(revealIfAlreadyVisible);
+
     return () => {
       observer.disconnect();
       window.removeEventListener('scroll', updateScrollDirection);
+      window.cancelAnimationFrame(frameId);
     };
   }, []);
 
