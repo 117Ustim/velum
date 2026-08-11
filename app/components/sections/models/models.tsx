@@ -2,14 +2,10 @@ import styles from './models.module.css';
 import { assets, modelCounts, modelNames, modelRows } from '../../velum-page-data';
 import { ModelCard, type Model } from '../../ui/model-card/model-card';
 
-const models: Model[] = modelRows.map(([payback, profit, revenue, costs, price], index) => ({
+const models: Model[] = modelRows.map((row, index) => ({
+  ...row,
   name: modelNames[index],
   count: modelCounts[index],
-  payback,
-  profit,
-  revenue,
-  costs,
-  price,
   image: assets.models[index]
 }));
 

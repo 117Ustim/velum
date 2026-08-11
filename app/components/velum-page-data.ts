@@ -44,15 +44,118 @@ export const processSteps = [
   ['Сервіс', 'Сервісна підтримка', 'Залишаємося на зв’язку після запуску та супроводжуємо проєкт.', 5]
 ] as const;
 
-export const modelNames = ['Хутір', 'Садиба', 'Маєток', 'Помістя'] as const;
+export const modelNames = ['Кемп', 'Віледж', 'Резиденція', 'Резорт'] as const;
 export const modelCounts = ['3', '5', '7', '10+'] as const;
 
-export const modelRows = [
-  ['34 міс.', '2 660 892 ₴', '4 376 970 ₴', '1 716 078 ₴', '7 444 300 ₴'],
-  ['28 міс.', '6 568 706 ₴', '9 090 630 ₴', '2 521 924 ₴', '15 532 400 ₴'],
-  ['29 міс.', '10 535 578 ₴', '14 241 987 ₴', '3 706 409 ₴', '25 292 584 ₴'],
-  ['37 міс.', '12 818 255 ₴', '18 854 640 ₴', '6 036 385 ₴', '32 383 604 ₴']
-] as const;
+export type ModelRow = {
+  payback: string;
+  profit: string;
+  revenue: string;
+  costs: string;
+  price: string;
+  rentalPrice?: string;
+  title?: string;
+  titlePrefix?: string;
+  titleSeparator?: string;
+  titleNumber?: string;
+  titleSuffix?: string;
+  preserveTitleCase?: boolean;
+  showEconomy?: boolean;
+  revenueLabel?: string;
+  revenueNote?: string;
+  costsLabel?: string;
+  costsNote?: string;
+  rentalLabel?: string;
+  paybackLabel?: string;
+  profitLabel?: string;
+};
+
+export const modelRows: ModelRow[] = [
+  {
+    payback: '28 місяців',
+    profit: '2 562 000 грн',
+    revenue: '3 942 000 грн',
+    costs: '1 380 000 грн',
+    price: '6 000 000 грн',
+    rentalPrice: '6 000 грн',
+    titlePrefix: 'КЕМП',
+    titleSeparator: '—',
+    titleNumber: '3',
+    titleSuffix: 'будинки',
+    preserveTitleCase: true,
+    showEconomy: false,
+    revenueLabel: 'Прогнозована виручка за рік:',
+    revenueNote: 'Сценарій: 60% завантаженості',
+    costsLabel: 'Прогнозовані витрати за рік:',
+    costsNote: 'Що входить у витрати →',
+    rentalLabel: 'Середня ціна оренди будинку / доба:',
+    paybackLabel: 'Прогнозований термін окупності бази',
+    profitLabel: 'Прогнозований прибуток за рік'
+  },
+  {
+    payback: '27 місяців',
+    profit: '4 400 000 грн',
+    revenue: '6 570 000 грн',
+    costs: '2 170 000 грн',
+    price: '9 900 000 грн',
+    rentalPrice: '6 000 грн',
+    titlePrefix: 'ВІЛЕДЖ',
+    titleSeparator: '—',
+    titleNumber: '5',
+    titleSuffix: 'будинків',
+    preserveTitleCase: true,
+    showEconomy: false,
+    revenueLabel: 'Прогнозована виручка за рік:',
+    revenueNote: 'Сценарій: 60% завантаженості',
+    costsLabel: 'Прогнозовані витрати за рік:',
+    costsNote: 'Що входить у витрати →',
+    rentalLabel: 'Середня ціна оренди будинку / доба:',
+    paybackLabel: 'Прогнозований термін окупності бази',
+    profitLabel: 'Прогнозований прибуток за рік'
+  },
+  {
+    payback: '26 місяців',
+    profit: '6 258 000 грн',
+    revenue: '9 198 000 грн',
+    costs: '2 940 000 грн',
+    price: '13 500 000 грн',
+    rentalPrice: '6 000 грн',
+    titlePrefix: 'РЕЗИДЕНЦІЯ',
+    titleSeparator: '—',
+    titleNumber: '7',
+    titleSuffix: 'будинків',
+    preserveTitleCase: true,
+    showEconomy: false,
+    revenueLabel: 'Прогнозована виручка за рік:',
+    revenueNote: 'Сценарій: 60% завантаженості',
+    costsLabel: 'Прогнозовані витрати за рік:',
+    costsNote: 'Що входить у витрати →',
+    rentalLabel: 'Середня ціна оренди будинку / доба:',
+    paybackLabel: 'Прогнозований термін окупності бази',
+    profitLabel: 'Прогнозований прибуток за рік'
+  },
+  {
+    payback: '25 місяців',
+    profit: '9 070 000 грн',
+    revenue: '13 140 000 грн',
+    costs: '4 070 000 грн',
+    price: '18 900 000 грн',
+    rentalPrice: '6 000 грн',
+    titlePrefix: 'РЕЗОРТ',
+    titleSeparator: '—',
+    titleNumber: '10',
+    titleSuffix: 'будинків',
+    preserveTitleCase: true,
+    showEconomy: false,
+    revenueLabel: 'Прогнозована виручка за рік:',
+    revenueNote: 'Сценарій: 60% завантаженості',
+    costsLabel: 'Прогнозовані витрати за рік:',
+    costsNote: 'Що входить у витрати →',
+    rentalLabel: 'Середня ціна оренди будинку / доба:',
+    paybackLabel: 'Прогнозований термін окупності бази',
+    profitLabel: 'Прогнозований прибуток за рік'
+  }
+];
 
 export const faqItems = [
   ['Чи можна побудувати базу відпочинку в будь-якій локації?', 'Так, але спочатку потрібно перевірити ділянку: під’їзд, електрику, воду, каналізацію, рельєф та обмеження. Ми допомагаємо оцінити локацію до старту проєкту.'],
