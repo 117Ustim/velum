@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import styles from './header.module.css';
-import { assets, navigation } from '../../velum-page-data';
+import { navigation } from '../../velum-page-data';
+import { AnimatedLogo } from '../../ui/animated-logo/animated-logo';
 
 export function Header({
   menuOpen,
@@ -31,7 +32,7 @@ export function Header({
     <>
       <header className={styles.header}>
         <a className={styles.headerBrand} href="#top" onClick={(e) => handleNavClick(e, 'top')}>
-          <img src={assets.logo} alt="Velum" width={95} height={43} />
+          <AnimatedLogo className={styles.headerLogo} />
           <b>Завод модульних будинків</b>
         </a>
         <nav className={styles.mainNav} aria-label="Основна навігація">

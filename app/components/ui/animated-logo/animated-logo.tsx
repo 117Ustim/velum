@@ -1,0 +1,47 @@
+import styles from './animated-logo.module.css';
+
+type AnimatedLogoProps = {
+  className?: string;
+};
+
+export function AnimatedLogo({ className }: AnimatedLogoProps) {
+  return (
+    <svg
+      className={`${styles.logo} ${className ?? ''}`}
+      viewBox="0 0 125 56"
+      role="img"
+      aria-label="Velum"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className={`${styles.mark} ${styles.markLeft}`}
+        d="M10 51.5H31.5V55.5L6 56V27L2 28.5L0 24.5L18.5 18V14C18.5 14.4 26.5 14.1667 30.5 14L68 0V5L10 25.5V51.5Z"
+      />
+      <path
+        className={`${styles.mark} ${styles.markRight}`}
+        d="M94.5 14L92 13V17L115 25.5V51.5H94V55.5H119.5V27L123.5 28L125 24.5L106.5 18V14H94.5Z"
+      />
+      <path
+        className={`${styles.wordmark} ${styles.letterV}`}
+        d="M30.914 44H25.7375L20.1275 25.64H23.6975L28.2875 40.736L32.954 25.64H36.524L30.914 44Z"
+      />
+      <path
+        className={`${styles.wordmark} ${styles.letterE}`}
+        d="M50.4297 44H38.4447V25.64H50.4297V28.8785H41.9127V32.8055H48.8997V36.044H41.9127V40.7615H50.4297V44Z"
+      />
+      <path
+        className={`${styles.wordmark} ${styles.letterL}`}
+        d="M65.1137 44H53.7407V25.64H57.2087V40.7615H65.1137V44Z"
+      />
+      <path
+        className={`${styles.wordmark} ${styles.letterU}`}
+        d="M74.7531 44.3825C73.2826 44.3825 71.9821 44.085 70.8516 43.49C69.7211 42.8865 68.8413 42.0365 68.2123 40.94C67.5918 39.8435 67.2816 38.5685 67.2816 37.115V25.6655L70.8006 25.64V37.0895C70.8006 37.88 70.9748 38.5812 71.3233 39.1932C71.6718 39.8052 72.1478 40.2812 72.7513 40.6212C73.3548 40.9527 74.0221 41.1185 74.7531 41.1185C75.4926 41.1185 76.1641 40.9485 76.7676 40.6085C77.3711 40.26 77.8428 39.7797 78.1828 39.1677C78.5313 38.5557 78.7056 37.863 78.7056 37.0895V25.64H82.2246V37.115C82.2246 38.5685 81.9101 39.8435 81.2811 40.94C80.6606 42.0365 79.7851 42.8865 78.6546 43.49C77.5241 44.085 76.2236 44.3825 74.7531 44.3825Z"
+      />
+      <path
+        className={`${styles.wordmark} ${styles.letterM}`}
+        d="M89.0225 44H85.784V25.64H88.895L94.964 37.829L101.033 25.64H104.144V44H100.906V33.035L95.576 44H94.352L89.0225 33.035V44Z"
+      />
+    </svg>
+  );
+}

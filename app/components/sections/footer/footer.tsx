@@ -1,6 +1,6 @@
 import styles from './footer.module.css';
 import Image from 'next/image';
-import { assets } from '../../velum-page-data';
+import { AnimatedLogo } from '../../ui/animated-logo/animated-logo';
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
       <div className={styles.footerShell}>
         <div className={styles.footerTop}>
           <a className={styles.footerBrand} href="#top" aria-label="Velum — на головну">
-            <Image src={assets.logo} alt="Velum" width={140} height={62} />
+            <AnimatedLogo className={styles.footerLogo} />
             <span>Завод модульних будинків</span>
           </a>
           <a className={styles.backToTop} href="#top" aria-label="Повернутися нагору">

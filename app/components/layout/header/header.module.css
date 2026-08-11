@@ -37,6 +37,12 @@
   filter: none;
 }
 
+.headerLogo {
+  --animated-logo-width: 95px;
+  height: auto;
+  flex: 0 0 auto;
+}
+
 .headerBrand>b {
   display: none;
   color: #fff;
@@ -466,6 +472,10 @@
     height: auto;
   }
 
+  .headerLogo {
+    --animated-logo-width: 82px;
+  }
+
   .headerActions {
     gap: 5px;
   }
@@ -555,6 +565,10 @@
   .headerBrand img {
     width: 95px;
     height: auto;
+  }
+
+  .headerLogo {
+    --animated-logo-width: 95px;
   }
 
   .headerBrand>b {

@@ -10,7 +10,7 @@ export function Location() {
           <h2>Місце, з якого починається ваш <span className={styles.headingHighlight}>проєкт</span></h2>
         </RevealOnEnter>
         <RevealOnEnter>
-          <p className={styles.locationDescription}>Приїжджайте до шоуруму, щоб побачити модульні будинки наживо, обговорити формат бази відпочинку та зробити перший крок до запуску.</p>
+          <p className={styles.locationDescription}>Приїжджайте щоб побачити модульні будинки наживо, обговорити формат бази відпочинку та зробити перший крок до запуску.</p>
         </RevealOnEnter>
         <RevealOnEnter>
           <div className={styles.locationPoints}>

@@ -28,6 +28,12 @@
   height: auto;
 }
 
+.footerLogo {
+  --animated-logo-width: 106px;
+  height: auto;
+  flex: 0 0 auto;
+}
+
 .footerBrand span {
   max-width: 125px;
   color: #d2d2d4;
@@ -180,6 +186,10 @@
 
   .footerBrand img {
     width: 140px;
+  }
+
+  .footerLogo {
+    --animated-logo-width: 140px;
   }
 
   .footerBrand span {
