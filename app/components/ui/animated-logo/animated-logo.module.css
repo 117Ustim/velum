@@ -73,17 +73,3 @@
     transform: translateY(0);
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .mark {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-    animation: none;
-  }
-
-  .wordmark {
-    opacity: 1;
-    transform: none;
-    animation: none;
-  }
-}
