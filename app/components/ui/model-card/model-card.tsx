@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './model-card.module.css';
 import { modelCounts, modelNames } from '../../velum-page-data';
+import { RevealOnEnter } from '../reveal-on-enter/reveal-on-enter';
 
 export type Model = {
   name: string;
@@ -31,22 +32,26 @@ export type Model = {
 export function ModelCard({ model }: { model: Model }) {
   return (
     <article className={styles.modelCard} id={`model-${model.name.toLowerCase()}`}>
-      <div className={styles.modelTabs}>
-        {modelNames.map((name, index) => (
-          <a href={`#model-${name.toLowerCase()}`} className={name === model.name ? styles.selectedTab : ''} key={name}>
-            {name} - {modelCounts[index]}
-          </a>
-        ))}
-      </div>
+      <RevealOnEnter>
+        <div className={styles.modelTabs}>
+          {modelNames.map((name, index) => (
+            <a href={`#model-${name.toLowerCase()}`} className={name === model.name ? styles.selectedTab : ''} key={name}>
+              {name} - {modelCounts[index]}
+            </a>
+          ))}
+        </div>
+      </RevealOnEnter>
       <div className={styles.modelBody}>
-        <div className={styles.modelPicture}>
-          <div className={styles.pictureRail} aria-hidden="true">
-            <span>Velum</span>
-            <small>Проєкт</small>
-            <b>{model.count.length === 1 ? `0${model.count}` : model.count}</b>
+        <RevealOnEnter>
+          <div className={styles.modelPicture}>
+            <div className={styles.pictureRail} aria-hidden="true">
+              <span>Velum</span>
+              <small>Проєкт</small>
+              <b>{model.count.length === 1 ? `0${model.count}` : model.count}</b>
+            </div>
+            <Image src={model.image} alt={`База відпочинку «${model.name}»`} fill sizes="(max-width: 760px) 100vw, 54vw" />
           </div>
-          <Image src={model.image} alt={`База відпочинку «${model.name}»`} fill sizes="(max-width: 760px) 100vw, 54vw" />
-          </div>
+        </RevealOnEnter>
           <div className={styles.modelDetails}>
             <div className={styles.modelTitle}>
             <h3 className={model.preserveTitleCase ? styles.modelTitleCustom : undefined}>

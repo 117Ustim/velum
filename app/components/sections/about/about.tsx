@@ -18,7 +18,7 @@ export function About() {
         <span className={styles.yellowLabel}>Готові рішення</span>
         <h2>
           <span className={styles.headingLine}>Для кого підійде</span>
-          <span className={styles.headingLine}>наша пропозиція</span>
+          <span className={styles.headingLine}>наша <span className={styles.headingHighlight}>пропозиція</span></span>
         </h2>
         <p className={styles.headingLead}>Ми перетворюємо складні земельні та інвестиційні задачі на зрозумілий план запуску бази відпочинку.</p>
         </div>

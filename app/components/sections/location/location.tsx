@@ -1,17 +1,24 @@
 import styles from './location.module.css';
+import { RevealOnEnter } from '../../ui/reveal-on-enter/reveal-on-enter';
 
 export function Location() {
   return (
     <section className={styles.locationSection} id="location">
       <div className={styles.locationCopy}>
         <span className={styles.locationEyebrow}>Velum · Львів</span>
-        <h2>Місце, з якого починається ваш проєкт</h2>
-        <p className={styles.locationDescription}>Приїжджайте до шоуруму, щоб побачити модульні будинки наживо, обговорити формат бази відпочинку та зробити перший крок до запуску.</p>
-        <div className={styles.locationPoints}>
-          <div><b>01</b><span>Покажемо рішення<br />під ваш бюджет</span></div>
-          <div><b>02</b><span>Оцінимо потенціал<br />локації</span></div>
-          <div><b>03</b><span>Підготуємо наступний<br />крок проєкту</span></div>
-        </div>
+        <RevealOnEnter>
+          <h2>Місце, з якого починається ваш <span className={styles.headingHighlight}>проєкт</span></h2>
+        </RevealOnEnter>
+        <RevealOnEnter>
+          <p className={styles.locationDescription}>Приїжджайте до шоуруму, щоб побачити модульні будинки наживо, обговорити формат бази відпочинку та зробити перший крок до запуску.</p>
+        </RevealOnEnter>
+        <RevealOnEnter>
+          <div className={styles.locationPoints}>
+            <div><b>01</b><span>Покажемо рішення<br />під ваш бюджет</span></div>
+            <div><b>02</b><span>Оцінимо потенціал<br />локації</span></div>
+            <div><b>03</b><span>Підготуємо наступний<br />крок проєкту</span></div>
+          </div>
+        </RevealOnEnter>
         <div className={styles.locationAddress}>
           <span>Адреса</span>
           <p>м. Львів, вул. Промислова, 60</p>

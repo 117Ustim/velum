@@ -21,6 +21,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 12px;
+  overscroll-behavior-y: none;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -33,6 +35,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+::selection {
+  color: #171717;
+  background: #ffdd28;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f1ed;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid #f2f1ed;
+  border-radius: 999px;
+  background: #b4b2aa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8f8d85;
 }
 
 body,

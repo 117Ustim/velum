@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import styles from './lead-form.module.css';
+import { RevealOnEnter } from '../reveal-on-enter/reveal-on-enter';
 
 type LeadFormProps = {
   compact?: boolean;
@@ -113,7 +114,9 @@ export function LeadForm({ compact = false, onSent, showConsent = true, variant 
           <span>Я погоджуюся з політикою конфіденційності</span>
         </label>
       )}
-      <button className={styles.submitButton} type="submit">{variant === 'land' ? 'Отримати розрахунок' : compact ? 'Залишити заявку' : 'Отримати консультацію'}</button>
+      <RevealOnEnter>
+        <button className={`${styles.submitButton} ${compact ? styles.compactSubmitButton : ''} ${variant === 'land' ? styles.landSubmitButton : ''} ${variant === 'default' ? styles.defaultSubmitButton : ''}`} type="submit">{variant === 'land' ? 'Отримати розрахунок' : compact ? 'Залишити заявку' : 'Отримати консультацію'}</button>
+      </RevealOnEnter>
     </form>
   );
 }

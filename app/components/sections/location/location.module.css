@@ -66,6 +66,10 @@
   letter-spacing: -.055em;
 }
 
+.headingHighlight {
+  color: #f0bf00;
+}
+
 .locationDescription {
   max-width: 500px;
   margin: 0;
@@ -157,6 +161,65 @@
   filter: grayscale(.15) contrast(.95);
 }
 
+@keyframes locationHeadingFromLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes locationDescriptionReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes locationPointFromLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes locationPointNumberReveal {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+    box-shadow: 0 0 0 #ffdd2800;
+    transform: scale(.72);
+  }
+
+  58% {
+    opacity: 1;
+    filter: blur(0);
+    box-shadow: 0 0 16px #ffdd2877;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    box-shadow: 0 0 0 #ffdd2800;
+    transform: scale(1);
+  }
+}
+
 @media (min-width: 640px) {
   .locationSection {
     grid-template-columns: minmax(320px, .8fr) minmax(0, 1.2fr);
@@ -186,4 +249,70 @@
   .mapFrame iframe {
     min-height: 440px;
   }
+}
+
+@media (max-width: 639px) {
+  .locationCopy > h2[data-motion='hidden'] {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+
+  .locationCopy > h2[data-motion='visible'] {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    animation: locationHeadingFromLeft .62s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .locationDescription[data-motion='hidden'] {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  .locationDescription[data-motion='visible'] {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    animation: locationDescriptionReveal .58s .68s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .locationPoints[data-motion='hidden'] > div {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+
+  .locationPoints[data-motion='hidden'] b {
+    opacity: 0;
+    transform: scale(.72);
+  }
+
+  .locationPoints[data-motion='visible'] > div {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    animation: locationPointFromLeft .58s 1s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .locationPoints[data-motion='visible'] > div:nth-child(2) { animation-delay: 1.14s; }
+  .locationPoints[data-motion='visible'] > div:nth-child(3) { animation-delay: 1.28s; }
+
+  .locationPoints[data-motion='visible'] b {
+    backface-visibility: hidden;
+    will-change: transform, opacity, filter, box-shadow;
+    animation: locationPointNumberReveal .68s 1.1s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .locationPoints[data-motion='visible'] > div:nth-child(2) b { animation-delay: 1.24s; }
+  .locationPoints[data-motion='visible'] > div:nth-child(3) b { animation-delay: 1.38s; }
+
+  .locationPoints[data-motion='visible'][data-motion-direction='reverse'] > div {
+    animation-delay: 1.28s;
+  }
+
+  .locationPoints[data-motion='visible'][data-motion-direction='reverse'] > div:nth-child(2) { animation-delay: 1.14s; }
+  .locationPoints[data-motion='visible'][data-motion-direction='reverse'] > div:nth-child(3) { animation-delay: 1s; }
+
+  .locationPoints[data-motion='visible'][data-motion-direction='reverse'] b {
+    animation-delay: 1.38s;
+  }
+
+  .locationPoints[data-motion='visible'][data-motion-direction='reverse'] > div:nth-child(2) b { animation-delay: 1.24s; }
+  .locationPoints[data-motion='visible'][data-motion-direction='reverse'] > div:nth-child(3) b { animation-delay: 1.1s; }
 }

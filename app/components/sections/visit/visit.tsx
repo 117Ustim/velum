@@ -37,7 +37,7 @@ export function Visit() {
       </div>
       <div className={styles.visitCopy}>
         <span className={styles.yellowLabel}>Безкоштовний розрахунок</span>
-        <h2>Отримайте розрахунок під вашу ділянку</h2>
+        <h2>Отримайте <span className={styles.headingHighlight}>розрахунок</span> під вашу ділянку</h2>
         <p>Залиште заявку — ми оцінимо потенціал вашої ділянки, запропонуємо формат бази відпочинку та підготуємо попередній розрахунок бюджету, доходу й окупності.</p>
         <LeadForm variant="land" showConsent={false} />
       </div>

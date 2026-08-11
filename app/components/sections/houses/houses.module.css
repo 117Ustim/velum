@@ -30,6 +30,9 @@
 .yellowLabel { display: inline-block; margin: 0 0 12px; padding: 4px 8px; border-radius: 5px; color: #151515; background: #ffdd28; font-size: 8px; font-weight: 800; letter-spacing: .04em; line-height: 1; }
 .centerHeading .yellowLabel { margin-bottom: 9px; }
 .centerHeading h2 { margin: 0 0 12px; font-size: clamp(27px, 7vw, 48px); line-height: .98; letter-spacing: -.055em; }
+.headingLine { display: block; }
+.headingWord { display: inline-block; white-space: nowrap; }
+.headingCharacter { display: inline-block; }
 .centerHeading p { margin: 0 auto; color: #757575; font-size: 11px; line-height: 1.45; }
 .centerHeading mark { padding: 0 3px; color: #141414; background: #ffdd28; }
 .houseGrid { display: grid; grid-template-columns: 1fr; width: calc(100% - 30px); gap: 16px; max-width: 1420px; margin: 0 auto; }
@@ -67,6 +70,65 @@
 .consultForm { padding: 22px; border-radius: 18px; background: #292929; box-shadow: 0 14px 30px #00000014; }
 .formHint { display: block; margin-bottom: 14px; color: #ffdf32; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 
+@keyframes housesHeadingCharacterReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes housePictureFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes houseRailFromTop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes housesButtonFromDot {
+  from {
+    opacity: 0;
+    transform: scale(.08);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes housesButtonPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 #ffdd2866;
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px #ffdd2800;
+    transform: scale(1.025);
+  }
+}
+
 @media (min-width: 640px) {
   .houseGrid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .consultPanel { grid-template-columns: minmax(0, .9fr) minmax(340px, 1.1fr); align-items: stretch; padding: 34px; }
@@ -98,6 +160,7 @@
   }
 
   .houseGrid { gap: 14px; }
+  .centerHeading h2 { font-size: clamp(24px, 6.2vw, 42px); }
   .houseCard { border-radius: 32px; }
   .houseMedia { grid-template-columns: 40px minmax(0, 1fr); border-radius: 28px 28px 0 0; }
   .houseRail { min-height: 0; padding: 16px 0 14px; }
@@ -115,4 +178,73 @@
   .consultPanel h3 { margin-bottom: 17px; }
   .consultPanel p { font-size: 14px; }
   .consultForm { padding: 18px 16px; border-radius: 15px; }
+
+  .centerHeading[data-motion='hidden'] .headingCharacter {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+
+  .centerHeading[data-motion='visible'] .headingCharacter {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    animation: housesHeadingCharacterReveal .42s var(--char-delay) cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .centerHeading[data-motion='visible'][data-motion-direction='reverse'] .headingCharacter {
+    animation-delay: var(--char-reverse-delay);
+  }
+
+  .houseMedia[data-motion='hidden'] .housePicture img,
+  .houseMedia[data-motion='hidden'] .housePicture > span {
+    opacity: 0;
+  }
+
+  .houseMedia[data-motion='hidden'] .houseRail {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  .houseMedia[data-motion='visible'] .housePicture img,
+  .houseMedia[data-motion='visible'] .housePicture > span,
+  .houseMedia[data-motion='visible'] .houseRail {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  .houseMedia[data-motion='visible'] .housePicture img,
+  .houseMedia[data-motion='visible'] .housePicture > span {
+    animation: housePictureFade .95s ease both;
+  }
+
+  .houseMedia[data-motion='visible'] .houseRail {
+    animation: houseRailFromTop .7s .48s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .houseMedia[data-motion='visible'][data-motion-direction='reverse'] .housePicture img,
+  .houseMedia[data-motion='visible'][data-motion-direction='reverse'] .housePicture > span {
+    animation-delay: .48s;
+  }
+
+  .houseMedia[data-motion='visible'][data-motion-direction='reverse'] .houseRail {
+    animation-delay: 0s;
+  }
+
+  .cardLink[data-motion='hidden'] {
+    opacity: 0;
+    transform: scale(.08);
+  }
+
+  .cardLink[data-motion='visible'] {
+    backface-visibility: hidden;
+    will-change: transform, opacity, box-shadow;
+    animation:
+      housesButtonFromDot .52s .16s cubic-bezier(.22, 1, .36, 1) both,
+      housesButtonPulse 1.8s .68s ease-in-out infinite;
+  }
+
+  .cardLink[data-motion='visible'][data-motion-direction='reverse'] {
+    animation:
+      housesButtonFromDot .52s 0s cubic-bezier(.22, 1, .36, 1) both,
+      housesButtonPulse 1.8s .52s ease-in-out infinite;
+  }
 }

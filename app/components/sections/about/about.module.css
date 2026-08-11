@@ -67,6 +67,10 @@
   display: block;
 }
 
+.headingHighlight {
+  color: #f0bf00;
+}
+
 .headingLead {
   max-width: 600px;
   margin: 0 auto;
