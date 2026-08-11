@@ -401,6 +401,18 @@
   }
 }
 
+@keyframes aboutLeadReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (max-width: 639px) {
   .aboutSection[data-motion='hidden'] .headingLine {
     opacity: 0;
@@ -414,6 +426,11 @@
     transform: translate3d(28px, 0, 0);
   }
 
+  .aboutSection[data-motion='hidden'] .headingLead {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
   .aboutSection[data-motion='visible'] .headingLine {
     backface-visibility: hidden;
     will-change: transform, opacity;
@@ -425,6 +442,10 @@
 
   .aboutSection[data-motion='visible'] .headingLine:last-child {
     animation: aboutHeadingFromRight .62s .1s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .aboutSection[data-motion='visible'] .headingLead {
+    animation: aboutLeadReveal .58s .78s cubic-bezier(.22, 1, .36, 1) both;
   }
 }
 
