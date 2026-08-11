@@ -12,20 +12,22 @@ export function About() {
   );
 
   return (
-    <RevealOnEnter>
-      <section className={styles.aboutSection} id="about">
-      <div className={styles.centerHeading}>
+    <section className={styles.aboutSection} id="about">
+      <RevealOnEnter>
+        <div className={styles.centerHeading}>
         <span className={styles.yellowLabel}>Готові рішення</span>
         <h2>
           <span className={styles.headingLine}>Для кого підійде</span>
           <span className={styles.headingLine}>наша пропозиція</span>
         </h2>
         <p className={styles.headingLead}>Ми перетворюємо складні земельні та інвестиційні задачі на зрозумілий план запуску бази відпочинку.</p>
-      </div>
+        </div>
+      </RevealOnEnter>
 
       <div className={styles.audienceGrid}>
         {/* Card 1 */}
-        <div className={styles.card}>
+        <RevealOnEnter>
+          <div className={styles.card}>
           <div className={styles.cardTopline}>
             <span>01</span>
             <em>Монетизація землі</em>
@@ -107,10 +109,12 @@ export function About() {
               Отримайте розрахунок дохідності та консультацію. <b>Безкоштовно і без зобов&apos;язань.</b>
             </p>
           </div>
-        </div>
+          </div>
+        </RevealOnEnter>
 
         {/* Card 2 */}
-        <div className={styles.card}>
+        <RevealOnEnter>
+          <div className={styles.card}>
           <div className={styles.cardTopline}>
             <span>02</span>
             <em>Інвестиційний запуск</em>
@@ -192,9 +196,9 @@ export function About() {
               Отримайте розрахунок дохідності та консультацію. <b>Безкоштовно і без зобов&apos;язань.</b>
             </p>
           </div>
-        </div>
+          </div>
+        </RevealOnEnter>
       </div>
-      </section>
-    </RevealOnEnter>
+    </section>
   );
 }

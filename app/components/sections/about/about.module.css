@@ -413,39 +413,203 @@
   }
 }
 
-@media (max-width: 639px) {
-  .aboutSection[data-motion='hidden'] .headingLine {
+@keyframes aboutCardFromLeft {
+  from {
     opacity: 0;
+    transform: translate3d(-32px, 0, 0);
   }
 
-  .aboutSection[data-motion='hidden'] .headingLine:first-child {
-    transform: translate3d(-28px, 0, 0);
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
+}
 
-  .aboutSection[data-motion='hidden'] .headingLine:last-child {
-    transform: translate3d(28px, 0, 0);
-  }
-
-  .aboutSection[data-motion='hidden'] .headingLead {
+@keyframes aboutSolutionReveal {
+  from {
     opacity: 0;
     transform: translate3d(0, 14px, 0);
   }
 
-  .aboutSection[data-motion='visible'] .headingLine {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes aboutButtonFromDot {
+  from {
+    opacity: 0;
+    transform: scale(.08);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes aboutButtonPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 #ffdd2866;
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 7px #ffdd2800;
+    transform: scale(1.035);
+  }
+}
+
+@keyframes aboutCardHeaderReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 639px) {
+  .centerHeading[data-motion='hidden'] .headingLine {
+    opacity: 0;
+  }
+
+  .centerHeading[data-motion='hidden'] .headingLine:first-child {
+    transform: translate3d(-28px, 0, 0);
+  }
+
+  .centerHeading[data-motion='hidden'] .headingLine:last-child {
+    transform: translate3d(28px, 0, 0);
+  }
+
+  .centerHeading[data-motion='hidden'] .headingLead {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  .card[data-motion='hidden'] .problemItem {
+    opacity: 0;
+    transform: translate3d(-32px, 0, 0);
+  }
+
+  .card[data-motion='hidden'] {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+
+  .card[data-motion='hidden'][data-motion-direction='reverse'] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .card[data-motion='hidden'][data-motion-direction='reverse'] .cardTopline,
+  .card[data-motion='hidden'][data-motion-direction='reverse'] .cardHeader {
+    opacity: 0;
+    transform: translate3d(-24px, 0, 0);
+  }
+
+  .card[data-motion='hidden'] .solutionTitle,
+  .card[data-motion='hidden'] .solutionItem {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  .card[data-motion='hidden'] .primaryBtn {
+    opacity: 0;
+    transform: scale(.08);
+  }
+
+  .centerHeading[data-motion='visible'] .headingLine {
     backface-visibility: hidden;
     will-change: transform, opacity;
   }
 
-  .aboutSection[data-motion='visible'] .headingLine:first-child {
+  .centerHeading[data-motion='visible'] .headingLine:first-child {
     animation: aboutHeadingFromLeft .62s cubic-bezier(.22, 1, .36, 1) both;
   }
 
-  .aboutSection[data-motion='visible'] .headingLine:last-child {
+  .centerHeading[data-motion='visible'] .headingLine:last-child {
     animation: aboutHeadingFromRight .62s .1s cubic-bezier(.22, 1, .36, 1) both;
   }
 
-  .aboutSection[data-motion='visible'] .headingLead {
+  .centerHeading[data-motion='visible'] .headingLead {
     animation: aboutLeadReveal .58s .78s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .card[data-motion='visible'] .problemItem {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    animation: aboutCardFromLeft .54s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .card[data-motion='visible'] {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    animation: aboutCardFromLeft .62s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .card[data-motion='visible'] .problemItem:nth-child(1) { animation-delay: .18s; }
+  .card[data-motion='visible'] .problemItem:nth-child(2) { animation-delay: .28s; }
+  .card[data-motion='visible'] .problemItem:nth-child(3) { animation-delay: .38s; }
+  .card[data-motion='visible'] .problemItem:nth-child(4) { animation-delay: .48s; }
+
+  .card[data-motion='visible'] .solutionTitle,
+  .card[data-motion='visible'] .solutionItem {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  .card[data-motion='visible'] .solutionTitle {
+    animation: aboutSolutionReveal .56s 1.12s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .card[data-motion='visible'] .solutionItem {
+    animation: aboutSolutionReveal .48s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .card[data-motion='visible'] .solutionItem:nth-child(1) { animation-delay: 1.36s; }
+  .card[data-motion='visible'] .solutionItem:nth-child(2) { animation-delay: 1.44s; }
+  .card[data-motion='visible'] .solutionItem:nth-child(3) { animation-delay: 1.52s; }
+  .card[data-motion='visible'] .solutionItem:nth-child(4) { animation-delay: 1.60s; }
+
+  .card[data-motion='visible'] .primaryBtn {
+    backface-visibility: hidden;
+    will-change: transform, opacity, box-shadow;
+    animation:
+      aboutButtonFromDot .52s 2.10s cubic-bezier(.22, 1, .36, 1) both,
+      aboutButtonPulse 1.8s 2.62s ease-in-out infinite;
+  }
+
+  .card[data-motion='visible'][data-motion-direction='reverse'] .primaryBtn {
+    animation:
+      aboutButtonFromDot .52s 0s cubic-bezier(.22, 1, .36, 1) both,
+      aboutButtonPulse 1.8s .52s ease-in-out infinite;
+  }
+
+  .card[data-motion='visible'][data-motion-direction='reverse'] .solutionTitle {
+    animation-delay: .72s;
+  }
+
+  .card[data-motion='visible'][data-motion-direction='reverse'] .solutionItem:nth-child(1) { animation-delay: 1.08s; }
+  .card[data-motion='visible'][data-motion-direction='reverse'] .solutionItem:nth-child(2) { animation-delay: 1s; }
+  .card[data-motion='visible'][data-motion-direction='reverse'] .solutionItem:nth-child(3) { animation-delay: .92s; }
+  .card[data-motion='visible'][data-motion-direction='reverse'] .solutionItem:nth-child(4) { animation-delay: .84s; }
+
+  .card[data-motion='visible'][data-motion-direction='reverse'] .problemItem:nth-child(1) { animation-delay: 1.64s; }
+  .card[data-motion='visible'][data-motion-direction='reverse'] .problemItem:nth-child(2) { animation-delay: 1.54s; }
+  .card[data-motion='visible'][data-motion-direction='reverse'] .problemItem:nth-child(3) { animation-delay: 1.44s; }
+  .card[data-motion='visible'][data-motion-direction='reverse'] .problemItem:nth-child(4) { animation-delay: 1.34s; }
+
+  .card[data-motion='visible'][data-motion-direction='reverse'] .cardTopline,
+  .card[data-motion='visible'][data-motion-direction='reverse'] .cardHeader {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    animation: aboutCardHeaderReveal .58s 2.24s cubic-bezier(.22, 1, .36, 1) both;
   }
 }
 
