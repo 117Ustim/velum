@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './about.module.css';
+import { RevealOnEnter } from '../../ui/reveal-on-enter/reveal-on-enter';
 
 export function About() {
   const ProblemIcon = () => (
@@ -11,10 +12,14 @@ export function About() {
   );
 
   return (
-    <section className={styles.aboutSection} id="about">
+    <RevealOnEnter>
+      <section className={styles.aboutSection} id="about">
       <div className={styles.centerHeading}>
         <span className={styles.yellowLabel}>Готові рішення</span>
-        <h2>Для кого підійде<br />наша пропозиція</h2>
+        <h2>
+          <span className={styles.headingLine}>Для кого підійде</span>
+          <span className={styles.headingLine}>наша пропозиція</span>
+        </h2>
         <p className={styles.headingLead}>Ми перетворюємо складні земельні та інвестиційні задачі на зрозумілий план запуску бази відпочинку.</p>
       </div>
 
@@ -189,6 +194,7 @@ export function About() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </RevealOnEnter>
   );
 }
