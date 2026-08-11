@@ -16,7 +16,11 @@ export const metadata: Metadata = {
     title: 'Завод модульних будинків',
     description: 'Готове бізнес-рішення від Velum із зрозумілою економікою проєкту.',
     type: 'website',
-    
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/icon.png'
   }
 };
 

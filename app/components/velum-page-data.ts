@@ -3,14 +3,6 @@ const assetRoot = '/assets/velum';
 export const assets = {
   logo: '/logo.svg',
   hero: `${assetRoot}/hero/hero.jpg`,
-  process: [
-    `${assetRoot}/process/step-1-finmodel.png`,
-    `${assetRoot}/process/step-2-construction.png`,
-    `${assetRoot}/process/step-3-production.png`,
-    `${assetRoot}/process/step-4-communications.png`,
-    `${assetRoot}/process/step-5-support.png`,
-    `${assetRoot}/process/step-6-growth.png`
-  ],
   models: [
     `${assetRoot}/models/hutir/photo.jpg`,
     `${assetRoot}/models/sadiba/photo.jpg`,

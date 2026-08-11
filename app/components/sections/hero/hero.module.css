@@ -82,6 +82,14 @@
   color: #ffdd28;
 }
 
+.hero h1 .heroTitleLine {
+  color: inherit;
+}
+
+.hero h1 .heroTitleAccent {
+  color: #ffdd28;
+}
+
 .heroCopy > p {
   width: 100%;
   max-width: 570px;
@@ -226,6 +234,42 @@
   line-height: 1.08;
 }
 
+@keyframes heroPhotoReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroTitleReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(-18px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroCopyReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .hero:hover .heroVisual img {
     transform: scale(1.025);
@@ -315,5 +359,130 @@
   .primaryButton,
   .secondaryButton {
     transition: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero .heroCopy > p {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+
+  .hero[data-motion='hidden'] .heroVisual,
+  .hero[data-motion='hidden'] .heroTitleLine,
+  .hero[data-motion='hidden'] .heroCopy > :not(h1):not(.heroFacts) {
+    opacity: 0;
+  }
+
+  .hero[data-motion='hidden'] .heroVisual {
+    transform: scale(1.06);
+  }
+
+  .hero[data-motion='hidden'] .heroTitleLine {
+    transform: translate3d(-18px, 0, 0);
+  }
+
+  .hero[data-motion='hidden'] .heroCopy > :not(h1):not(.heroFacts) {
+    transform: translate3d(0, 16px, 0);
+  }
+
+  .hero[data-motion='hidden'] .heroFacts,
+  .hero[data-motion='hidden'] .heroFacts > div {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+
+  .hero[data-motion='visible'] .heroVisual {
+    animation: heroPhotoReveal 1.25s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .hero[data-motion='visible'] .heroTitleLine {
+    display: block;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    animation: heroTitleReveal .56s .58s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .hero[data-motion='visible'] .heroTitleLine:nth-child(2) { animation-delay: .64s; }
+  .hero[data-motion='visible'] .heroTitleLine:nth-child(3) { animation-delay: .7s; }
+  .hero[data-motion='visible'] .heroTitleLine:nth-child(4) { animation-delay: .76s; }
+
+  .hero[data-motion='visible'] .heroCopy > :not(h1):not(.heroFacts) {
+    animation: heroCopyReveal .56s .3s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .hero[data-motion='visible'] .heroKicker { animation-delay: 1.28s; }
+  .hero[data-motion='visible'] .heroCopy > p {
+    animation: heroCopyReveal .62s 1.32s cubic-bezier(.22, 1, .36, 1) both;
+  }
+  .hero[data-motion='visible'] .heroButtons { animation-delay: 2.58s; }
+  .hero[data-motion='visible'] .heroNote { animation-delay: 2.72s; }
+
+  .hero[data-motion='visible'] .heroFacts {
+    animation: heroCopyReveal .56s .92s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .hero[data-motion='visible'] .heroFacts > div {
+    animation: heroCopyReveal .46s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .hero[data-motion='visible'] .heroFacts > div:nth-child(1) { animation-delay: 1s; }
+  .hero[data-motion='visible'] .heroFacts > div:nth-child(2) { animation-delay: 1.06s; }
+  .hero[data-motion='visible'] .heroFacts > div:nth-child(3) { animation-delay: 1.12s; }
+  .hero[data-motion='visible'] .heroFacts > div:nth-child(4) { animation-delay: 1.18s; }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroFacts {
+    animation-delay: .42s;
+  }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroFacts > div:nth-child(1) { animation-delay: .78s; }
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroFacts > div:nth-child(2) { animation-delay: .72s; }
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroFacts > div:nth-child(3) { animation-delay: .66s; }
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroFacts > div:nth-child(4) { animation-delay: .6s; }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroCopy > p {
+    animation-delay: 1.05s;
+  }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroKicker {
+    animation-delay: 1.32s;
+  }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroTitleLine {
+    animation-delay: 1.48s;
+  }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroTitleLine:nth-child(2) { animation-delay: 1.54s; }
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroTitleLine:nth-child(3) { animation-delay: 1.6s; }
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroTitleLine:nth-child(4) { animation-delay: 1.66s; }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroButtons {
+    animation-delay: 1.98s;
+  }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroNote {
+    animation-delay: 2.08s;
+  }
+
+  .hero[data-motion='visible'][data-motion-direction='reverse'] .heroVisual {
+    animation-delay: 2.34s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .heroCopy > p,
+  .hero[data-motion='hidden'] .heroVisual,
+  .hero[data-motion='hidden'] .heroTitleLine,
+  .hero[data-motion='hidden'] .heroCopy > :not(h1):not(.heroFacts),
+  .hero[data-motion='hidden'] .heroFacts,
+  .hero[data-motion='hidden'] .heroFacts > div,
+  .hero[data-motion='visible'] .heroVisual,
+  .hero[data-motion='visible'] .heroTitleLine,
+  .hero[data-motion='visible'] .heroCopy > :not(h1):not(.heroFacts),
+  .hero[data-motion='visible'] .heroFacts,
+  .hero[data-motion='visible'] .heroFacts > div {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }

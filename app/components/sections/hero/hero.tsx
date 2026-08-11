@@ -1,13 +1,20 @@
 import Image from 'next/image';
 import styles from './hero.module.css';
 import { assets } from '../../velum-page-data';
+import { RevealOnEnter } from '../../ui/reveal-on-enter/reveal-on-enter';
 
 export function Hero() {
   return (
-    <section className={styles.hero} id="top">
+    <RevealOnEnter>
+      <section className={styles.hero} id="top">
       <div className={styles.heroCopy}>
         <span className={styles.heroKicker}>VELUM · BUSINESS RESORT</span>
-        <h1>Запустіть прибуткову базу відпочинку <span>під ключ від 12 835</span></h1>
+        <h1>
+          <span className={styles.heroTitleLine}>Запустіть</span>{' '}
+          <span className={styles.heroTitleLine}>прибуткову базу</span>{' '}
+          <span className={styles.heroTitleLine}>відпочинку <span className={styles.heroTitleAccent}>під</span></span>{' '}
+          <span className={`${styles.heroTitleLine} ${styles.heroTitleAccent}`}>ключ від 12 835</span>
+        </h1>
         <p>Готове бізнес-рішення: виробництво будинків, підключення комунікацій, монтаж фундаменту та будинків на ділянці, розрахунок окупності, базовий маркетинг і гості в перший місяць роботи бази. Чистий прибуток від 4 587 на рік.</p>
         <div className={styles.heroFacts}>
           <div>
@@ -49,6 +56,7 @@ export function Hero() {
           <strong>Простір, який працює на ваш дохід</strong>
         </div>
       </div>
-    </section>
+      </section>
+    </RevealOnEnter>
   );
 }
