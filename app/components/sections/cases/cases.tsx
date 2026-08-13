@@ -5,13 +5,57 @@ import Image from 'next/image';
 import styles from './cases.module.css';
 import { assets } from '../../velum-page-data';
 
+type CaseProject = {
+  tab: string;
+  title: string;
+  image: string;
+  alt: string;
+  link?: string;
+  linkLabel?: string;
+};
+
+const caseProjects: CaseProject[] = [
+  {
+    tab: 'Кейс 1',
+    title: 'Tysha Cottages',
+    image: assets.tyshaCottages,
+    alt: 'Tysha Cottages',
+    link: 'https://www.instagram.com/tysha.cottages/',
+    linkLabel: 'Перейти в Instagram'
+  },
+  {
+    tab: 'Кейс 2',
+    title: 'Chudodievo',
+    image: assets.chudodievo,
+    alt: 'Chudodievo',
+    link: 'https://chudodievo.com/',
+    linkLabel: 'Перейти на сайт'
+  },
+  {
+    tab: 'Кейс 3',
+    title: 'Ostriv Camp',
+    image: assets.ostrivCamp,
+    alt: 'Ostriv Camp',
+    link: 'https://ostriv.camp/',
+    linkLabel: 'Перейти на сайт'
+  },
+  {
+    tab: 'Кейс 4',
+    title: 'Spokiy',
+    image: assets.spokiy,
+    alt: 'Spokiy',
+    link: 'https://www.instagram.com/spokiy.ck/',
+    linkLabel: 'Перейти в Instagram'
+  }
+];
+
 export function Cases() {
   const [activeTab, setActiveTab] = useState(0);
+  const activeCase = caseProjects[activeTab];
   const [activeGalleryIndex, setActiveGalleryIndex] = useState(assets.ecoGallery.length);
   const [isGalleryPaused, setIsGalleryPaused] = useState(false);
   const [isGalleryTransitionEnabled, setIsGalleryTransitionEnabled] = useState(true);
   const [isMobileGallery, setIsMobileGallery] = useState(false);
-  const tabs = ['Кейс 1', 'Кейс 2', 'Кейс 3'];
   const galleryImages = [...assets.ecoGallery, ...assets.ecoGallery, ...assets.ecoGallery];
 
   useEffect(() => {
@@ -56,18 +100,18 @@ export function Cases() {
     <section className={styles.casesSection} id="cases">
       <div className={styles.centerHeading}>
         <span className={styles.yellowLabel}>Наші кейси</span>
-        <h2>Ми збудували вже<br /><strong>понад 20 баз відпочинку</strong></h2>
-        <p>Підбираємо економіку та інфраструктуру під ваш проєкт.</p>
+        <h2>Ми побудували<br /><strong>декілька баз відпочинку</strong></h2>
+        <p>Пропонуємо ознайомитися з деякими із них</p>
       </div>
       <div className={styles.caseTabs}>
-        {tabs.map((tab, index) => (
+        {caseProjects.map((project, index) => (
           <button
-            key={tab}
+            key={project.tab}
             type="button"
             className={index === activeTab ? styles.activeCase : undefined}
             onClick={() => setActiveTab(index)}
           >
-            {tab}
+            {project.tab}
           </button>
         ))}
       </div>
@@ -75,56 +119,26 @@ export function Cases() {
         <Image src={assets.ecoPark} alt="Еко парк Вереск" fill sizes="100vw" />
         <div className={styles.caseShade} />
         <div className={styles.caseOverlay}>
-          <h2>Еко парк Вереск</h2>
+          <h2>{activeCase.title}</h2>
           <div className={styles.caseStats}>
-            <article className={styles.projectCard}>
-              <span className={styles.cardEyebrow}>01 · Проєкт</span>
-              <span className={styles.cardTitle}>Еко парк<br />Вереск</span>
-              <p className={styles.cardIntro}>Заміський комплекс, створений як готове бізнес-рішення під ключ.</p>
-              <div className={styles.projectMeta}>
-                <div>
-                  <span>Інвестиції</span>
-                  <strong>69 524 000 ₴</strong>
-                </div>
-                <div>
-                  <span>Локація</span>
-                  <strong>Ільїчово, ЛО</strong>
-                </div>
+            <article className={styles.caseCard} key={activeCase.tab}>
+              <div className={styles.caseCardImage}>
+                <Image src={activeCase.image} alt={activeCase.alt} fill sizes="(max-width: 639px) 100vw, 900px" />
               </div>
-              <div className={styles.projectTags}>
-                <span>Під ключ</span>
-                <span>3 будинки</span>
-              </div>
-              <a href="#contacts">Обговорити проєкт <span aria-hidden="true">→</span></a>
-            </article>
-            <article className={styles.reviewCard}>
-              <span className={styles.cardEyebrow}>02 · Відгук гостя</span>
-              <span className={styles.cardStars}>★★★★★</span>
-              <p className={styles.reviewLead}>Враження гостя після першого візиту</p>
-              <p>«Зупинявся в такому будинку. Із модульних, які бачив, мабуть, найкласніший. Найбільше сподобалися високі стелі — простір відчувається значно більшим».</p>
-              <div className={styles.reviewFooter}>
-                <div>
-                  <strong>Віталій</strong>
-                  <span>Гість еко-парку</span>
-                </div>
-                <span className={styles.reviewBadge}>Еко парк / гості</span>
-              </div>
-            </article>
-            <article className={styles.timeCard}>
-              <span className={styles.cardEyebrow}>03 · Реалізація</span>
-              <strong>5 місяців</strong>
-              <p>Від старту робіт до перших гостей</p>
-              <div className={styles.timeline}>
-                <span><i>01</i>Проєкт</span>
-                <span><i>02</i>Виробництво</span>
-                <span><i>03</i>Запуск</span>
-              </div>
-              <span className={styles.timeNote}>Під ключ · без зайвих затримок</span>
+              <h3>{activeCase.title}</h3>
+              <a
+                className={styles.caseCardLink}
+                href={activeCase.link ?? '#contacts'}
+                target={activeCase.link ? '_blank' : undefined}
+                rel={activeCase.link ? 'noreferrer' : undefined}
+              >
+                {activeCase.linkLabel ?? 'Обговорити проєкт'}
+              </a>
             </article>
           </div>
         </div>
       </div>
-      <h3 className={styles.galleryTitle}>Фотографии Эко парка</h3>
+      <h3 className={styles.galleryTitle}>Фотогалерея</h3>
       <div
         className={styles.galleryCarousel}
         onMouseEnter={() => setIsGalleryPaused(true)}

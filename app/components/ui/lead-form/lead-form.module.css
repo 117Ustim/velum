@@ -8,6 +8,8 @@
 .leadForm label input { margin: 1px 0 0; accent-color: #222; }
 .submitButton { min-height: 31px; border: 0; border-radius: 5px; background: #2b2b2b; color: #fff; font-size: 9px; font-weight: 700; cursor: pointer; }
 .formSuccess { margin: 0; padding: 13px; border-radius: 5px; background: #fff; font-size: 10px; }
+.formError { margin: 0; padding: 10px 12px; border-radius: 5px; color: #8f1d1d; background: #ffe3e3; font-size: 11px; line-height: 1.35; }
+.submitButton:disabled { opacity: .65; cursor: wait; }
 .consent { display: flex; gap: 8px !important; align-items: center !important; }
 .landForm { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px 12px; }
 .landForm > .fieldGroup,

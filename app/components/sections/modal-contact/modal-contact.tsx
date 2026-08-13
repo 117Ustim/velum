@@ -9,9 +9,8 @@ export function ModalContact({ onClose }: { onClose: () => void }) {
         <span className={styles.yellowLabel}>VELUM ДЛЯ БІЗНЕСУ</span>
         <h2>Отримайте розрахунок бази відпочинку</h2>
         <p>Розкажіть про завдання — підготуємо наступний крок і відповімо на запитання.</p>
-        <LeadForm onSent={onClose} />
+        <LeadForm onSent={onClose} source="Модальне вікно консультації" />
       </div>
     </div>
   );
 }
-

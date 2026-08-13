@@ -25,7 +25,9 @@ export function Faq() {
                   <span className={styles.questionText}>{question}</span>
                   <b aria-hidden="true">+</b>
                 </summary>
-                <p>{answer}</p>
+                <div className={styles.answer}>
+                  {answer.split('\n\n').map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                </div>
               </details>
             ))}
           </div>

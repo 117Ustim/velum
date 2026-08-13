@@ -1,6 +1,8 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
 import styles from './model-card.module.css';
-import { modelCounts, modelNames } from '../../velum-page-data';
 import { RevealOnEnter } from '../reveal-on-enter/reveal-on-enter';
 
 export type Model = {
@@ -14,9 +16,6 @@ export type Model = {
   rentalPrice?: string;
   title?: string;
   titlePrefix?: string;
-  titleSeparator?: string;
-  titleNumber?: string;
-  titleSuffix?: string;
   preserveTitleCase?: boolean;
   showEconomy?: boolean;
   revenueLabel?: string;
@@ -30,40 +29,53 @@ export type Model = {
 };
 
 export function ModelCard({ model }: { model: Model }) {
+  const [packageOpen, setPackageOpen] = useState(false);
+  const houseCount = model.count.replace('+', '');
+  const houseWord = houseCount === '3' ? 'будинки' : 'будинків';
+
   return (
     <article className={styles.modelCard} id={`model-${model.name.toLowerCase()}`}>
-      <RevealOnEnter>
-        <div className={styles.modelTabs}>
-          {modelNames.map((name, index) => (
-            <a href={`#model-${name.toLowerCase()}`} className={name === model.name ? styles.selectedTab : ''} key={name}>
-              {name} - {modelCounts[index]}
-            </a>
-          ))}
-        </div>
-      </RevealOnEnter>
       <div className={styles.modelBody}>
         <RevealOnEnter>
           <div className={styles.modelPicture}>
-            <div className={styles.pictureRail} aria-hidden="true">
-              <span>Velum</span>
-              <small>Проєкт</small>
-              <b>{model.count.length === 1 ? `0${model.count}` : model.count}</b>
-            </div>
+            <span className={styles.houseCountBadge}>{houseCount} {houseWord}</span>
             <Image src={model.image} alt={`База відпочинку «${model.name}»`} fill sizes="(max-width: 760px) 100vw, 54vw" />
           </div>
         </RevealOnEnter>
           <div className={styles.modelDetails}>
             <div className={styles.modelTitle}>
             <h3 className={model.preserveTitleCase ? styles.modelTitleCustom : undefined}>
-              {model.titlePrefix ? <><span className={styles.modelTitlePrefix}>{model.titlePrefix}</span> <span className={styles.modelTitleSeparator}>{model.titleSeparator}</span> <span className={`${styles.modelTitleNumber} ${model.titleNumber === '10' ? styles.modelTitleNumberWide : ''}`}>{model.titleNumber}</span> <span className={styles.modelTitleSuffix}>{model.titleSuffix}</span></> : model.title ?? model.name}
+              {model.titlePrefix ?? model.title ?? model.name}
             </h3>
-              <span>Готове рішення</span>
             </div>
+          <p>{model.rentalLabel ?? 'Середня ціна за оренду будинку:'} <strong>{model.rentalPrice ?? '7 830 ₴'}</strong></p>
           <p className={model.revenueNote ? styles.modelDetailWithNote : undefined}>{model.revenueLabel ?? 'Дохідність на рік:'} <strong>{model.revenue}</strong></p>
           {model.revenueNote && <small className={styles.modelDetailNote}>{model.revenueNote}</small>}
           <p className={model.costsNote ? styles.modelDetailWithNote : undefined}>{model.costsLabel ?? 'Витрати на рік:'} <strong>{model.costs}</strong></p>
-          {model.costsNote && <small className={styles.modelDetailNote}>{model.costsNote}</small>}
-          <p>{model.rentalLabel ?? 'Середня ціна за оренду будинку:'} <strong>{model.rentalPrice ?? '7 830 ₴'}</strong></p>
+          {model.costsNote && (
+            <>
+              <button
+                className={styles.modelDetailNote}
+                type="button"
+                aria-expanded={packageOpen}
+                onClick={() => setPackageOpen((isOpen) => !isOpen)}
+              >
+                {model.costsNote}
+              </button>
+              {packageOpen && (
+                <div className={styles.packageCard}>
+                  <strong>Що входить у вартість</strong>
+                  <ul>
+                    <li>{houseCount} модульні будинки</li>
+                    <li>{houseCount} купелі</li>
+                    <li>Фундамент</li>
+                    <li>Септик</li>
+                  </ul>
+                  <p>У вартість також входить підключення комунікацій, монтаж фундаменту і будинків на ділянці, розрахунок окупності та базовий маркетинг.</p>
+                </div>
+              )}
+            </>
+          )}
           {model.showEconomy !== false && (
             <div className={styles.modelEconomy}>
               <b>Бізнес-план:</b>
@@ -86,12 +98,12 @@ export function ModelCard({ model }: { model: Model }) {
                 <span>{model.profitLabel ?? 'чистий прибуток на рік'}</span>
               </div>
             </div>
-            <div className={styles.modelPrice}>
-              <strong>{model.price}</strong>
-              <span>Вартість бази під ключ</span>
-            </div>
           </div>
-          <a className={styles.ctaLink} href="#contacts">Обрати</a>
+          <div className={styles.modelPrice}>
+            <span>Вартість бази під ключ:</span>
+            <strong>{model.price}</strong>
+          </div>
+          <a className={styles.ctaLink} href="#contacts">Розрахувати фінансову модель мого комплексу</a>
         </div>
       </div>
     </article>

@@ -73,7 +73,7 @@ export function Header({
               height={46}
             />
           </a>
-          <button className={styles.callbackButton} onClick={onOpenModal} title="Зворотний дзвінок" aria-label="Зворотний дзвінок">
+          <a className={styles.callbackButton} href="tel:+380976655306" title="Зателефонувати" aria-label="Зателефонувати">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="40" height="40" rx="12" fill="url(#callGrad)"/>
               <g transform="translate(0, 2)">
@@ -88,7 +88,7 @@ export function Header({
                 </linearGradient>
               </defs>
             </svg>
-          </button>
+          </a>
           <div className={styles.headerPhone}>
             <a href="tel:+380976655306">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={styles.phoneIconInline}>

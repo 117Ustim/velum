@@ -1,8 +1,11 @@
 import Image from 'next/image';
+import { useState } from 'react';
 import styles from './about.module.css';
 import { RevealOnEnter } from '../../ui/reveal-on-enter/reveal-on-enter';
+import { ModalContact } from '../modal-contact/modal-contact';
 
 export function About() {
+  const [modalOpen, setModalOpen] = useState(false);
   const ProblemIcon = () => (
     <span className={styles.problemIcon}>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -17,8 +20,8 @@ export function About() {
         <div className={styles.centerHeading}>
         <span className={styles.yellowLabel}>Готові рішення</span>
         <h2>
-          <span className={styles.headingLine}>Для кого підійде</span>
-          <span className={styles.headingLine}>наша <span className={styles.headingHighlight}>пропозиція</span></span>
+          <span className={styles.headingLine}><span className={styles.headingBadge}>Для кого</span> підійде</span>
+          <span className={styles.headingLine}>наша пропозиція</span>
         </h2>
         <p className={styles.headingLead}>Ми перетворюємо складні земельні та інвестиційні задачі на зрозумілий план запуску бази відпочинку.</p>
         </div>
@@ -86,7 +89,7 @@ export function About() {
 
           <div className={styles.actionArea}>
             <div className={styles.buttonRow}>
-              <a href="#contacts" className={styles.primaryBtn}>Отримати консультацію</a>
+              <button type="button" className={styles.primaryBtn} onClick={() => setModalOpen(true)}>Отримати консультацію</button>
               <a className={styles.socialBtn} href="https://t.me/melnik_volodymyr" title="Telegram" target="_blank" rel="noreferrer">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="40" height="40" rx="12" fill="url(#tgGrad1)"/>
@@ -173,7 +176,7 @@ export function About() {
 
           <div className={styles.actionArea}>
             <div className={styles.buttonRow}>
-              <a href="#contacts" className={styles.primaryBtn}>Отримати консультацію</a>
+              <button type="button" className={styles.primaryBtn} onClick={() => setModalOpen(true)}>Отримати консультацію</button>
               <a className={styles.socialBtn} href="https://t.me/melnik_volodymyr" title="Telegram" target="_blank" rel="noreferrer">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="40" height="40" rx="12" fill="url(#tgGrad2)"/>
@@ -199,6 +202,7 @@ export function About() {
           </div>
         </RevealOnEnter>
       </div>
+      {modalOpen && <ModalContact onClose={() => setModalOpen(false)} />}
     </section>
   );
 }

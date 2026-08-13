@@ -43,8 +43,12 @@
   display: block;
 }
 
-.headingFocus {
+.centerHeading .headingFocus {
   display: inline-block;
+  padding: .03em .14em .08em;
+  border-radius: .2em;
+  color: #151515;
+  background: #ffdd28;
 }
 
 .headingLineRight {
@@ -119,7 +123,7 @@
   align-items: flex-start;
   gap: 18px;
   min-height: 190px;
-  padding: 24px 62px 22px 22px;
+  padding: 24px 84px 22px 22px;
   overflow: visible;
   border: 1px solid #48515b;
   border-radius: 22px;
@@ -138,6 +142,7 @@
   font-weight: 300;
   letter-spacing: -.08em;
   line-height: 1;
+  pointer-events: none;
 }
 
 .stepCard:nth-child(odd)::before,
@@ -348,7 +353,7 @@
   }
 
   .centerHeading h2 {
-    font-size: clamp(22px, 7.2vw, 34px);
+    font-size: clamp(18px, 7.2vw, 34px);
   }
 
   .processShell {
@@ -369,7 +374,7 @@
 
   .stepCard {
     min-height: 0;
-    padding: 18px 48px 18px 16px;
+    padding: 18px 84px 18px 16px;
     border-radius: 18px;
   }
 
@@ -403,6 +408,10 @@
   }
 
   .headingLineBottom {
+    white-space: nowrap;
+  }
+
+  .headingLineLeft {
     white-space: nowrap;
   }
 
@@ -505,4 +514,16 @@
   .processGrid > .stepCard[data-step='04'][data-motion='visible'] { animation-delay: .24s; }
   .processGrid > .stepCard[data-step='05'][data-motion='visible'] { animation-delay: .32s; }
   .processGrid > .stepCard[data-step='06'][data-motion='visible'] { animation-delay: .4s; }
+}
+
+@media (min-width: 768px) {
+  .centerHeading h2 {
+    font-size: clamp(30px, 4.6vw, 58px);
+  }
+
+  .headingLineLeft,
+  .headingLineMiddle,
+  .headingLineBottom {
+    white-space: nowrap;
+  }
 }

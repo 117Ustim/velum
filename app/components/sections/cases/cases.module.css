@@ -1,5 +1,6 @@
 .casesSection {
   padding: 56px 15px 0;
+  margin-top: 28px;
   color: #fff;
   background: #111;
   border-radius: 28px;
@@ -127,7 +128,7 @@
   display: flex;
   flex-direction: column;
   min-height: inherit;
-  padding: 150px 0 56px;
+  padding: 60px 0 56px;
 }
 
 .caseOverlay h2 {
@@ -143,7 +144,10 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  margin-top: 140px;
+  width: min(100%, 900px);
+  margin-top: 70px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .caseStats article {
@@ -166,6 +170,60 @@
 .caseStats article:hover {
   transform: translateY(-6px);
   box-shadow: 0 24px 54px rgba(0, 0, 0, .28);
+}
+
+.caseStats .caseCard {
+  min-height: 0;
+  padding: 0;
+}
+
+.caseCardImage {
+  position: relative;
+  min-height: 420px;
+}
+
+.caseCardImage img {
+  object-fit: cover;
+}
+
+.caseCard h3 {
+  margin: 0;
+  padding: 24px 28px 30px;
+  color: #1d1d1d;
+  font-size: clamp(32px, 4vw, 58px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.caseCardLink {
+  display: inline-flex;
+  width: calc(100% - 56px);
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  margin: 0 28px 28px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: #1d1d1d;
+  background: #ffdd28;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  animation: caseCardPulse 1.9s ease-in-out infinite;
+}
+
+@keyframes caseCardPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 221, 40, .42);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 221, 40, 0);
+    transform: scale(1.015);
+  }
 }
 
 .caseStats article:nth-child(2) {
@@ -599,10 +657,6 @@
 }
 
 @media (min-width: 640px) {
-  .caseStats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .ecoGallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -619,6 +673,7 @@
 @media (min-width: 960px) {
   .casesSection {
     padding: 80px 35px 0;
+    margin-top: 36px;
     border-radius: 32px;
   }
 
@@ -639,7 +694,7 @@
   }
 
   .caseOverlay {
-    padding: 165px 0 56px;
+    padding: 75px 0 56px;
   }
 
   .caseOverlay h2 {
@@ -647,15 +702,34 @@
   }
 
   .caseStats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    width: min(100%, 1280px);
-    margin: 550px auto 0;
+    grid-template-columns: 1fr;
+    width: min(100%, 900px);
+    margin: 90px auto 0;
   }
 
   .caseStats article {
     min-height: 360px;
     padding: 30px;
+  }
+
+  .caseStats .caseCard {
+    min-height: 0;
+    padding: 0;
+  }
+
+  .caseCardImage {
+    min-height: 520px;
+  }
+
+  .caseCard h3 {
+    padding: 28px 34px 36px;
+  }
+
+  .caseCardLink {
+    width: calc(100% - 68px);
+    margin-right: 34px;
+    margin-bottom: 34px;
+    margin-left: 34px;
   }
 
   .cardTitle {

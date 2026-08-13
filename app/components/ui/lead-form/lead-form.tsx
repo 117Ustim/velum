@@ -10,10 +10,13 @@ type LeadFormProps = {
   showConsent?: boolean;
   variant?: 'default' | 'land';
   accentButton?: boolean;
+  source?: string;
 };
 
-export function LeadForm({ compact = false, onSent, showConsent = true, variant = 'default', accentButton = false }: LeadFormProps) {
+export function LeadForm({ compact = false, onSent, showConsent = true, variant = 'default', accentButton = false, source = 'Форма консультації' }: LeadFormProps) {
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('');
@@ -57,10 +60,31 @@ export function LeadForm({ compact = false, onSent, showConsent = true, variant 
     setPhone(prefix + rest);
   };
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(true);
-    onSent?.();
+    setError('');
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(formData.entries()))
+      });
+
+      if (!response.ok) {
+        const result = await response.json().catch(() => null) as { message?: string } | null;
+        throw new Error(result?.message ?? 'Не вдалося надіслати заявку.');
+      }
+
+      setSent(true);
+      onSent?.();
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : 'Не вдалося надіслати заявку.');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (sent) {
@@ -69,6 +93,7 @@ export function LeadForm({ compact = false, onSent, showConsent = true, variant 
 
   return (
     <form className={`${styles.leadForm} ${compact ? styles.compactForm : ''} ${variant === 'land' ? styles.landForm : ''} ${accentButton ? styles.accentButtonForm : ''}`} onSubmit={submit}>
+      <input type="hidden" name="source" value={source} />
       <div className={styles.fieldGroup}>
         <label className={styles.fieldLabel} htmlFor="lead-name">Ім’я</label>
         <input id="lead-name" name="name" value={name} onChange={handleNameChange} onBlur={handleNameBlur} placeholder="Ваше ім’я" required />
@@ -114,8 +139,9 @@ export function LeadForm({ compact = false, onSent, showConsent = true, variant 
           <span>Я погоджуюся з політикою конфіденційності</span>
         </label>
       )}
+      {error && <p className={styles.formError} role="alert">{error}</p>}
       <RevealOnEnter>
-        <button className={`${styles.submitButton} ${compact ? styles.compactSubmitButton : ''} ${variant === 'land' ? styles.landSubmitButton : ''} ${variant === 'default' ? styles.defaultSubmitButton : ''}`} type="submit">{variant === 'land' ? 'Отримати розрахунок' : compact ? 'Залишити заявку' : 'Отримати консультацію'}</button>
+        <button className={`${styles.submitButton} ${compact ? styles.compactSubmitButton : ''} ${variant === 'land' ? styles.landSubmitButton : ''} ${variant === 'default' ? styles.defaultSubmitButton : ''}`} type="submit" disabled={isSubmitting}>{isSubmitting ? 'Надсилання...' : variant === 'land' ? 'Отримати розрахунок' : compact ? 'Залишити заявку' : 'Отримати консультацію'}</button>
       </RevealOnEnter>
     </form>
   );

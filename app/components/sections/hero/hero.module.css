@@ -137,8 +137,7 @@
   margin-top: 25px;
 }
 
-.primaryButton,
-.secondaryButton {
+.primaryButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -156,12 +155,6 @@
 .primaryButton {
   color: #171717;
   background: #ffdd28;
-}
-
-.secondaryButton {
-  border-color: #ffffff3b;
-  color: #fff;
-  background: #ffffff0d;
 }
 
 .heroNote {
@@ -236,8 +229,7 @@
     transform: scale(1.025);
   }
 
-  .primaryButton:hover,
-  .secondaryButton:hover {
+  .primaryButton:hover {
     transform: translateY(-2px);
   }
 
@@ -246,10 +238,6 @@
     background: #fff;
   }
 
-  .secondaryButton:hover {
-    border-color: #ffdd28;
-    color: #ffdd28;
-  }
 }
 
 @media (min-width: 640px) {
@@ -293,8 +281,7 @@
     height: 34px;
   }
 
-  .heroButtons .primaryButton,
-  .heroButtons .secondaryButton {
+  .heroButtons .primaryButton {
     min-height: 48px;
     padding: 13px 26px;
     font-size: 13px;
@@ -313,13 +300,16 @@
 
 @media (prefers-reduced-motion: reduce) {
   .heroVisual img,
-  .primaryButton,
-  .secondaryButton {
+  .primaryButton {
     transition: none;
   }
 }
 
 @media (max-width: 639px) {
+  .heroButtons .primaryButton {
+    width: 100%;
+  }
+
   .hero[data-motion='hidden'] .heroVisual,
   .hero[data-motion='hidden'] .heroTitleLine,
   .hero[data-motion='hidden'] .heroCopy > :not(h1):not(.heroFacts) {

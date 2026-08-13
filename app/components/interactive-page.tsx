@@ -9,7 +9,6 @@ import { Cases } from './sections/cases/cases';
 import { Faq } from './sections/faq/faq';
 import { Footer } from './sections/footer/footer';
 import { FloatingButtons } from './sections/floating-buttons/floating-buttons';
-import { Finance } from './sections/finance/finance';
 import { Hero } from './sections/hero/hero';
 import { Houses } from './sections/houses/houses';
 import { Models } from './sections/models/models';
@@ -87,7 +86,6 @@ export default function InteractivePage() {
       <Process />
       <Models />
       <Houses />
-      <Finance />
       <Cases />
       <Faq />
       <Visit />

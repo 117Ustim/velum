@@ -6,11 +6,10 @@ import { LeadForm } from '../../ui/lead-form/lead-form';
 import { RevealOnEnter } from '../../ui/reveal-on-enter/reveal-on-enter';
 
 const headingLines = [
-  'Не знайшли відповідне готове рішення?',
+  'Не знайшли відповідне готове',
+  'рішення?',
   'Побудуємо базу за вашим сценарієм'
 ] as const;
-
-const headingCharacterCount = headingLines.reduce((total, line) => total + Array.from(line).length, 0);
 
 function AnimatedHeadingLine({ text, startIndex }: { text: string; startIndex: number }) {
   let wordStartIndex = startIndex;
@@ -26,8 +25,7 @@ function AnimatedHeadingLine({ text, startIndex }: { text: string; startIndex: n
             {Array.from(word).map((character, characterIndex) => {
               const index = currentWordStartIndex + characterIndex;
               const style = {
-                '--char-delay': `${index * 20}ms`,
-                '--char-reverse-delay': `${(headingCharacterCount - 1 - index) * 20}ms`
+                '--char-delay': `${index * 20}ms`
               } as CSSProperties;
 
               return <span className={styles.headingCharacter} aria-hidden="true" style={style} key={`${character}-${index}`}>{character}</span>;
@@ -85,10 +83,14 @@ export function Houses() {
     <section className={styles.housesSection} id="houses">
       <RevealOnEnter>
         <div className={styles.centerHeading}>
-          <span className={styles.yellowLabel}>Модульні будинки</span>
+          <span className={styles.yellowLabel}>ІНДИВІДУАЛЬНИЙ ПРОЕКТ</span>
           <h2>
             <AnimatedHeadingLine text={headingLines[0]} startIndex={0} />
             <AnimatedHeadingLine text={headingLines[1]} startIndex={Array.from(headingLines[0]).length} />
+            <AnimatedHeadingLine
+              text={headingLines[2]}
+              startIndex={Array.from(headingLines[0]).length + Array.from(headingLines[1]).length}
+            />
           </h2>
         </div>
       </RevealOnEnter>
@@ -97,11 +99,6 @@ export function Houses() {
           <article className={styles.houseCard} key={house.name}>
             <RevealOnEnter>
               <div className={styles.houseMedia}>
-                <div className={styles.houseRail} aria-hidden="true">
-                  <span>VELUM</span>
-                  <i className={styles.railAccent} />
-                  <small>PROJECT</small>
-                </div>
                 <div className={styles.housePicture}>
                   <Image src={house.image} alt={house.name} fill sizes="(max-width: 639px) 100vw, (max-width: 959px) 50vw, 25vw" />
                   <span>{house.area}</span>
@@ -132,7 +129,7 @@ export function Houses() {
         </div>
         <div className={styles.consultForm}>
           <span className={styles.formHint}>Отримайте перший розрахунок</span>
-          <LeadForm compact accentButton />
+          <LeadForm compact accentButton source="Індивідуальний проєкт" />
         </div>
       </div>
     </section>
