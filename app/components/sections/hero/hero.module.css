@@ -34,6 +34,7 @@
 }
 
 .heroCopy {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,12 +58,13 @@
 
 .hero h1 {
   width: 100%;
-  max-width: 670px;
+  max-width: 100%;
+  min-width: 0;
   margin: 0 0 17px;
-  font-size: clamp(30px, 4.8vw, 67px);
+  font-size: clamp(18px, 8cqw, 67px);
   line-height: .94;
   letter-spacing: -.06em;
-  overflow-wrap: anywhere;
+  overflow: hidden;
 }
 
 .hero h1 span {
@@ -71,6 +73,7 @@
 
 .hero h1 .heroTitleLine {
   display: block;
+  max-width: 100%;
   color: inherit;
   white-space: nowrap;
 }

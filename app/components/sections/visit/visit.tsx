@@ -1,35 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import Image from 'next/image';
 import styles from './visit.module.css';
 import { LeadForm } from '../../ui/lead-form/lead-form';
 
 export function Visit() {
-  const [videoUnavailable, setVideoUnavailable] = useState(false);
-
   return (
     <section className={styles.visitSection} id="contacts">
       <div className={styles.visitMedia}>
-        {videoUnavailable ? (
-          <div
-            className={styles.visitFallback}
-            role="img"
-            aria-label="Прев’ю відео про створення бази відпочинку"
-          />
-        ) : (
-          <video
-            className={styles.visitVideo}
-            controls
-            muted
-            loop
-            playsInline
-            poster="/assets/velum/cases/eco-park/main.jpg"
-            aria-label="Відео про створення бази відпочинку"
-            onError={() => setVideoUnavailable(true)}
-          >
-            <source src="/assets/velum/visit/visit.mp4" type="video/mp4" />
-          </video>
-        )}
+        <Image
+          className={styles.visitImage}
+          src="/assets/velum/cases/eco-park/main.jpg"
+          alt="Модульний будинок для бази відпочинку"
+          fill
+          sizes="(min-width: 760px) 45vw, 100vw"
+        />
         <div className={styles.videoCaption}>
           <span>Velum</span>
           <strong>Перетворюємо ділянки на прибуткові бази відпочинку</strong>
