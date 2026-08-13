@@ -39,7 +39,14 @@ export function ModelCard({ model }: { model: Model }) {
         <RevealOnEnter>
           <div className={styles.modelPicture}>
             <span className={styles.houseCountBadge}>{houseCount} {houseWord}</span>
-            <Image src={model.image} alt={`База відпочинку «${model.name}»`} fill sizes="(max-width: 760px) 100vw, 54vw" />
+            <Image
+              src={model.image}
+              alt={`База відпочинку «${model.name}»`}
+              fill
+              sizes="(max-width: 760px) 100vw, 54vw"
+              loading="eager"
+              quality={78}
+            />
           </div>
         </RevealOnEnter>
           <div className={styles.modelDetails}>

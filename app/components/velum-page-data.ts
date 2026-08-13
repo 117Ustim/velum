@@ -4,28 +4,31 @@ export const assets = {
   logo: '/logo.svg',
   hero: `${assetRoot}/hero/hero.jpg`,
   models: [
-    `${assetRoot}/models/camp-3.png`,
-    `${assetRoot}/models/village-5.png`,
-    `${assetRoot}/models/residence-7.png`,
-    `${assetRoot}/models/resort-10.png`
+    `${assetRoot}/models/camp-3.jpg`,
+    `${assetRoot}/models/village-5.jpg`,
+    `${assetRoot}/models/residence-7.jpg`,
+    `${assetRoot}/models/resort-10.jpg`
   ],
   houses: [
     `${assetRoot}/houses/hutir-43/photo.jpg`,
     `${assetRoot}/houses/sadiba-31/photo.jpg`,
     `${assetRoot}/houses/hutir-26/photo.jpg`,
-    `${assetRoot}/houses/majetok-43/photo.jpg`,
-    `${assetRoot}/houses/ugiddya-10/photo.webp`,
-    `${assetRoot}/houses/otchina-88/photo.png`
+    `${assetRoot}/houses/majetok-43/photo.jpg`
   ],
   ecoPark: `${assetRoot}/cases/eco-park/main.jpg`,
-  tyshaCottages: `${assetRoot}/cases/tysha-cottages.png`,
-  chudodievo: `${assetRoot}/cases/chudodievo.png`,
+  tyshaCottages: `${assetRoot}/cases/tysha-cottages.jpg`,
+  chudodievo: `${assetRoot}/cases/chudodievo.jpg`,
   ostrivCamp: `${assetRoot}/cases/ostriv-camp.webp`,
-  spokiy: `${assetRoot}/cases/spokiy.png`,
+  spokiy: `${assetRoot}/cases/spokiy.jpg`,
   ecoGallery: [
     `${assetRoot}/cases/eco-park/gallery-1.jpg`,
     `${assetRoot}/cases/eco-park/gallery-2.jpg`,
-    `${assetRoot}/cases/eco-park/gallery-3.webp`
+    `${assetRoot}/cases/eco-park/gallery-3.webp`,
+    `${assetRoot}/cases/eco-park/2022-11-04-17-13-06.jpg`,
+    `${assetRoot}/cases/eco-park/2022-11-04-17-13-12.jpg`,
+    `${assetRoot}/cases/eco-park/sparka-031.jpg`,
+    `${assetRoot}/cases/eco-park/2023-01-06-17-32-10.jpg`,
+    `${assetRoot}/cases/eco-park/2023-01-06-17-31-42.jpg`
   ]
 };
 

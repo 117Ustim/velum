@@ -154,7 +154,7 @@ export function Cases() {
           {galleryImages.map((image, index) => (
             <div className={styles.gallerySlide} key={`${image}-${index}`}>
               <div className={styles.galleryImageFrame}>
-                <Image src={image} alt={`Еко парк Вереск, фото ${index % assets.ecoGallery.length + 1}`} fill sizes={isMobileGallery ? '100vw' : '50vw'} loading="eager" unoptimized />
+                <Image src={image} alt={`Еко парк Вереск, фото ${index % assets.ecoGallery.length + 1}`} fill sizes={isMobileGallery ? '100vw' : '50vw'} loading={index < 2 ? 'eager' : 'lazy'} />
               </div>
             </div>
           ))}

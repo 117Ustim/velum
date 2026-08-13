@@ -20,7 +20,6 @@ import { ModalContact } from './sections/modal-contact/modal-contact';
 export default function InteractivePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [faqOpen, setFaqOpen] = useState<number | null>(null);
 
   useEffect(() => {
     if (!window.location.hash) {
@@ -67,11 +66,6 @@ export default function InteractivePage() {
 
     return () => observer.disconnect();
   }, []);
-
-  function jumpTo(id: string) {
-    setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  }
 
   return (
     <main className={styles.page}>
