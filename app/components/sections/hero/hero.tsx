@@ -9,12 +9,11 @@ export function Hero() {
       <section className={styles.hero} id="top">
       <div className={styles.heroCopy}>
         <h1>
-          <span className={styles.heroTitleLine}>Запустіть</span>{' '}
-          <span className={styles.heroTitleLine}>прибуткову базу</span>{' '}
-          <span className={styles.heroTitleLine}>відпочинку <span className={styles.heroTitleAccent}>під</span></span>{' '}
+          <span className={styles.heroTitleLine}>Запустіть прибуткову</span>
+          <span className={styles.heroTitleLine}>базу відпочинку <span className={styles.heroTitleAccent}>під</span></span>
           <span className={`${styles.heroTitleLine} ${styles.heroTitleAccent}`}>ключ від 12 835</span>
         </h1>
-        <p>Готове бізнес-рішення: виробництво будинків, підключення комунікацій, монтаж фундаменту та будинків на ділянці, розрахунок окупності, базовий маркетинг і гості в перший місяць роботи бази. Чистий прибуток від 4 587 на рік.</p>
+        <p>Допоможемо створити готовий дохідний туристичний комплекс — від концепції та фінмоделі до будівництва будинків та запуску</p>
         <div className={styles.heroFacts}>
           <div>
             <span className={styles.factIcon}>
