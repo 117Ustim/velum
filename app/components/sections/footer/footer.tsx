@@ -37,7 +37,7 @@ export function Footer() {
             <a href="mailto:info@zavod-modul.com.ua">info@zavod-modul.com.ua</a>
           </div>
           <div className={styles.footerSocials}>
-            <a className={styles.socialButton} href="https://t.me/FLHausSPB_bot" target="_blank" rel="noreferrer" aria-label="Telegram">
+            <a className={styles.socialButton} href="https://t.me/melnik_volodymyr" target="_blank" rel="noreferrer" aria-label="Telegram">
               <svg width="23" height="23" viewBox="0 0 40 40" fill="none" aria-hidden="true">
                 <rect width="40" height="40" rx="12" fill="#239BD7" />
                 <path d="M28.4 12.3c.5-.2 1 .2.8.7l-4.7 15.6c-.2.7-1 .9-1.5.5l-4.5-3.3-2.2 2.1c-.4.4-1.1.2-1.2-.4l-.8-5.3-4.5-1.5c-.7-.2-.7-1.2 0-1.4l18.6-7z" fill="white" />

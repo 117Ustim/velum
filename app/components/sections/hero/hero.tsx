@@ -8,7 +8,6 @@ export function Hero() {
     <RevealOnEnter>
       <section className={styles.hero} id="top">
       <div className={styles.heroCopy}>
-        <span className={styles.heroKicker}>VELUM · BUSINESS RESORT</span>
         <h1>
           <span className={styles.heroTitleLine}>Запустіть</span>{' '}
           <span className={styles.heroTitleLine}>прибуткову базу</span>{' '}
@@ -51,10 +50,6 @@ export function Hero() {
       <div className={styles.heroVisual}>
         <Image src={assets.hero} alt="База відпочинку Velum" fill priority sizes="(max-width: 760px) 100vw, 50vw" />
         <div className={styles.visualTopBadge}>Готове рішення для інвестицій</div>
-        <div className={styles.visualCaption}>
-          <span>Velum Resort Concept</span>
-          <strong>Простір, який працює на ваш дохід</strong>
-        </div>
       </div>
       </section>
     </RevealOnEnter>

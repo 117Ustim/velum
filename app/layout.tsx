@@ -84,7 +84,7 @@ const structuredData = {
         streetAddress: 'вул. Промислова, 60',
         addressCountry: 'UA'
       },
-      sameAs: ['https://t.me/FLHausSPB_bot']
+      sameAs: ['https://t.me/melnik_volodymyr']
     },
     {
       '@type': 'WebSite',

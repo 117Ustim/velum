@@ -87,7 +87,7 @@ export function About() {
           <div className={styles.actionArea}>
             <div className={styles.buttonRow}>
               <a href="#contacts" className={styles.primaryBtn}>Отримати консультацію</a>
-              <a className={styles.socialBtn} href="https://t.me/FLHausSPB_bot" title="Telegram" target="_blank" rel="noreferrer">
+              <a className={styles.socialBtn} href="https://t.me/melnik_volodymyr" title="Telegram" target="_blank" rel="noreferrer">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="40" height="40" rx="12" fill="url(#tgGrad1)"/>
                   <path d="M28.4 12.3c.5-.2 1 .2.8.7l-4.7 15.6c-.2.7-1 .9-1.5.5l-4.5-3.3-2.2 2.1c-.4.4-1.1.2-1.2-.4l-.8-5.3-4.5-1.5c-.7-.2-.7-1.2 0-1.4l18.6-7z" fill="white"/>
@@ -174,7 +174,7 @@ export function About() {
           <div className={styles.actionArea}>
             <div className={styles.buttonRow}>
               <a href="#contacts" className={styles.primaryBtn}>Отримати консультацію</a>
-              <a className={styles.socialBtn} href="https://t.me/FLHausSPB_bot" title="Telegram" target="_blank" rel="noreferrer">
+              <a className={styles.socialBtn} href="https://t.me/melnik_volodymyr" title="Telegram" target="_blank" rel="noreferrer">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="40" height="40" rx="12" fill="url(#tgGrad2)"/>
                   <path d="M28.4 12.3c.5-.2 1 .2.8.7l-4.7 15.6c-.2.7-1 .9-1.5.5l-4.5-3.3-2.2 2.1c-.4.4-1.1.2-1.2-.4l-.8-5.3-4.5-1.5c-.7-.2-.7-1.2 0-1.4l18.6-7z" fill="white"/>
