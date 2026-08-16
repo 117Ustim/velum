@@ -50,7 +50,7 @@ const houseCards = [
     name: 'Модульний будинок «Velum 43»',
     bedrooms: '1',
     capacity: '4 особи',
-    price: 'від 2 030 000 ₴'
+    price: 'від 1 350 000 ₴'
   },
   {
     image: assets.houses[1],
@@ -58,7 +58,7 @@ const houseCards = [
     name: 'Модульний будинок «Velum Next 31»',
     bedrooms: '1–2',
     capacity: '4–6 осіб',
-    price: 'від 2 308 400 ₴'
+    price: 'від 1 550 000 ₴'
   },
   {
     image: assets.houses[2],
@@ -66,7 +66,7 @@ const houseCards = [
     name: 'Модульний будинок «Velum 26»',
     bedrooms: '2',
     capacity: '6 осіб',
-    price: 'від 2 030 000 ₴'
+    price: 'від 2 160 000 ₴'
   },
   {
     image: assets.houses[3],
@@ -74,7 +74,7 @@ const houseCards = [
     name: 'Модульний будинок «Velum 65»',
     bedrooms: '2–3',
     capacity: '6–8 осіб',
-    price: 'від 3 480 000 ₴'
+    price: 'від 2 570 000 ₴'
   }
 ] as const;
 

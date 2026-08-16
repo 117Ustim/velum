@@ -11,7 +11,7 @@ export function Hero() {
         <h1>
           <span className={styles.heroTitleLine}>Запустіть прибуткову</span>
           <span className={styles.heroTitleLine}>базу відпочинку <span className={styles.heroTitleAccent}>під</span></span>
-          <span className={`${styles.heroTitleLine} ${styles.heroTitleAccent}`}>ключ від 12 835</span>
+          <span className={`${styles.heroTitleLine} ${styles.heroTitleAccent}`}>ключ від 6 000 000 грн</span>
         </h1>
         <p>Допоможемо створити готовий дохідний туристичний комплекс — від концепції та фінмоделі до будівництва будинків та запуску</p>
         <div className={styles.heroFacts}>

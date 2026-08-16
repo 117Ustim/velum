@@ -4,10 +4,10 @@ export const assets = {
   logo: '/logo.svg',
   hero: `${assetRoot}/hero/hero.jpg`,
   models: [
-    `${assetRoot}/models/camp-3.jpg`,
-    `${assetRoot}/models/village-5.jpg`,
-    `${assetRoot}/models/residence-7.jpg`,
-    `${assetRoot}/models/resort-10.jpg`
+    `${assetRoot}/models/camp-3-stream.jpg`,
+    `${assetRoot}/models/village-5-river.jpg`,
+    `${assetRoot}/models/residence-7-lake.jpg`,
+    `${assetRoot}/models/resort-10-lake.jpg`
   ],
   houses: [
     `${assetRoot}/houses/hutir-43/photo.jpg`,
